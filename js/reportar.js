@@ -23,7 +23,7 @@ formData.append('rescod', rescod)
  var xhr = new XMLHttpRequest();
 
     // Configurar la solicitud AJAX
-    xhr.open('POST', 'enviar-report', true);
+    xhr.open('POST', 'backend/enviar-report.php', true);
 
     // Enviar la solicitud AJAX con los datos del formulario
     xhr.send(formData);

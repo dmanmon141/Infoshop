@@ -18,7 +18,7 @@ function mostrarPopup() {
     var xhr = new XMLHttpRequest();
 
     // Configurar la solicitud AJAX
-    xhr.open('POST', 'eliminar-resena', true);
+    xhr.open('POST', 'backend/eliminar-resena.php', true);
 
     // Enviar la solicitud AJAX con los datos del formulario
     xhr.send(formData);

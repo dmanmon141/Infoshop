@@ -95,7 +95,7 @@ function enviarFormulario(event) {
     var xhr = new XMLHttpRequest();
 
     // Configurar la solicitud AJAX
-    xhr.open('POST', 'registercheck', true);
+    xhr.open('POST', 'backend/registercheck.php', true);
 
     // Enviar la solicitud AJAX con los datos del formulario
     xhr.send(formData);

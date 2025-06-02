@@ -1,6 +1,6 @@
 function usardatos(tarjeta){
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'buscar-datos.php?tarjeta=' + tarjeta, true);
+    xhr.open('GET', 'backend/buscar-datos.php?tarjeta=' + tarjeta, true);
     xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var datos = JSON.parse(xhr.responseText);

@@ -84,7 +84,7 @@ function enviarFormulario(event) {
     console.log(formData);
 
     // Configurar la solicitud AJAX
-    xhr1.open('POST', 'pedidocarritocheck', true);
+    xhr1.open('POST', 'backend/pedidocarritocheck.php', true);
 
     // Enviar la solicitud AJAX con los datos del formulario
     xhr1.send(formData);

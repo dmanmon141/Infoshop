@@ -23,7 +23,7 @@ function eliminarProducto(){
      var xhr = new XMLHttpRequest();
 
     // Configurar la solicitud AJAX
-    xhr.open('POST', 'eliminar-producto', true);
+    xhr.open('POST', 'backend/eliminar-producto.php', true);
 
     // Enviar la solicitud AJAX con los datos del formulario
     xhr.send(formData);

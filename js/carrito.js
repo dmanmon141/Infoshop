@@ -128,7 +128,7 @@ function saveCartToSession() {
   // Asegúrate de ajustar el código PHP para recibir y guardar los datos correctamente
   // Consulta la documentación de AJAX para obtener más detalles sobre cómo realizar la solicitud
   $.ajax({
-    url: 'guardar_carrito.php',
+    url: 'backend/guardar_carrito.php',
     type: 'POST',
     data: { cartContent: cartContent },
     success: function(response) {

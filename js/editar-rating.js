@@ -39,7 +39,7 @@ function mostrarPopup2() {
     var xhr = new XMLHttpRequest();
 
     // Configurar la solicitud AJAX
-    xhr.open('POST', 'editar-resena', true);
+    xhr.open('POST', 'backend/editar-resena.php', true);
 
     // Enviar la solicitud AJAX con los datos del formulario
     xhr.send(formData);

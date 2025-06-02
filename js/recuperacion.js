@@ -39,7 +39,7 @@ function enviarFormulario(event) {
     var xhr = new XMLHttpRequest();
   
     // Configura la solicitud POST al servidor
-    xhr.open("POST", "recuperacion-correo", true);
+    xhr.open("POST", "backend/recuperacion-correo.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   
     // Define una función de devolución de llamada para manejar la respuesta del servidor

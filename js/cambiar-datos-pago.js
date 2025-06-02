@@ -111,7 +111,7 @@ function permitirEditar(dato){
         var xhr = new XMLHttpRequest();
     
         // Configurar la solicitud AJAX
-        xhr.open('POST', 'editar-datos-pago', true);
+        xhr.open('POST', 'backend/editar-datos-pago.php', true);
     
         // Enviar la solicitud AJAX con los datos del formulario
         xhr.send(formData);

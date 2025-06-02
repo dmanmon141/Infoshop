@@ -14,10 +14,9 @@ function mostrarMenu() {
   
   
   
-  
-  
-  
-    window.addEventListener("click", function(event) {
+  window.addEventListener("DOMContentLoaded", () => { 
+
+window.addEventListener("click", function(event) {
       var dropdown = document.getElementById("myDropdown");
       var flecha = document.getElementById("flecha");
   
@@ -31,10 +30,15 @@ function mostrarMenu() {
     document.getElementById("menuButton").addEventListener("click", function(event) {
       event.stopPropagation();
     });
+
+  })
+  
+  
+  
   
     function cerrarSesion() {
-        window.location.href = "logout.php";
+        window.location.href = "logout";
       };
-      xhr.send();
+      //xhr.send();
 
   

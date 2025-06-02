@@ -16,7 +16,7 @@ return;
 var xhr = new XMLHttpRequest();
 
     // Configurar la solicitud AJAX
-    xhr.open('POST', 'crear-ticket', true);
+    xhr.open('POST', 'backend/crear-ticket.php', true);
 
     // Enviar la solicitud AJAX con los datos del formulario
     xhr.send(formData);

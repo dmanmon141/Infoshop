@@ -83,7 +83,7 @@ if(contraseña !== "*******************"){
     var xhr = new XMLHttpRequest();
 
     // Configurar la solicitud AJAX
-    xhr.open('POST', 'editar-datos', true);
+    xhr.open('POST', 'backend/editar-datos.php', true);
 
     // Enviar la solicitud AJAX con los datos del formulario
     xhr.send(formData);

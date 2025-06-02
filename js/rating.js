@@ -32,7 +32,7 @@ $(document).ready(function() {
         var xhr = new XMLHttpRequest();
 
     // Configurar la solicitud AJAX
-    xhr.open('POST', 'resenacheck', true);
+    xhr.open('POST', 'backend/resenacheck.php', true);
 
     // Enviar la solicitud AJAX con los datos del formulario
     xhr.send(formData);

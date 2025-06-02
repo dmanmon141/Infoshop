@@ -33,7 +33,7 @@ const productsJSON = JSON.stringify(products);
 
 // Enviar los productos al archivo PHP a través de una solicitud AJAX
 $.ajax({
-  url: 'carrito-checkout-guardar',
+  url: 'backend/carrito-checkout-guardar.php',
   method: 'POST',
   data: { products: productsJSON },
   success: function(response) {

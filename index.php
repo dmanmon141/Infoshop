@@ -66,7 +66,7 @@ $productosresultado4 = mysqli_query($conexion,$productos4);
 <html>
 <head>
   <title>Infoshop | Las mejoras ofertas en Informática!</title>
-  <link rel="stylesheet" type="text/css" href="estilo-main.css">
+  <link rel="stylesheet" type="text/css" href="css/estilo-main.css">
   <link rel="stylesheet" type="text/css" href="js/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css">
 <link rel="icon" type="image/png" href="img/Logo.png">

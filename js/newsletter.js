@@ -18,7 +18,7 @@ function checkDatos(){
         var xhr = new XMLHttpRequest();
 
         // Configurar la solicitud AJAX
-        xhr.open('POST', 'newsletter', true);
+        xhr.open('POST', 'backend/newsletter.php', true);
     
         // Enviar la solicitud AJAX con los datos del formulario
         xhr.send(formData);
