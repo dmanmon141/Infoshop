@@ -277,7 +277,7 @@ $arrayproductos = mysqli_fetch_row($productosql);
                 <div class="empty6"></div>
                 <div class="tarjeta">
                 <p>Número de tarjeta</p>
-                <input type="text" maxlength="14" minlength="14" id="tarjeta-input"></input>
+                <input type="text" maxlength="16" minlength="16" id="tarjeta-input"></input>
                  </div>
                 <div class="caducidad">
                 <p>Fecha de caducidad</p>

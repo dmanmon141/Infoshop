@@ -255,7 +255,7 @@ $prodprec = $productoarray['PRODPREC'];
           </div>
         </div>
         <div class="formulario">
-        <form class="formulariodevolucion" action="devolvercheck" method="POST">
+        <form class="formulariodevolucion" action="backend/devolvercheck.php" method="POST">
           <input type="text" name="pedcod" value="<?php echo $pedidocod ?>" style="display: none">
           <div class="formulariodatos">
             <div class="razon">

@@ -146,7 +146,7 @@ function loadCartFromSession() {
   // Asegúrate de ajustar el código PHP para devolver los datos en el formato adecuado
   // Consulta la documentación de AJAX para obtener más detalles sobre cómo realizar la solicitud
   $.ajax({
-    url: 'obtener_carrito.php',
+    url: 'backend/obtener_carrito.php',
     type: 'GET',
     success: function(response) {
       // Actualizar el contenido del carrito con los productos guardados en la sesión

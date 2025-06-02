@@ -19,9 +19,9 @@ $sql = "SELECT * FROM usuarios WHERE USUCOR = '$correo'";
 $resultado = mysqli_query($conexion, $sql);
 
 
-require 'src/Exception.php';
-require 'src/PHPMailer.php';
-require 'src/SMTP.php';
+require '../src/Exception.php';
+require '../src/PHPMailer.php';
+require '../src/SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;

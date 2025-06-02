@@ -46,9 +46,9 @@ if (!$conexion) {
   die("Error al conectar a la base de datos: " . mysqli_connect_error());
 }
 
-require 'src/Exception.php';
-require 'src/PHPMailer.php';
-require 'src/SMTP.php';
+require '../src/Exception.php';
+require '../src/PHPMailer.php';
+require '../src/SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;

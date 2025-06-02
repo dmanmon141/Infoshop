@@ -18,7 +18,7 @@ $contenido = $_POST['contenido'];
 
 $usucod = $_SESSION['usucod'];
 
-$ticketid = uniqid();
+$ticketid = bin2hex(random_bytes(16));
 
 // Verifica si la conexión a la base de datos fue exitosa
 if (!$conexion) {

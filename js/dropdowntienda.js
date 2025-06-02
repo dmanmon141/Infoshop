@@ -17,11 +17,8 @@ function mostrarMenuTienda() {
      }
     }
   
-  
-  
-  
-  
-  
+  window.addEventListener("DOMContentLoaded", () => {
+
     window.addEventListener("click", function(event) {
       var dropdown = document.getElementById("myDropdownTienda");
       var rayas = document.getElementById("rayas");
@@ -37,6 +34,7 @@ function mostrarMenuTienda() {
     document.getElementById("menuButtonShop").addEventListener("click", function(event) {
       event.stopPropagation();
     });
+  })
 
 
   
