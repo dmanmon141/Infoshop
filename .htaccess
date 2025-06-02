@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Redirección de infoshop.com a www.infoshop.com
+#RewriteCond %{HTTP_HOST} ^infoshop\.com$ [NC]
+#RewriteRule ^(.*)$ http://www.infoshop.com/$1 [R=301,L]
+
+# Redirección de /index a /
+RewriteRule ^index$ / [R=301,L]
+
+# Agregar la extensión .php a las URL sin ella
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
