@@ -105,9 +105,9 @@ function updateTotalPrice() {
   // Calcular el precio total sumando los precios de todos los productos en el carrito
   const cartItems = document.getElementById('cart-items');
   cartItems.querySelectorAll('li').forEach(item => {
-    const priceElement = item.querySelector('.precio'); // Obtén el elemento del precio
+    const priceElement = item.querySelector('.precio');
     const countElement = item.querySelector('.product-count');
-    const price = parseFloat(priceElement.textContent); // Obtén el precio del elemento
+    const price = parseFloat(priceElement.textContent); 
     const count = parseInt(countElement.textContent.slice(1));
     totalPrice += price * count;
   });
@@ -123,10 +123,6 @@ function saveCartToSession() {
   const cartContent = document.getElementById('cart-items').innerHTML;
   
   // Enviar los datos al servidor utilizando AJAX
-  // Aquí debes reemplazar 'guardar_carrito.php' con la ruta al archivo PHP que almacenará los datos en la sesión
-  // Puedes enviar los datos utilizando POST o GET según tu preferencia
-  // Asegúrate de ajustar el código PHP para recibir y guardar los datos correctamente
-  // Consulta la documentación de AJAX para obtener más detalles sobre cómo realizar la solicitud
   $.ajax({
     url: 'backend/guardar_carrito.php',
     type: 'POST',
@@ -142,9 +138,6 @@ function saveCartToSession() {
 
 function loadCartFromSession() {
   // Obtener el carrito desde las variables de sesión utilizando AJAX
-  // Aquí debes reemplazar 'obtener_carrito.php' con la ruta al archivo PHP que obtendrá los datos del carrito
-  // Asegúrate de ajustar el código PHP para devolver los datos en el formato adecuado
-  // Consulta la documentación de AJAX para obtener más detalles sobre cómo realizar la solicitud
   $.ajax({
     url: 'backend/obtener_carrito.php',
     type: 'GET',

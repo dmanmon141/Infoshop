@@ -1,27 +1,29 @@
 @font-face{
   font-family: 'FuentePagina';
-  src: url('fonts/SFUIText-Heavy.otf') format('otf');
+  src: url('../fonts/Inter_18pt-Light.ttf') format('truetype');
+}
+
+*{
+  font-family:'FuentePagina';
+
 }
 
 body {
   height:100%;
   margin: 0;
   padding: 0;
-  background-color: #4A4E69;
+  background-color: #1A1A2E;
   background-size: cover;
-  font-family:'FuentePagina', sans-serif;
 }
 
 .navbar {
-  background-color: #333;
+  background-color: #1A1A2E;
   color: white;
-    height: fit-content;
+    height: 5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid black;
+    padding: 10px 20px;
   }
 
 
@@ -79,10 +81,17 @@ body {
   .sesiones {
     list-style: none;
     display: flex;
+    align-items: center;
     font-size: 20px;
-    margin-right: auto;
     padding-left: 0;
   }
+
+  .cart-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   
   
   .sesiones li:hover {
@@ -98,8 +107,21 @@ body {
   }
 
   .categorias {
-    border: 3px solid black;
-      z-index: 9998;
+    border: none;
+    z-index: 9998;
+  }
+
+  #menuButtonShop{
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  #menuButtonShop:hover{
+    background-color: #42465e;
+    cursor: pointer;
+  }
+
+  #menuButton:hover{
+    background-color: #42465e;
   }
 
   .sesiones a li{
@@ -153,6 +175,8 @@ body {
       width: 30px;
       margin-right: 5px;
     }
+
+    
     
     .cart-sidebar {
       z-index:9999;
@@ -279,16 +303,16 @@ div[contenedor]{
 
 
   .product {
-    background-color: rgba(0, 0, 0, 0.1);/* Color de fondo del cuadro */
     padding: 30px; /* Espacio interno del cuadro */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra del cuadro */
     margin: 0 auto; /* Otros estilos adicionales, como tamaño de fuente, color de texto, etc. */
   }
 
 
 
   h1{
-    font-size: 50px;
+    font-size: 2rem;
+    width: fit-content;
+    margin-left: 5rem;
     font-weight: bold;
     color: white;
   }
@@ -315,8 +339,7 @@ div[contenedor]{
   .dropbtn {
   border: none;
   width: 100%;
-  color: black;
-  background-color: #333;
+  color: white;
   padding: 16px;
   font-size: 16px;
   display: flex;
@@ -436,7 +459,7 @@ div[contenedor]{
   .contenedor-imagen {
     position: relative;
     display: inline-block;
-    height: 300px;
+    height: 12rem;
     transition: transform 0.3s ease;
   }
 
@@ -516,10 +539,6 @@ div[contenedor]{
     justify-content: space-around;
   }
 
-  #menuButtonShop{
-    background-color: white;	
-    }
-
     #administrador{
       display: flex;
       align-items: center;
@@ -528,6 +547,7 @@ div[contenedor]{
     }
 
     #menuButton{
+      background-color: rgba(255, 255, 255, 0);
       color: white;
     }
 
@@ -602,8 +622,9 @@ div[contenedor]{
   .busqueda-texto{
       padding: 20px;
       padding-right: 20px;
-      width: 600px;
-
+      width: 850px;
+      border-radius: 0.5rem;
+      font-size: 1.2rem;
       border: 1px solid lightgray;
   }
 
@@ -633,13 +654,22 @@ div[contenedor]{
     margin-right: 8px;
   }
 
+  .cart-title .cart-close{
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .cart-title .cart-close:hover{
+    cursor: pointer;
+  }
+
   .cart-sidebar h3 {
     font-size: 15px;
     margin-right: 30px;
   }
 
   .product-image{
-    height: 300px;
+    height: 12rem;
   }
   
   .product p{

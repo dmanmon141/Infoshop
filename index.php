@@ -47,16 +47,16 @@ $usuadm = $datosarray['USUADM'];
 
 }
 
-$productos1 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODOFE FROM productos WHERE PRODOFE >= 20 ORDER BY PRODOFE DESC LIMIT 6;";
+$productos1 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODOFE FROM productos WHERE PRODOFE >= 20 ORDER BY PRODOFE DESC LIMIT 12;";
 $productosresultado1 = mysqli_query($conexion, $productos1);
 
-$productos2 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODINV FROM productos WHERE PRODINV <= 12 ORDER BY PRODINV ASC LIMIT 6;";
+$productos2 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODINV FROM productos WHERE PRODINV <= 12 ORDER BY PRODINV ASC LIMIT 12;";
 $productosresultado2 = mysqli_query($conexion, $productos2);
 
-$productos3 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODINV FROM productos ORDER BY PRODNUMVENT DESC LIMIT 6;";
+$productos3 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODINV FROM productos ORDER BY PRODNUMVENT DESC LIMIT 12;";
 $productosresultado3 = mysqli_query($conexion, $productos3);
 
-$productos4 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODINV, PRODVAL FROM productos ORDER BY PRODVAL DESC LIMIT 6;";
+$productos4 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODINV, PRODVAL FROM productos ORDER BY PRODVAL DESC LIMIT 12;";
 $productosresultado4 = mysqli_query($conexion,$productos4);
 
 ?>
@@ -120,38 +120,6 @@ $productosresultado4 = mysqli_query($conexion,$productos4);
             <input type="submit" value="" class="busqueda-boton">
         </form>
       </li>
-      <li class="carrito">
-            <div class="cart-menu" onclick="toggleCartSidebar()">
-                <img src="img/carrito.png" alt="Carrito de compras">
-                <span>Mi carrito</span>
-            </div>
-            <div class="cart-sidebar" id="cart-sidebar" style="text-align: left;">
-                <p style="font-size:20px">Mi carrito</p>
-                <?php 
-                if(isset($_SESSION['usucod'])){
-
-                ?>  
-
-                <ul id="cart-items" class="cart-items"></ul>
-                <div class="cart-sidebar-footer" id="cart-sidebar-footer">
-                <p id="cart-total">TOTAL  0.00€</p>
-                <button id="carritoVaciarBtn" class="carrito-vaciar-btn" onclick="emptyCart()">Vacíar carrito</button>
-                <a id="carritoCheckout" class="carrito-checkout" onclick="checkout()">Ver artículos del carrito</a>
-
-                <?php
-                }else {
-                  ?>
-
-                  <img id="carrito-error" src="img/carritoerror.png">
-                  <p id="login-carrito">Inicia sesión para utilizar el carrito.</p>
-
-                  <?php
-                }
-
-                ?>
-                </div>
-           
-      </li>
       <?php
             if(isset($_SESSION['usucod'])){
               if($usuadm == 1){
@@ -189,6 +157,38 @@ $productosresultado4 = mysqli_query($conexion,$productos4);
             </div>
             </button>
          </div>
+         <div class="carrito">
+            <div class="cart-menu" onclick="toggleCartSidebar()">
+                <img src="img/carrito.png" alt="Carrito de compras">
+                <span>Mi carrito</span>
+            </div>
+            <div class="cart-sidebar" id="cart-sidebar" style="text-align: left;">
+                <div class="cart-title"><p style="font-size:20px">Mi carrito</p><img src="img/cross.png" alt="Cerrar" class="cart-close" onclick="toggleCartSidebar()"></div>
+                <?php 
+                if(isset($_SESSION['usucod'])){
+
+                ?>  
+
+                <ul id="cart-items" class="cart-items"></ul>
+                <div class="cart-sidebar-footer" id="cart-sidebar-footer">
+                <p id="cart-total">TOTAL  0.00€</p>
+                <button id="carritoVaciarBtn" class="carrito-vaciar-btn" onclick="emptyCart()">Vacíar carrito</button>
+                <a id="carritoCheckout" class="carrito-checkout" onclick="checkout()">Ver artículos del carrito</a>
+
+                <?php
+                }else {
+                  ?>
+
+                  <img id="carrito-error" src="img/carritoerror.png">
+                  <p id="login-carrito">Inicia sesión para utilizar el carrito.</p>
+
+                  <?php
+                }
+
+                ?>
+                </div>
+           
+              </div>
 
          <?php 
         }else{
@@ -254,7 +254,7 @@ while($array4 = mysqli_fetch_row($productosresultado4)){
 </div>
 </div>
 
-  <h1>Lo mas vendido</h1>
+  <h1>Lo más vendido</h1>
   <div class="slider-container">
   <div class="slider">
   <?php

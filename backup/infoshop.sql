@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-06-2025 a las 11:57:30
+-- Tiempo de generación: 03-06-2025 a las 14:45:46
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categorias` (
   `CATCOD` int(5) NOT NULL,
-  `CATNOM` varchar(20) NOT NULL,
+  `CATNOM` varchar(40) NOT NULL,
   `CATDESC` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -37,7 +37,16 @@ CREATE TABLE `categorias` (
 -- Volcado de datos para la tabla `categorias`
 --
 
-INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES(1, 'GPU', 'Tarjetas gráficas chulonas');
+INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES(1, 'Placas Base', 'Construye tu PC sobre una base sólida. Nuestras placas base ofrecen compatibilidad con las últimas generaciones de procesadores, soporte para overclocking, almacenamiento ultrarrápido y conexiones avanzadas. Elige la columna vertebral ideal para tu setup, con diseños pensados tanto para el rendimiento como para la estética gamer.');
+INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES(2, 'GPU', 'Prepárate para jugar en ultra. Las tarjetas gráficas que encontrarás en Infoshop te permiten experimentar juegos con ray tracing, resoluciones 2K/4K y altísimos FPS. Ya seas competitivo o amante de los gráficos, tenemos la GPU que desatará el verdadero potencial de tu equipo.');
+INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES(3, 'Memoria RAM', 'Acelera tu sistema con memorias RAM de alto rendimiento. Desde módulos básicos hasta kits de gama alta con iluminación RGB y capacidad para overclocking, nuestra selección está diseñada para que tu PC responda con velocidad y estabilidad, incluso en las tareas más intensas.');
+INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES(4, 'CPU', 'El cerebro de tu máquina, optimizado para la acción. Encuentra procesadores de última generación con múltiples núcleos, velocidades turbo impresionantes y eficiencia energética. Perfectos para gaming, streaming, edición de vídeo o multitarea avanzada.');
+INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES(5, 'Fuente de Alimentación', 'Potencia sin riesgos. Las fuentes de alimentación de nuestra tienda ofrecen eficiencia certificada (80 PLUS), protección contra picos de tensión y modelos totalmente modulares. Silenciosas, fiables y con potencia de sobra para equipos de alto rendimiento.');
+INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES(6, 'Almacenamiento', 'Rendimiento, capacidad y velocidad en un solo lugar. Ya sea que busques la inmensidad de un HDD, la rapidez de un SSD o la eficiencia compacta de un M.2 NVMe, en Infoshop tenemos la solución de almacenamiento perfecta para tu equipo. Carga tus juegos en segundos, guarda todos tus archivos y disfruta de una experiencia sin cuellos de botella. Porque cada segundo cuenta, y tu PC lo sabe.');
+INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES(7, 'Ratones', 'Precisión milimétrica al alcance de tu mano. Descubre ratones diseñados para la victoria, con sensores ópticos de alta resolución, ergonomía avanzada y botones personalizables. Desde shooters hasta MOBAs, mejora tu rendimiento en cada clic.');
+INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES(8, 'Teclados', 'Responde más rápido, juega mejor. Teclados mecánicos con switches de alta calidad, iluminación RGB y funciones programables. Diseñados para jugadores que exigen precisión, velocidad y una experiencia táctil superior en cada partida.');
+INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES(9, 'Monitores', 'Cada detalle, cada frame. Encuentra monitores con tasas de refresco ultra rápidas (144Hz, 240Hz), tiempos de respuesta mínimos y paneles IPS o VA para colores vibrantes. Porque la diferencia entre ganar o perder está en lo que ves.');
+INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES(10, 'Auriculares', 'Escucha la diferencia. Cascos gaming con sonido envolvente, micrófonos con cancelación de ruido y diseño ergonómico para largas sesiones. Siente cada explosión, paso y efecto como si estuvieras dentro del juego.');
 
 -- --------------------------------------------------------
 
@@ -71,18 +80,6 @@ CREATE TABLE `devoluciones` (
   `DEVDET` text NOT NULL,
   `PEDCOD` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `devoluciones`
---
-
-INSERT INTO `devoluciones` (`DEVCOD`, `DEVRAZ`, `DEVDET`, `PEDCOD`) VALUES(0, 'Decepcion', 'Holaaaaaaaa', 0);
-INSERT INTO `devoluciones` (`DEVCOD`, `DEVRAZ`, `DEVDET`, `PEDCOD`) VALUES(1, 'Decepcion', 'Hola que tal?', 1);
-INSERT INTO `devoluciones` (`DEVCOD`, `DEVRAZ`, `DEVDET`, `PEDCOD`) VALUES(2, 'Arrepentir', 'Mequivocao jajajja', 2);
-INSERT INTO `devoluciones` (`DEVCOD`, `DEVRAZ`, `DEVDET`, `PEDCOD`) VALUES(3, 'Defectuoso', 'sadas', 2);
-INSERT INTO `devoluciones` (`DEVCOD`, `DEVRAZ`, `DEVDET`, `PEDCOD`) VALUES(4, 'Defectuoso', 'dwa', 2);
-INSERT INTO `devoluciones` (`DEVCOD`, `DEVRAZ`, `DEVDET`, `PEDCOD`) VALUES(5, 'Defectuoso', 'dwasd', 2);
-INSERT INTO `devoluciones` (`DEVCOD`, `DEVRAZ`, `DEVDET`, `PEDCOD`) VALUES(6, 'Defectuoso', 'dwada', 2);
 
 -- --------------------------------------------------------
 
@@ -172,21 +169,6 @@ CREATE TABLE `pedidos` (
   `PEDTEL` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `pedidos`
---
-
-INSERT INTO `pedidos` (`PEDCOD`, `PEDFECCOMP`, `PEDFECDEV`, `USUCOD`, `PRODCOD`, `PEDEST`, `PEDTAR`, `PEDCAD`, `PEDCODSEG`, `PEDCIU`, `PEDDIR`, `PEDCP`, `PEDPAIS`, `PEDTEL`) VALUES(0, '2025-06-02', '2025-07-02', 1, 1, 'Devuelto', '1245243578439481', '51/21', 231, 'Algeciras', 'Avda. Virgen de la macarena 22', 11202, 'España', '657839102');
-INSERT INTO `pedidos` (`PEDCOD`, `PEDFECCOMP`, `PEDFECDEV`, `USUCOD`, `PRODCOD`, `PEDEST`, `PEDTAR`, `PEDCAD`, `PEDCODSEG`, `PEDCIU`, `PEDDIR`, `PEDCP`, `PEDPAIS`, `PEDTEL`) VALUES(1, '2025-06-03', '2025-07-03', 1, 4, 'Devuelto', '4534125676874976', '03/21', 145, 'Algeciras', 'hOLAAA', 11202, 'España', '656892302');
-INSERT INTO `pedidos` (`PEDCOD`, `PEDFECCOMP`, `PEDFECDEV`, `USUCOD`, `PRODCOD`, `PEDEST`, `PEDTAR`, `PEDCAD`, `PEDCODSEG`, `PEDCIU`, `PEDDIR`, `PEDCP`, `PEDPAIS`, `PEDTEL`) VALUES(2, '2025-06-03', '2025-07-03', 1, 3, 'Reemplazado', '4534125676874976', '03/22', 132, 'Algeciras', 'hOLAAA', 11202, 'España', '656892302');
-INSERT INTO `pedidos` (`PEDCOD`, `PEDFECCOMP`, `PEDFECDEV`, `USUCOD`, `PRODCOD`, `PEDEST`, `PEDTAR`, `PEDCAD`, `PEDCODSEG`, `PEDCIU`, `PEDDIR`, `PEDCP`, `PEDPAIS`, `PEDTEL`) VALUES(3, '2025-06-03', '2025-07-03', 1, 3, 'En envío', '4534125676874976', '03/22', 132, 'Algeciras', 'hOLAAA', 11202, 'España', '656892302');
-INSERT INTO `pedidos` (`PEDCOD`, `PEDFECCOMP`, `PEDFECDEV`, `USUCOD`, `PRODCOD`, `PEDEST`, `PEDTAR`, `PEDCAD`, `PEDCODSEG`, `PEDCIU`, `PEDDIR`, `PEDCP`, `PEDPAIS`, `PEDTEL`) VALUES(4, '2025-06-03', '2025-07-03', 1, 3, 'En envío', '4534125676874976', '03/22', 132, 'Algeciras', 'hOLAAA', 11202, 'España', '656892302');
-INSERT INTO `pedidos` (`PEDCOD`, `PEDFECCOMP`, `PEDFECDEV`, `USUCOD`, `PRODCOD`, `PEDEST`, `PEDTAR`, `PEDCAD`, `PEDCODSEG`, `PEDCIU`, `PEDDIR`, `PEDCP`, `PEDPAIS`, `PEDTEL`) VALUES(5, '2025-06-03', '2025-07-03', 1, 3, 'En envío', '4534125676874976', '03/22', 132, 'Algeciras', 'hOLAAA', 11202, 'España', '656892302');
-INSERT INTO `pedidos` (`PEDCOD`, `PEDFECCOMP`, `PEDFECDEV`, `USUCOD`, `PRODCOD`, `PEDEST`, `PEDTAR`, `PEDCAD`, `PEDCODSEG`, `PEDCIU`, `PEDDIR`, `PEDCP`, `PEDPAIS`, `PEDTEL`) VALUES(6, '2025-06-03', '2025-07-03', 1, 3, 'En envío', '4534125676874976', '03/22', 132, 'Algeciras', 'hOLAAA', 11202, 'España', '656892302');
-INSERT INTO `pedidos` (`PEDCOD`, `PEDFECCOMP`, `PEDFECDEV`, `USUCOD`, `PRODCOD`, `PEDEST`, `PEDTAR`, `PEDCAD`, `PEDCODSEG`, `PEDCIU`, `PEDDIR`, `PEDCP`, `PEDPAIS`, `PEDTEL`) VALUES(7, '2025-06-03', '2025-07-03', 1, 1, 'En envío', '4534125676874976', '03/22', 134, 'Algeciras', 'hOLAAA', 11202, 'España', '656892302');
-INSERT INTO `pedidos` (`PEDCOD`, `PEDFECCOMP`, `PEDFECDEV`, `USUCOD`, `PRODCOD`, `PEDEST`, `PEDTAR`, `PEDCAD`, `PEDCODSEG`, `PEDCIU`, `PEDDIR`, `PEDCP`, `PEDPAIS`, `PEDTEL`) VALUES(8, '2025-06-03', '2025-07-03', 1, 2, 'En envío', '4534125676874976', '03/22', 143, 'Algeciras', 'hOLAAA', 11202, 'España', '656892302');
-INSERT INTO `pedidos` (`PEDCOD`, `PEDFECCOMP`, `PEDFECDEV`, `USUCOD`, `PRODCOD`, `PEDEST`, `PEDTAR`, `PEDCAD`, `PEDCODSEG`, `PEDCIU`, `PEDDIR`, `PEDCP`, `PEDPAIS`, `PEDTEL`) VALUES(9, '2025-06-03', '2025-07-03', 1, 3, 'En envío', '4534125676874976', '02/24', 125, 'Algeciras', 'hOLAAA', 11202, 'España', '656892302');
-
 -- --------------------------------------------------------
 
 --
@@ -212,10 +194,16 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(1, 'img/productos/grafica1.png', 'Gigabyte NVIDIA RTX 3080 Ti 6GB DDR5', 'Potente gráfica RTX 3060 12GB GDDR6 con Ray Tracing y DLSS. Ideal para gaming 1080p/1440p fluido.', 250, 60, 50, 280, 500, 5, 1, 1);
-INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(2, 'img/productos/grafica2.png', 'Gigabyte NVIDIA RTX 3090 Ti 8GB DDR5', 'ASFJSAIGAIGAIGBIAdhola.com.....buenas', 380, 6, 0, 250, 380, 5, 1, 1);
-INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(3, 'img/productos/cpu1.png', 'AMD Ryzen 5700 RX', 'Este procesador es una pasad achavlaesadsadnsapigeiogb', 290, 8, 10, 9875, 322, 5, 1, 1);
-INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(4, 'img/productos/ram1.png', 'HYPERX FURY 16GB 2x8GB RAM', 'Locura de tarjeta, brilla y es blanca como mi pichita', 300, 26, 25, 3600, 400, 0, 1, 1);
+INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(1, 'img/productos/auriculares1.png', 'Cascos LOGITECH G305 Gaming', 'Sumérgete en la acción con estos cascos gaming de alta fidelidad. Con sonido 7.1 surround, cancelación de ruido y micrófono ajustable, estarás listo para coordinar cada movimiento como un pro.', 65, 120, 18, 15, 80, 3, 10, 6);
+INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(2, 'img/productos/auriculares2.png', 'Mars Gaming Auriculares 250MG', 'Diseñados para largas sesiones, estos auriculares ofrecen comodidad superior y una experiencia sonora inmersiva. Siente cada disparo, paso y efecto como si estuvieras dentro del juego.', 44, 18, 10, 68, 49, 2, 10, 8);
+INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(3, 'img/productos/cpu1.png', 'AMD Ryzen 5700RX', '', 249, 12, 17, 89, 299, 5, 4, 4);
+INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(4, 'img/productos/grafica1.png', 'NVIDIA Geforce GTX 1650', '', 319, 56, 20, 38, 399, 4, 2, 3);
+INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(5, 'img/productos/grafica2.png', 'AMD Radeon 6500 RX', '', 449, 6, 18, 105, 549, 5, 2, 4);
+INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(6, 'img/productos/monitor1.png', 'MSI Monitor Gaming M245 165Hz', '', 279, 59, 20, 163, 349, 4, 9, 2);
+INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(7, 'img/productos/monitor2.png', 'Gigabyte G309 Monitor Gaming 27\"', '', 189, 78, 24, 24, 249, 3, 9, 1);
+INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(8, 'img/productos/placabase1.png', 'Gigabyte B360M H Placa Base', '', 139, 54, 22, 29, 179, 4, 1, 1);
+INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(9, 'img/productos/placabase2.png', 'Gigabyte H410M H V3 Placa Base', '', 89, 12, 10, 93, 99, 5, 1, 1);
+INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES(10, 'img/productos/psu1.png', 'Corsair RM 850X', '', 109, 55, 21, 72, 139, 5, 5, 7);
 
 -- --------------------------------------------------------
 
@@ -233,7 +221,14 @@ CREATE TABLE `proveedores` (
 -- Volcado de datos para la tabla `proveedores`
 --
 
-INSERT INTO `proveedores` (`PROCOD`, `PRONOM`, `PRODESC`) VALUES(1, 'Gigabyte', 'Amazing brand man');
+INSERT INTO `proveedores` (`PROCOD`, `PRONOM`, `PRODESC`) VALUES(1, 'Gigabyte', 'Innovación, durabilidad y potencia. Gigabyte se ha consolidado como uno de los líderes en hardware de alto rendimiento, ofreciendo placas base, tarjetas gráficas y más con calidad profesional. Diseñado para gamers exigentes y creadores de contenido.');
+INSERT INTO `proveedores` (`PROCOD`, `PRONOM`, `PRODESC`) VALUES(2, 'MSI', 'Tecnología con estilo. MSI combina potencia bruta con diseños agresivos y elegantes. Ya sea en placas base, GPUs o periféricos, cada producto MSI está diseñado para competir al más alto nivel, sin perder personalidad.\r\n\r\n');
+INSERT INTO `proveedores` (`PROCOD`, `PRONOM`, `PRODESC`) VALUES(3, 'NVIDIA', 'La revolución gráfica. NVIDIA es sinónimo de rendimiento en videojuegos, IA y creación de contenido. Sus GPUs GeForce RTX lideran la industria con tecnologías como Ray Tracing, DLSS y un ecosistema optimizado para el gaming moderno.');
+INSERT INTO `proveedores` (`PROCOD`, `PRONOM`, `PRODESC`) VALUES(4, 'AMD', 'Versatilidad y potencia al mejor precio. AMD ofrece procesadores Ryzen y tarjetas gráficas Radeon que compiten de tú a tú con las grandes ligas. Ideal para usuarios que buscan rendimiento real sin romper su presupuesto.');
+INSERT INTO `proveedores` (`PROCOD`, `PRONOM`, `PRODESC`) VALUES(5, 'Kingston', 'Memoria confiable, velocidad garantizada. Kingston es el referente mundial en RAM y almacenamiento. Desde módulos DDR hasta SSDs NVMe, su rendimiento es ideal tanto para entornos profesionales como gaming.');
+INSERT INTO `proveedores` (`PROCOD`, `PRONOM`, `PRODESC`) VALUES(6, 'Logitech', 'Precisión suiza al servicio de tu juego. Logitech ofrece periféricos ergonómicos, duraderos y con gran reputación entre gamers, streamers y profesionales. Ratones, teclados y auriculares que marcan la diferencia.');
+INSERT INTO `proveedores` (`PROCOD`, `PRONOM`, `PRODESC`) VALUES(7, 'Corsair', 'Rendimiento con estilo. Corsair es uno de los favoritos en fuentes de alimentación, memorias RAM, refrigeración líquida y periféricos RGB. Su fiabilidad y estética hacen que cualquier setup luzca y rinda como debe.');
+INSERT INTO `proveedores` (`PROCOD`, `PRONOM`, `PRODESC`) VALUES(8, 'Mars Gaming', 'Estilo gaming sin gastar de más. Mars Gaming ofrece periféricos y componentes pensados para los que quieren empezar en el mundo del gaming o renovar su setup sin comprometer el diseño ni el rendimiento.');
 
 -- --------------------------------------------------------
 
@@ -249,13 +244,6 @@ CREATE TABLE `reseñas` (
   `USUCOD` int(5) NOT NULL,
   `PRODCOD` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `reseñas`
---
-
-INSERT INTO `reseñas` (`RESCOD`, `RESVAL`, `RESCONT`, `RESFEC`, `USUCOD`, `PRODCOD`) VALUES(0, 5, 'Amazing ahh graphics card I love it man man let me just post this', '2025-06-02', 1, 2);
-INSERT INTO `reseñas` (`RESCOD`, `RESVAL`, `RESCONT`, `RESFEC`, `USUCOD`, `PRODCOD`) VALUES(1, 5, 'De locos, que locura de grafica LA AMO JODER YAAAAAA', '2025-06-03', 1, 1);
 
 -- --------------------------------------------------------
 
