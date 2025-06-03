@@ -12,11 +12,8 @@ function enviarFormulario(event) {
         
         // Verificar si el correo cumple con el formato válido
         if (regex.test(correo)) {
-          console.log("Correo válido");
-          return true;
-          
+          return true;     
         } else {
-          console.log("Correo inválido");
           mensajeElemento.style.display = "block";
           mensajeElemento.innerHTML = "Correo inválido";
           mensajeElemento.style.color = "red";
@@ -110,7 +107,7 @@ function enviarFormulario(event) {
           console.log(respuesta);
           if( respuesta === "success") {
             mensajeElemento.style.display = "none";
-            console.log(respuesta); // Puedes hacer algo con la respuesta del servidor aquí
+            console.log(respuesta);
             redireccionar("/", { correo: correo });
           }else{
             console.log(respuesta);

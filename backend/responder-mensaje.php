@@ -31,7 +31,7 @@ if (!$conexion) {
 // Consulta la base de datos para verificar las credenciales
 
 
-$insertar = "INSERT INTO mensajes (MENCONT, MENFEC, USUCOD, TICKID) SELECT (SELECT MAX(USUCOD) +1 FROM usuarios), '$contenido', NOW(), '$usucod', '$ticketid';";
+$insertar = "INSERT INTO mensajes (MENID, MENCONT, MENFEC, USUCOD, TICKID) SELECT (SELECT MAX(MENID) +1 FROM mensajes), '$contenido', NOW(), '$usucod', '$ticketid';";
 $resultado = mysqli_query($conexion, $insertar);
 
 

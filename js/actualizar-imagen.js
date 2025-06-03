@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const inputImagen = document.getElementById('inputFile');
 const imagenPerfil = document.getElementById('imagen');
 
-
-
+if(inputImagen){
 inputImagen.addEventListener('input', function() {
   const file = inputImagen.files[0];
   if (file) {
@@ -15,6 +14,8 @@ inputImagen.addEventListener('input', function() {
     reader.readAsDataURL(file);
   }
 });
+}
+
 });
 
 function abrirInputFile(){

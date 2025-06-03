@@ -268,7 +268,7 @@ if($guardar == "true"){
       for($i = $cantidad;$i > 0;$i--){
       $insertarpedido = "INSERT INTO pedidos (PEDCOD, PEDFECCOMP, PEDFECDEV, USUCOD, PRODCOD, PEDEST, PEDTAR, PEDCAD, PEDCODSEG, PEDCIU, PEDDIR, PEDCP, PEDPAIS, PEDTEL) SELECT (SELECT MAX(PEDCOD) + 1 FROM pedidos), NOW(), DATE_ADD(NOW(), INTERVAL 1 MONTH), '$usucod', '$prodcod', 'En envío', '$tarjeta', '$caducidad', '$codigoseg', '$ciudad', '$direccion', '$codigopost', '$pais', '$telefono';";
       $resultadopedido = mysqli_query($conexion, $insertarpedido);
-      $updateproducto = "UPDATE productos SET PRODINV = PRODINV + 1 WHERE PRODCOD = '$prodcod';";
+      $updateproducto = "UPDATE productos SET PRODINV = PRODINV - 1 WHERE PRODCOD = '$prodcod';";
       $resultadoupdate = mysqli_query($conexion, $updateproducto);
       }
       }
@@ -290,7 +290,7 @@ if($guardar == "true"){
   $insertarpedido = "INSERT INTO pedidos (PEDCOD, PEDFECCOMP, PEDFECDEV, USUCOD, PRODCOD, PEDEST, PEDTAR, PEDCAD, PEDCODSEG, PEDCIU, PEDDIR, PEDCP, PEDPAIS, PEDTEL) SELECT (SELECT MAX(PEDCOD) + 1 FROM pedidos), NOW(), DATE_ADD(NOW(), INTERVAL 1 MONTH), '$usucod', '$prodcod', 'En envío', '$tarjeta', '$caducidad', '$codigoseg', '$ciudad', '$direccion', '$codigopost', '$pais', '$telefono';";
   $resultadopedido = mysqli_query($conexion, $insertarpedido);
   
-  $updateproducto = "UPDATE productos SET PRODINV = PRODINV + 1 WHERE PRODCOD = '$prodcod';";
+  $updateproducto = "UPDATE productos SET PRODINV = PRODINV - 1 WHERE PRODCOD = '$prodcod';";
       $resultadoupdate = mysqli_query($conexion, $updateproducto);
   }
   }

@@ -13,7 +13,7 @@ session_start();
 
 
 
-// Obtén los valores enviados desde el formulario
+// Obtenemos los valores enviados desde el formulario
 $nombre = $_POST['nombre'];
 $apellidos = $_POST['apellidos'];
 $correo = $_POST['correo'];
@@ -30,7 +30,7 @@ if (!$conexion) {
 // Consulta la base de datos para verificar las credenciales
 
 
-$insertar = "INSERT INTO usuarios (USUCOD, USUNOM, USUAPE, USUCOR, USUCONT, USUADM) SELECT (SELECT MAX(USUCOD) +1 FROM usuarios), '$nombre', '$apellidos', '$correo', '$contraseñaEncriptada', 0;";
+$insertar = "INSERT INTO usuarios (USUCOD, USUNOM, USUAPE, USUIMG, USUCOR, USUCONT, USUADM) SELECT (SELECT MAX(USUCOD) +1 FROM usuarios), '$nombre', '$apellidos', 'img/users/default.jpg','$correo', '$contraseñaEncriptada', 0;";
 $resultado = mysqli_query($conexion, $insertar);
 
 

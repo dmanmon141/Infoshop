@@ -44,8 +44,9 @@ $direccion2 = $pedidoarray['PEDDIR'];
 $codigopost = $pedidoarray['PEDCP'];
 $pais = $pedidoarray['PEDPAIS'];
 $telefono = $pedidoarray['PEDTEL'];
+$contenido = "Pedido con código " . $pedidoarray['PEDCOD'] . " reenviado a la dirección: " . $direccion;
 
-$notificacionsql = "INSERT INTO paneladmin (ADMCOD, ADMCONT, NOTCOD) SELECT (SELECT MAX(ADMCOD) +1 FROM paneladmin), '$direccion', 2;";
+$notificacionsql = "INSERT INTO paneladmin (ADMCOD, ADMCONT, NOTCOD) SELECT (SELECT MAX(ADMCOD) +1 FROM paneladmin), '$contenido', 2;";
 $notificacionquery = mysqli_query($conexion, $notificacionsql);
 
 // Consulta la base de datos para verificar las credenciales
@@ -64,7 +65,7 @@ error_log('Verifying credentials...');
 
 if ($resultado && $resultadoupdate) {
   // Autenticación exitosa
-  Header("Location: historial");
+  Header("Location: ../historial");
 } else {
   // Autenticación incorrecta
   header("Content-Type: text/plain");

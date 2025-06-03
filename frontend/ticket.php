@@ -253,7 +253,7 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
                     <p id="fecha"><?php echo $ticketfecha ?></p>
                 </div>
                 <div class="contenido">
-                    <p><?php echo '"' . $ticketcontenido . '"' ?></p>
+                    <p><?php echo $ticketcontenido ?></p>
                 </div>
             </div>
 
@@ -264,7 +264,7 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
             if($totalMensajes === 0 && $esAdmin){
            
           ?>    
-            <form class="respondermensaje usuario" action="responder-mensaje" method="POST">
+            <form class="respondermensaje usuario" action="backend/responder-mensaje.php" method="POST">
         <textarea id="respuesta-contenido" name="respuesta-contenido"></textarea>
         <input name="ticketidmensaje" value="<?php echo $ticketid ?>" style="display: none"> 
         <button id="buttonreply" type="submit">Responder</button>
@@ -310,7 +310,7 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
                               <p id="fecha"><?php echo $fechamensaje ?></p>
                           </div>
                           <div class="contenido">
-                              <p><?php echo '"' . $contenidomensaje . '"' ?></p>
+                              <p><?php echo $contenidomensaje ?></p>
                               
                           </div>
                       </div>
@@ -332,7 +332,7 @@ if($ticketestado != "Abierto"){
         }else{    
     if ($puedeResponder) {
         ?> 
-        <form class="respondermensaje <?php echo $ultimoMensaje ?>" action="responder-mensaje" method="POST">
+        <form class="respondermensaje <?php echo $ultimoMensaje ?>" action="backend/responder-mensaje.php" method="POST">
         <textarea id="respuesta-contenido" name="respuesta-contenido"></textarea>
         <input name="ticketidmensaje" value="<?php echo $ticketid ?>" style="display: none"> 
         <button id="buttonreply" type="submit">Responder</button>

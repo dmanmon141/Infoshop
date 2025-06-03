@@ -29,9 +29,9 @@ if (!$conexion) {
 $pedidosql = "SELECT * FROM pedidos WHERE PEDCOD = '$pedcod'";
 $pedidoquery = mysqli_query($conexion, $pedidosql);
 $pedidoarray = mysqli_fetch_assoc($pedidoquery);
-$tarjeta = $pedidoarray['PEDTAR'];
+$contenido = "Código de pedido: " . $pedidoarray['PEDCOD'];
 
-$notificacionsql = "INSERT INTO paneladmin (ADMCOD, ADMCONT, NOTCOD) SELECT (SELECT MAX(ADMCOD) +1 FROM paneladmin), '$tarjeta', 1;";
+$notificacionsql = "INSERT INTO paneladmin (ADMCOD, ADMCONT, NOTCOD) SELECT (SELECT MAX(ADMCOD) +1 FROM paneladmin), '$contenido', 1;";
 $notificacionquery = mysqli_query($conexion, $notificacionsql);
 
 $insertar = "INSERT INTO devoluciones (DEVCOD, DEVRAZ, DEVDET, PEDCOD) SELECT (SELECT MAX(DEVCOD) +1 FROM devoluciones), '$razon', '$detalles', '$pedcod';";

@@ -133,12 +133,12 @@ $message = "
       </div>
       <div class='col-3'>
         <h5>N° de factura</h5>
+        <p>103</p>
         <h5>Fecha</h5>
-        <h5>Fecha de vencimiento</h5>
       </div>
       <div class='col-3'>
-        <h5>103</h5>
         <p>09/05/2023</p>
+        <h5>Fecha de vencimiento</h5>
         <p>09/05/2023</p>
       </div>
     </div>
@@ -227,7 +227,7 @@ if($guardar == "true"){
       $resultadodatos = mysqli_query($conexion, $insertardatos);
       $insertarpedido = "INSERT INTO pedidos (PEDCOD, PEDFECCOMP, PEDFECDEV, USUCOD, PRODCOD, PEDEST, PEDTAR, PEDCAD, PEDCODSEG, PEDCIU, PEDDIR, PEDCP, PEDPAIS, PEDTEL) SELECT (SELECT MAX(PEDCOD) + 1 FROM pedidos), NOW(), DATE_ADD(NOW(), INTERVAL 1 MONTH), '$usucod', '$prodcod', 'En envío', '$tarjeta', '$caducidad', '$codigoseg', '$ciudad', '$direccion', '$codigopost', '$pais', '$telefono';";
       $resultadopedido = mysqli_query($conexion, $insertarpedido);
-      $updateproducto = "UPDATE productos SET PRODINV = PRODINV + 1 WHERE PRODCOD = '$prodcod';";
+      $updateproducto = "UPDATE productos SET PRODINV = PRODINV - 1 WHERE PRODCOD = '$prodcod';";
       $resultadoupdate = mysqli_query($conexion, $updateproducto);
     }else{
         echo "error1";
@@ -235,7 +235,7 @@ if($guardar == "true"){
 }else{
   $insertarpedido = "INSERT INTO pedidos (PEDCOD, PEDFECCOMP, PEDFECDEV, USUCOD, PRODCOD, PEDEST, PEDTAR, PEDCAD, PEDCODSEG, PEDCIU, PEDDIR, PEDCP, PEDPAIS, PEDTEL) SELECT (SELECT MAX(PEDCOD) + 1 FROM pedidos), NOW(), DATE_ADD(NOW(), INTERVAL 1 MONTH), '$usucod', '$prodcod', 'En envío', '$tarjeta', '$caducidad', '$codigoseg', '$ciudad', '$direccion', '$codigopost', '$pais', '$telefono';";
 $resultadopedido = mysqli_query($conexion, $insertarpedido);
-$updateproducto = "UPDATE productos SET PRODINV = PRODINV + 1 WHERE PRODCOD = '$prodcod';";
+$updateproducto = "UPDATE productos SET PRODINV = PRODINV - 1 WHERE PRODCOD = '$prodcod';";
 $resultadoupdate = mysqli_query($conexion, $updateproducto);
 }
 

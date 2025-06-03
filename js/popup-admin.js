@@ -66,7 +66,7 @@ var notcod = document.getElementById("notcod-input" + indice).value;
      var xhr = new XMLHttpRequest();
 
     // Configurar la solicitud AJAX
-    xhr.open('POST', 'limpiar-notificacion', true);
+    xhr.open('POST', 'backend/limpiar-notificacion.php', true);
 
     // Enviar la solicitud AJAX con los datos del formulario
     xhr.send(formData);
