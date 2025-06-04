@@ -4,11 +4,13 @@ const productCounts = new Map();
 
 function addToCart(productName, productImage, productPrice) {
   // Crear el elemento de la lista de productos del carrito
-
   const cartItems = document.getElementById('cart-items');
 
 
-
+  const emptyMessage = document.getElementById('empty-message');
+  if (emptyMessage) {
+    emptyMessage.style.display = 'none';
+  }
 
   if (productCounts.has(productName)) {
     const count = productCounts.get(productName) + 1;
@@ -31,15 +33,17 @@ function addToCart(productName, productImage, productPrice) {
   nameElement.classList.add("productname");
   li.appendChild(nameElement);
 
+const countElement = document.createElement('span');
+    countElement.textContent = 'x1';
+    countElement.classList.add('product-count');
+    li.appendChild(countElement);
+
   const priceElement = document.createElement('span');
   priceElement.textContent = productPrice;
   priceElement.classList.add("precio");
   li.appendChild(priceElement);
 
-  const countElement = document.createElement('span');
-    countElement.textContent = 'x1';
-    countElement.classList.add('product-count');
-    li.appendChild(countElement);
+  
   
   
   
@@ -73,11 +77,9 @@ function addToCart(productName, productImage, productPrice) {
   
   console.log(li);
   
+
+  footer.classList.toggle("hide");
   
-  if(footer.classList.contains("show")){
-  }else{
-  footer.classList.toggle("show");
-  }
 
   cartItems.appendChild(li);
   productCounts.set(productName, 1);    
@@ -145,14 +147,18 @@ function loadCartFromSession() {
       // Actualizar el contenido del carrito con los productos guardados en la sesión
       const cartItems = document.getElementById('cart-items');
       if (response.trim() === '') {
-        cartItems.innerHTML = "<p>No hay artículos en tu carrito</p>";
-        const footer = document.getElementById("cart-sidebar-footer");
-        footer.classList.toggle("hide");
+        const emptyMessage = document.getElementById('empty-message');
+  if (emptyMessage) emptyMessage.style.display = 'block';
 
-        console.log(response);
+  const footer = document.getElementById("cart-sidebar-footer");
+  if (footer) footer.classList.toggle("hide");
         
       } else {
+        const emptyMessage = document.getElementById('empty-message');
         // Actualizar el contenido del carrito con los productos guardados en la sesión
+        if (emptyMessage){
+          document.getElementById('empty-message').style.display = 'none'
+        };
         cartItems.innerHTML = response;
         
         if(cartItems.innerHTML === "<p>No hay artículos en tu carrito</p>"){
@@ -194,10 +200,16 @@ function loadCartFromSession() {
 
 
 function emptyCart() {
-  
+    productCounts.clear();
 
     const cartItems = document.getElementById('cart-items');
-    cartItems.innerHTML = "<p>No hay artículos en tu carrito</p>";
+    cartItems.innerHTML = "";
+    const emptyMessage = document.getElementById('empty-message');
+    if(emptyMessage){
+      emptyMessage.style.display = 'block';
+    }
+
+
     const footer = document.getElementById("cart-sidebar-footer");
     footer.classList.toggle("hide");
 

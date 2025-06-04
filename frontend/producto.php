@@ -178,6 +178,7 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
                 ?>  
 
                 <ul id="cart-items" class="cart-items"></ul>
+                <p id="empty-message">No hay artículos en tu carrito</p>
                 <div class="cart-sidebar-footer" id="cart-sidebar-footer">
                 <p id="cart-total">TOTAL  0.00€</p>
                 <button id="carritoVaciarBtn" class="carrito-vaciar-btn" onclick="emptyCart()">Vacíar carrito</button>
