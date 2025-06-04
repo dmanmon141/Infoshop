@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('.slider').slick({
-      //autoplay: true,
+      autoplay: true,
       autoplaySpeed: 3000,
       arrows: true,
       prevArrow: '<button type="button" class="slick-prev custom-arrow"><i class="fa-solid fa-chevron-left"></i></button>',

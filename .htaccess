@@ -12,4 +12,4 @@ RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([a-zA-Z0-9_-]+)$ frontend/$1.php [L]
+RewriteRule ^([a-zA-ZñÑ0-9_-]+)$ frontend/$1.php [L]
