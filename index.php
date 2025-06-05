@@ -182,6 +182,7 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
         ?>
         <div class="carrito">
           <div class="cart-menu" onclick="toggleCartSidebar()">
+            <p id="productCount">0</p>
             <img src="img/carrito.png" alt="Carrito de compras">
             <span>Mi carrito</span>
           </div>

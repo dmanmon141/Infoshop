@@ -64,16 +64,6 @@ function addToCart(productName, productImage, productPrice) {
       cartItems.innerHTML = "";
     }
 
-    cartItems.addEventListener('click', function (event) {
-      if (event.target.classList.contains('eliminar-btn')) {
-        const listItem = event.target.closest('li');
-        listItem.remove();
-        updateTotalPrice();
-        saveCartToSession();
-
-        event.stopPropagation();
-      }
-    });
 
     console.log(li);
 
@@ -103,30 +93,25 @@ function addToCart(productName, productImage, productPrice) {
 // Función para actualizar el precio total del carrito
 function updateTotalPrice() {
   let totalPrice = 0;
-
+  let totalCount = 0;
   // Calcular el precio total sumando los precios de todos los productos en el carrito
   const cartItems = document.getElementById('cart-items');
-  if(cartItems){
+  if (cartItems) {
+
     cartItems.querySelectorAll('li').forEach(item => {
-    const priceElement = item.querySelector('.precio');
-    const countElement = item.querySelector('.product-count');
-    const price = parseFloat(priceElement.textContent);
-    const count = parseInt(countElement.textContent.slice(1));
-    totalPrice += price * count;
-  });
-  
-  cartItems.querySelectorAll('li').forEach(item => {
-    const priceElement = item.querySelector('.precio');
-    const countElement = item.querySelector('.product-count');
-    const price = parseFloat(priceElement.textContent);
-    const count = parseInt(countElement.textContent.slice(1));
-    totalPrice += price * count;
-  });
-  
-  // Mostrar el precio total en el elemento correspondiente
-  const cartTotal = document.getElementById('cart-total');
-  cartTotal.textContent = 'TOTAL ' + totalPrice.toFixed(2) + '€';
-}
+      const priceElement = item.querySelector('.precio');
+      const countElement = item.querySelector('.product-count');
+      const price = parseFloat(priceElement.textContent);
+      const count = parseInt(countElement.textContent.slice(1));
+      totalCount += count;
+      totalPrice += price * count;
+    });
+    const productCountElement = document.getElementById('productCount');
+    productCountElement.textContent = totalCount;
+    // Mostrar el precio total en el elemento correspondiente
+    const cartTotal = document.getElementById('cart-total');
+    cartTotal.textContent = 'TOTAL ' + totalPrice.toFixed(2) + '€';
+  }
 }
 
 // Función para guardar el carrito en variables de sesión utilizando AJAX
@@ -175,16 +160,13 @@ function loadCartFromSession() {
             const footer = document.getElementById("cart-sidebar-footer");
             footer.classList.toggle("hide");
           }
-          const productCounts = {};
-          cartItems.querySelectorAll('.productname').forEach(item => {
-            const productName = item.textContent;
-            if (productName in productCounts) {
-              productCounts[productName]++;
-              const countElement = item.nextElementSibling;
-              countElement.textContent = 'x' + productCounts[productName];
-            } else {
-              productCounts[productName] = 1;
-            }
+          productCounts.clear(); // Limpia el Map en caso de que haya datos anteriores
+
+          cartItems.querySelectorAll('li').forEach(item => {
+            const productName = item.dataset.product;
+            const countElement = item.querySelector('.product-count');
+            const count = parseInt(countElement.textContent.slice(1)); // quita la 'x'
+            productCounts.set(productName, count); // Actualiza el Map
           });
 
           console.log(response);
@@ -193,16 +175,14 @@ function loadCartFromSession() {
             button.addEventListener('click', function () {
               const listItem = this.closest('li');
               listItem.remove();
-              updateTotalPrice();
               saveCartToSession();
               event.stopPropagation();
             });
           });
         }
 
-
-      }
       updateTotalPrice();
+      }
     },
     error: function (xhr, status, error) {
       console.error('Error al obtener el carrito de la sesión de PHP:', error);
@@ -268,4 +248,15 @@ window.addEventListener("click", function (event) {
 
 document.addEventListener('DOMContentLoaded', function () {
   loadCartFromSession();
+  const cartItems = document.getElementById('cart-items');
+  cartItems.addEventListener('click', function (event) {
+    if (event.target.classList.contains('eliminar-btn')) {
+      const listItem = event.target.closest('li');
+      listItem.remove();
+      updateTotalPrice();
+      saveCartToSession();
+
+      event.stopPropagation();
+    }
+  });
 });

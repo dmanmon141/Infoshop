@@ -487,6 +487,18 @@ div[contenedor]{
     left: 0;
   }
 
+  #productCount{
+    position: relative;
+    top: -0.8rem;
+    left: 2.8rem;
+    z-index: 8000;
+    background-color: #da2822;
+    border-radius: 4.5rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 1rem;
+    color: white;
+  }
+
   .categoria-item{
     display: flex;
     flex-direction: row;
