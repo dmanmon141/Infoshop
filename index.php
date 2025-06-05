@@ -47,16 +47,16 @@ if (isset($_SESSION['usucod'])) {
 
 }
 
-$productos1 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODOFE FROM productos WHERE PRODOFE >= 20 ORDER BY PRODOFE DESC LIMIT 12;";
+$productos1 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODOFE, PRODVAL, PRODPRECORI FROM productos WHERE PRODOFE >= 20 ORDER BY PRODOFE DESC LIMIT 12;";
 $productosresultado1 = mysqli_query($conexion, $productos1);
 
-$productos2 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODINV FROM productos WHERE PRODINV <= 12 ORDER BY PRODINV ASC LIMIT 12;";
+$productos2 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODINV, PRODVAL, PRODPRECORI FROM productos WHERE PRODINV <= 12 ORDER BY PRODINV ASC LIMIT 12;";
 $productosresultado2 = mysqli_query($conexion, $productos2);
 
-$productos3 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODINV FROM productos ORDER BY PRODNUMVENT DESC LIMIT 12;";
+$productos3 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODINV, PRODVAL, PRODPRECORI, PRODOFE FROM productos ORDER BY PRODNUMVENT DESC LIMIT 12;";
 $productosresultado3 = mysqli_query($conexion, $productos3);
 
-$productos4 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODINV, PRODVAL FROM productos ORDER BY PRODVAL DESC LIMIT 12;";
+$productos4 = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODINV, PRODVAL, PRODPRECORI, PRODOFE FROM productos ORDER BY PRODVAL DESC LIMIT 12;";
 $productosresultado4 = mysqli_query($conexion, $productos4);
 
 ?>
@@ -88,6 +88,25 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
   <div id="overlay"></div>
 
   <div contenedor>
+    <div id="myDropdownTienda" class="category-sidebar">
+
+              <?php
+              $categorias = "SELECT * FROM categorias";
+              $categoriasql = mysqli_query($conexion, $categorias);
+
+              while ($arraycat = mysqli_fetch_row($categoriasql)) {
+
+                ?>
+                <div class="categoria-item">
+                  <img src="img/<?php echo $arraycat[0] ?>.png" class="cross" onclick="cerrarMenuTienda()">
+                  <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
+                </div>
+                <?php
+              }
+
+              ?>
+
+            </div>
     <nav class="navbar">
       <div class="logo">
         <a href="index"><img src="img/Logo.png"></a>
@@ -97,23 +116,6 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
             <div class="button-content-tienda">
               <img id="rayas" src="img/rayas.png">
               <h3>Todas las categorías</h3>
-            </div>
-            <div id="myDropdownTienda" class="dropdown-content">
-
-              <?php
-              $categorias = "SELECT * FROM categorias";
-              $categoriasql = mysqli_query($conexion, $categorias);
-
-              while ($arraycat = mysqli_fetch_row($categoriasql)) {
-
-                ?>
-                <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
-
-                <?php
-              }
-
-              ?>
-
             </div>
         </li>
         <li class="busqueda">
@@ -164,7 +166,7 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
           </div>
 
 
-        <?php
+          <?php
         } else {
           ?>
           <a href='login'>
@@ -221,11 +223,14 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
 
 
     <div class="anuncios">
-      <div><img src="img/anuncio1.jpeg" class="anuncio1"></div>
-      <div><img src="img/anuncio2.jpg" class="anuncio2"></div>
+      <div><img src="img/anuncio1.jpeg" class="anuncio1" onclick="scrollToSection('ofertas')"></div>
+      <div><a href="https://www.logitech.com/es-es" target="_blank"><img src="img/anuncio2.jpg" class="anuncio2"></a></div>
     </div>
-
-    <h1>Mejor valorado</h1>
+    <div class="sectionTitle">
+        <h1>Mejor valorado</h1>
+        <a href="buscar">Ver más</a>
+    </div>
+    
     <div class="separator"></div>
     <div class="slider-container">
       <div class="slider">
@@ -237,13 +242,19 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
           <div class="product">
             <div class="contenedor-imagen" onclick="redireccionar('<?php echo $array4[0] ?>')">
               <img src="<?php echo $array4[2] ?>" alt="Imagen" class="product-image">
+              <div class="oferta-fondo">
+                <h3 class="oferta"><?php echo "- " . $array4[7] . "%" ?> </h3>
+              </div>
               <div class="texto-fondo">
                 <h2 class="product-title"><?php echo $array4[1] ?></h2>
               </div>
             </div>
             <div class="product-info">
-              <div class="precio-fondo">
+              <div class="precio-fondo2">
                 <p class="product-price"><?php echo $array4[3] . " €" ?></p>
+              </div>
+              <div class="precio-sin-oferta">
+                <p class="product-price-sin-oferta"><?php echo $array4[6] . " €" ?></p>
               </div>
               <div class="oferta-fondo2">
 
@@ -276,7 +287,10 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
       </div>
     </div>
 
-    <h1>Lo más vendido</h1>
+    <div class="sectionTitle">
+        <h1>Lo más vendido</h1>
+        <a href="buscar">Ver más</a>
+    </div>
     <div class="separator"></div>
     <div class="slider-container">
       <div class="slider">
@@ -288,13 +302,40 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
           <div class="product">
             <div class="contenedor-imagen" onclick="redireccionar('<?php echo $array3[0] ?>')">
               <img src="<?php echo $array3[2] ?>" alt="Imagen" class="product-image">
+              <div class="oferta-fondo">
+                <h3 class="oferta"><?php echo "- " . $array3[7] . "%" ?> </h3>
+              </div>
               <div class="texto-fondo">
                 <h2 id="product-title"><?php echo $array3[1] ?></h2>
               </div>
             </div>
             <div class="product-info">
-              <div class="precio-fondo">
+              <div class="precio-fondo2">
                 <p class="product-price"><?php echo $array3[3] . " €" ?></p>
+              </div>
+              <div class="precio-sin-oferta">
+                <p class="product-price-sin-oferta"><?php echo $array3[6] . " €" ?></p>
+              </div>
+              <div class="oferta-fondo2">
+
+
+
+                <?php
+
+                $n = $array3[5];
+                for ($i = 1; $i <= $n; $i++) {
+                  ?>
+                  <img class="estrella" src="img/star-on.png">
+                  <?php
+                }
+
+                for ($n; $n < 5; $n++) {
+                  ?>
+                  <img class="estrella" src="img/star-off.png">
+                  <?php
+                }
+                ?>
+
               </div>
             </div>
           </div>
@@ -306,7 +347,10 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
       </div>
     </div>
 
-    <h1>Ultimas unidades</h1>
+    <div class="sectionTitle">
+        <h1>Últimas unidades</h1>
+        <a href="buscar">Ver más</a>
+    </div>
     <div class="separator"></div>
     <div class="slider-container">
       <div class="slider">
@@ -318,14 +362,39 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
           <div class="product">
             <div class="contenedor-imagen" onclick="redireccionar('<?php echo $array2[0] ?>')">
               <img src="<?php echo $array2[2] ?>" alt="Imagen" class="product-image">
-              <div class="precio-fondo">
-                <p class="product-price"><?php echo $array2[3] . " €" ?></p>
-              </div>
               <div class="unidades-fondo">
                 <h3 class="oferta"><?php echo $array2[4] . " uds. restantes" ?> </h3>
               </div>
               <div class="texto-fondo">
                 <h2 id="product-title"><?php echo $array2[1] ?></h2>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="precio-fondo2">
+                <p class="product-price"><?php echo $array2[3] . " €" ?></p>
+              </div>
+              <div class="precio-sin-oferta">
+                <p class="product-price-sin-oferta"><?php echo $array2[6] . " €" ?></p>
+              </div>
+              <div class="oferta-fondo2">
+
+
+
+                <?php
+
+                $n = $array2[5];
+                for ($i = 1; $i <= $n; $i++) {
+                  ?>
+                  <img class="estrella" src="img/star-on.png">
+                  <?php
+                }
+
+                for ($n; $n < 5; $n++) {
+                  ?>
+                  <img class="estrella" src="img/star-off.png">
+                  <?php
+                }
+                ?>
 
               </div>
             </div>
@@ -338,7 +407,10 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
       </div>
     </div>
 
-    <h1>Las mejores ofertas</h1>
+    <div class="sectionTitle" id="ofertas">
+        <h1>Aprovecha nuestras mejores ofertas</h1>
+        <a href="buscar">Ver más</a>
+    </div>
     <div class="separator"></div>
     <div class="slider-container">
 
@@ -351,14 +423,40 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
           <div class="product">
             <div class="contenedor-imagen" onclick="redireccionar('<?php echo $array1[0] ?>')">
               <img src="<?php echo $array1[2] ?>" alt="Imagen" class="product-image">
-              <div class="precio-fondo">
-                <p class="product-price"><?php echo $array1[3] . " €" ?></p>
-              </div>
               <div class="oferta-fondo">
                 <h3 class="oferta"><?php echo "- " . $array1[4] . "%" ?> </h3>
               </div>
               <div class="texto-fondo">
                 <h2 id="product-title"><?php echo $array1[1] ?></h2>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="precio-fondo2">
+                <p class="product-price"><?php echo $array1[3] . " €" ?></p>
+              </div>
+              <div class="precio-sin-oferta">
+                <p class="product-price-sin-oferta"><?php echo $array1[6] . " €" ?></p>
+              </div>
+              <div class="oferta-fondo2">
+
+
+
+                <?php
+
+                $n = $array1[5];
+                for ($i = 1; $i <= $n; $i++) {
+                  ?>
+                  <img class="estrella" src="img/star-on.png">
+                  <?php
+                }
+
+                for ($n; $n < 5; $n++) {
+                  ?>
+                  <img class="estrella" src="img/star-off.png">
+                  <?php
+                }
+                ?>
+
               </div>
             </div>
           </div>

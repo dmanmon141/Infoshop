@@ -5,7 +5,8 @@
 
 *{
   font-family:'FuentePagina';
-
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -20,7 +21,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 9998;
   width: 100%;;
   background-color: #faf9f9;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -49,6 +50,10 @@ body {
    #myDropdownTienda a{
     font-weight: bold;
     font-size: 18px;
+   }
+   .categoria-item:hover{
+    cursor: pointer;
+    color:#da2822;
    }
 
   .logo a img{
@@ -118,7 +123,8 @@ body {
   .categorias {
     border: none;
     z-index: 9998;
-    width: 100%;
+    min-width: 240px;
+    flex-grow: 1;
   }
 
   #menuButtonShop{
@@ -326,11 +332,28 @@ div[contenedor]{
     color: black;
   }
 
+  .sectionTitle {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+  }
+
+  .sectionTitle a{
+    text-decoration: underline;
+    color: black;
+    font-size: 1.2rem;
+  }
+
   .separator{
     height: 5px;
     margin-left: 3rem;
     margin-right: 3.2rem;
-    background-color: #09d7d7;
+    background-color: #da2822;
     margin-bottom: 1.2rem;
   }
 
@@ -440,13 +463,49 @@ div[contenedor]{
     transition: background-color 0.3s;
     font-size: 12px;
   }
+
+  .category-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top:0;
+    left: -500px;
+    background-color: white;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 8px rgba(0,0,0,0.2);
+    z-index: 9999;
+    transition:left ease-in-out 0.3s;
+    font-size: 12px;
+    min-height: 100vh;
+    gap: 2.5rem;
+    padding-top: 2rem;
+  }
+
+
+
+  .category-sidebar.show {
+    left: 0;
+  }
+
+  .categoria-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1rem;
+    justify-content: left;
+    width: 100%;
+  }
+
+  .categoria-item img {
+   width: 2.5rem; 
+  }
   
 
   .dropdown-content.show{
     display:block;
   }
 
-  .dropdown-content a {
+  .dropdown-content a, .category-sidebar a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -464,9 +523,7 @@ div[contenedor]{
     transition: background-color 0.3s;
   }
   
-  .show {
-    display: block;
-  }
+
   
 
   .product {
@@ -515,19 +572,34 @@ div[contenedor]{
   }
 
   .precio-fondo{
+    color: black;
+  }
+
+  .precio-fondo2{
+    color: #da2822;
+    font-weight: 5000;
+  }
+
+  .precio-fondo, .precio-fondo2, .precio-sin-oferta{
     height: min-content;
     padding: 2px;
     display: flex;
-    color: #09d7d7;
     border-radius: 0.2rem;
     font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  .precio-sin-oferta{
+    color: gray;
+    text-decoration: line-through;
+    font-size: 1rem;
   }
 
   .oferta-fondo, .unidades-fondo {
     top: 0;
     right: 0;
     position: absolute;
-    background-color:brown;
+    background-color:#da2822;
     padding: 2px;
     color: white;
     display: flex;
@@ -594,6 +666,9 @@ div[contenedor]{
   .anuncio1, .anuncio2{
     height: 25rem;
   }
+  .anuncio1:hover, .anuncio2:hover{
+    cursor: pointer;
+  }
 
     #administrador{
       display: flex;
@@ -646,7 +721,8 @@ div[contenedor]{
       }
 
 
-.dropbtn:hover{
+
+.dropbtn:nth-child(2):hover{
     cursor: pointer;
   }
       .perfil-imagen img{
