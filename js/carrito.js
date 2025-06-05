@@ -68,7 +68,7 @@ function addToCart(productName, productImage, productPrice) {
     console.log(li);
 
 
-    footer.classList.toggle("hide");
+    footer.classList.remove("hide");
 
 
     cartItems.appendChild(li);
@@ -107,7 +107,9 @@ function updateTotalPrice() {
       totalPrice += price * count;
     });
     const productCountElement = document.getElementById('productCount');
-    productCountElement.textContent = totalCount;
+    if(productCountElement){
+      productCountElement.textContent = totalCount;
+    }
     // Mostrar el precio total en el elemento correspondiente
     const cartTotal = document.getElementById('cart-total');
     cartTotal.textContent = 'TOTAL ' + totalPrice.toFixed(2) + '€';

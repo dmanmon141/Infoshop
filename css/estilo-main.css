@@ -110,8 +110,6 @@ body {
   
   
   .sesiones li:hover {
-    /* Estilos al hacer hover */
-    transform: scale(1.1);
     background-color: #e5e5e5;
   }
   
@@ -277,7 +275,7 @@ div[contenedor]{
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Ajusta el nivel de opacidad (0.5 representa un 50% de opacidad) */
-  z-index: 9996; /* Asegúrate de que el valor de z-index sea mayor que el de otros elementos en la página */
+  z-index: 9997; 
   display: none;/* Oculta inicialmente el overlay */
 }
 
@@ -666,7 +664,9 @@ div[contenedor]{
   }
 
   #empty-message{
-    font-size: 15px;
+    font-size: 0.8rem;
+    color: gray;
+    margin-top: 1rem;
   }
 
   .anuncios{
