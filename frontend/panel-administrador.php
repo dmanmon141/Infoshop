@@ -250,7 +250,7 @@ $newsletter = mysqli_num_rows($newsletterquery);
                         <div class="acciones">
                             <div class="añadir">
                             <h2>Añadir un producto</h2>
-                            <form class="añadirform" action="añadir-producto" method="POST" enctype="multipart/form-data">
+                            <form class="añadirform" action="backend/añadir-producto.php" method="POST" enctype="multipart/form-data">
                                 <div class="fila">
                                     <div class="columna">
                                     <h4>Imagen del producto:</h4>
@@ -577,13 +577,13 @@ $newsletter = mysqli_num_rows($newsletterquery);
                           <div class="dividir2">
                               <div class="exportar">
                                   <h3>Exportar base de datos en formato PDF</h3>
-                                  <form action="exportar-pdf" method="POST">
+                                  <form action="backend/exportar-pdf.php" method="POST">
                                   <button><img src="img/exportar.png"></button>
                                   </form>
                               </div>
                               <div class="backup">
                                   <h3>Realizar backup manual de base de datos SQL</h3>
-                                  <form action="backup.php" method="POST">
+                                  <form action="backend/backup.php" method="POST">
                                   <button><img src="img/backup.png"></button>
                                   </form>
                               </div>

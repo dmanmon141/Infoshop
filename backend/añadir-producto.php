@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if(isset($_FILES['imagenproducto'])){
   $nombreArchivo = $_FILES["imagenproducto"]["name"];
   $rutaArchivo = $_FILES["imagenproducto"]["tmp_name"];
-  $rutaDestino = "img/productos/" . $nombreArchivo;
+  $rutaDestino = "../img/productos/" . $nombreArchivo;
   }
 }
 

@@ -156,7 +156,7 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
 
             ?>
 
-            </div>      
+          </div>      
     </li>
       <li class="busqueda">
         <!-- Formulario de búsqueda -->

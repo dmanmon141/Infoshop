@@ -29,7 +29,7 @@ use PHPMailer\PHPMailer\Exception;
 
 $to = $correo;
 $token = bin2hex(random_bytes(16));
-$url = "http://www.infoshop.com/restablecer-contraseña?token=" . urlencode($token);
+$url = "localhost/restablecer-contraseña?token=" . urlencode($token);
 $subject = "Recuperación de contraseña Infoshop";
 $message = "
 <html>
@@ -42,7 +42,7 @@ $message = "
     <a href='$url' style='display: inline-block; background-color: purple; color: white; padding: 10px 20px; text-decoration: none;'>Restablecer contraseña</a>
     <p>Si no has solicitado este cambio, puedes simplemente ignorar este correo.</p>
     <div class='contenedor' style='display: flex;background-color: #f1f1f1;width: 600px;'>
-    <img src='https://i.imgur.com/OCGIssY.png' style='width:200px;height:200px; margin-top: 50px;'>
+    <img src='https://i.imgur.com/fnRODbN.png' style='width:260px;height:210px;margin-top:50px'/>
     <div class='texto'><h1 style='margin-left: 54px;color: black'>INFOSHOP S.L.</h1>
     <ul style='list-style-type: none'>
     <li><h2>Dirección: Avda. Virgen del Carmen 58 Portal D Bajo Izqd</h2></li>

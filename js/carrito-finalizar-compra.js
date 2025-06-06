@@ -33,7 +33,7 @@ function enviarFormulario(event) {
         return;
       }
 
-    if(tarjeta.length != 12){
+    if(tarjeta.length != 16){
       mensajeElemento.style.display = "none";
       mensajeElemento.style.display= "block";
       mensajeElemento.innerHTML = "Número de tarjeta incorrecto";
@@ -99,7 +99,7 @@ function enviarFormulario(event) {
           console.log(respuesta);
           if( respuesta === "success") {
             mensajeElemento.style.display = "none";
-            console.log(respuesta); // Puedes hacer algo con la respuesta del servidor aquí
+            console.log(respuesta);
             redireccionar("exitocompra", {});
           }else if( respuesta === "error1"){
             console.log(respuesta);

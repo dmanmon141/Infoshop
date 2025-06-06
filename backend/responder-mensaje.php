@@ -40,7 +40,7 @@ error_log('Verifying credentials...');
 
 if ($resultado) {
   // Autenticación exitosa
-  header("Location: ticket");
+  header("Location: ../ticket");
 } else {
   // Autenticación incorrecta
   header("Content-Type: text/plain");

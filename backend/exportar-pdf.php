@@ -13,7 +13,7 @@ header('Content-Type: text/html; charset=utf-8');
                          
                         define('FPDF_FONTPATH', 'font/');
 
-                          require('fpdf.php');
+                          require('../fpdf.php');
 
                           // Conexión a la base de datos y consulta de datos
                           

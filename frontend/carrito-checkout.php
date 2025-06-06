@@ -289,7 +289,7 @@ foreach ($_GET as $paramName => $paramValue) {
                 </div>
                 
                 <div class="organizar">
-                <input type="text" maxlength="14" minlength="14" id="tarjeta-input"></input>
+                <input type="text" maxlength="16" minlength="16" id="tarjeta-input"></input>
                 <input type="text" maxlength="5" id="caducidad-input"></input>
                 <input type="number" maxlength="3" id="codigoseg-input"></input>
                 </div>

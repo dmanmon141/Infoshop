@@ -132,7 +132,7 @@ $message = "
         <p>Bajo Izqd.</p>
       </div>
       <div class='col-2'>
-        <img src='https://i.imgur.com/OCGIssY.png' />
+        <img src='https://i.imgur.com/fnRODbN.png' style='width:260px;height:210px'/>
       </div>
     </div>
   

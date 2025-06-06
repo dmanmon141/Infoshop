@@ -44,7 +44,7 @@ if($redireccion){
     header("Location: $redireccion");
 }else{
   // Autenticación exitosa
-  header("Location: ticket");
+  header("Location: ../ticket");
 }
 } else {
   // Autenticación incorrecta

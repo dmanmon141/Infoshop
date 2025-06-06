@@ -201,7 +201,7 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
           if($usuadm == 1){
           if($ticketestado == "Abierto"){
           ?>
-          <form class="cerrar-ticket" action="cerrar-ticket" method="POST">
+          <form class="cerrar-ticket" action="backend/cerrar-ticket.php" method="POST">
             <button id="cerrarticket">Cerrar ticket</button>
             <input name="ticketidcerrarticket" style="display: none" value="<?php echo $ticketid ?>">
           </form>
