@@ -106,7 +106,7 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
 
               ?>
 
-            </div>
+    </div>
     <nav class="navbar">
       <div class="logo">
         <a href="index"><img src="img/Logo.png"></a>

@@ -1,0 +1,142 @@
+1 - Linkear estilo-misc.css al archivo php
+2 - Borrar todo lo que sean estilos generales del header o body o footer del archivo css original. Esto incluye:
+
+	- .overlay, .contenedor, body, #maincontent, panel de administrador, .cuenta, .dropbtn
+3 - Añadir el nuevo navbar de index y coger el sidebar de categorias, borrando el anterior.
+
+<nav class="navbar">
+      <div class="logo">
+        <a href="index"><img src="img/Logo.png"></a>
+      </div>
+      <ul class="nav-links">
+        <li class="categorias"><button onclick="mostrarMenuTienda()" class="dropbtn" id="menuButtonShop">
+            <div class="button-content-tienda">
+              <img id="rayas" src="img/rayas.png">
+              <h3>Todas las categorías</h3>
+            </div>
+        </li>
+        <li class="busqueda">
+          <!-- Formulario de búsqueda -->
+          <form method="GET" action="buscar" class="busqueda-formulario" onsubmit="aplicarFiltro()">
+            <input type="text" name="query" class="busqueda-texto" placeholder="Buscar productos">
+            <input type="submit" value="" class="busqueda-boton">
+          </form>
+        </li>
+        <?php
+        if (isset($_SESSION['usucod'])) {
+          if ($usuadm == 1) {
+            ?>
+            <a href="panel-administrador?productos" id="administrador">
+              <li class="panel-adm">
+                <div class="panel-administrador">
+                  <img src="img/panel.png">
+                  <span>Panel de administrador</span>
+                </div>
+              </li>
+            </a>
+            <?php
+          }
+        }
+        ?>
+      </ul>
+      <ul class="sesiones">
+        <?php
+
+        if (isset($_SESSION['usucod'])) {
+          $usuloginsesion = $_SESSION['usunom'];
+          ?>
+          <div class="cuenta">
+            <button onclick="mostrarMenu()" class="dropbtn" id="menuButton">
+              <div class="button-content">
+                <div class="perfil-imagen">
+                  <img class="userlogo" src="<?php echo $usuimg ?>">
+                </div>
+                <h3><?php echo $usuloginsesion ?></h3>
+                <img id="flecha" src="img/flecha.png">
+              </div>
+              <div id="myDropdown" class="dropdown-content menu-contenedor">
+                <a href="perfil">Mi cuenta</a>
+                <a href="historial">Historial de pedidos</a>
+                <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+              </div>
+            </button>
+          </div>
+
+
+          <?php
+        } else {
+          ?>
+          <a href='login'>
+            <li>Iniciar sesión</li>
+          </a>
+          <a href='register'>
+            <li>Registrarse</li>
+          </a>
+          <?php
+        }
+
+
+        ?>
+        <div class="carrito">
+          <div class="cart-menu" onclick="toggleCartSidebar()">
+            <p id="productCount">0</p>
+            <img src="img/carrito.png" alt="Carrito de compras">
+            <span>Mi carrito</span>
+          </div>
+          <div class="cart-sidebar" id="cart-sidebar" style="text-align: left;">
+            <div class="cart-title">
+              <p style="font-size:20px">Mi carrito</p><img src="img/cross.png" alt="Cerrar" class="cart-close"
+                onclick="toggleCartSidebar()">
+            </div>
+            <?php
+            if (isset($_SESSION['usucod'])) {
+
+              ?>
+
+              <ul id="cart-items" class="cart-items"></ul>
+              <p id="empty-message">No hay artículos en tu carrito</p>
+              <div class="cart-sidebar-footer" id="cart-sidebar-footer">
+                <p id="cart-total">TOTAL 0.00€</p>
+                <button id="carritoVaciarBtn" class="carrito-vaciar-btn" onclick="emptyCart()">Vacíar carrito</button>
+                <a id="carritoCheckout" class="carrito-checkout" onclick="checkout()">Ver artículos del carrito</a>
+
+                <?php
+            } else {
+              ?>
+
+                <img id="carrito-error" src="img/carritoerror.png">
+                <p id="login-carrito">Inicia sesión para utilizar el carrito.</p>
+
+                <?php
+            }
+
+            ?>
+            </div>
+
+          </div>
+      </ul>
+    </nav>
+
+
+    <div id="myDropdownTienda" class="category-sidebar">
+
+              <?php
+              $categorias = "SELECT * FROM categorias";
+              $categoriasql = mysqli_query($conexion, $categorias);
+
+              while ($arraycat = mysqli_fetch_row($categoriasql)) {
+
+                ?>
+                <div class="categoria-item">
+                  <img src="img/<?php echo $arraycat[0] ?>.png" class="cross" onclick="cerrarMenuTienda()">
+                  <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
+                </div>
+                <?php
+              }
+
+              ?>
+
+    </div>
+
+
+4 - Terminar de diseñar a gusto.

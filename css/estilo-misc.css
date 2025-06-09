@@ -144,6 +144,7 @@ body {
   background-color: #e5e5e5;
 }
 
+
 .eliminar-btn {
   background: url(../img/cross.png);
   background-size: contain;
@@ -163,7 +164,6 @@ body {
 }
 
 .carrito {
-  margin-left: 20px;
   padding: 10px;
 }
 
