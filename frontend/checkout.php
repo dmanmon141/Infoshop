@@ -349,7 +349,7 @@ $arrayproductos = mysqli_fetch_row($productosql);
                 <p><?php echo $arrayproductos[4] . " €" ?></p>
             </div>
             <div class="organizar2">
-            <input type="checkbox" id="politicas-input"><p>He leído y acepto <a target="_blank" style="color: black" href="/privacidad">la política de privacidad</a></p></input>
+            <input type="checkbox" id="politicas-input"><p>He leído y acepto la <a target="_blank" style="color: black" href="/privacidad">política de privacidad</a></p></input>
             </div>
             <button id ="finalizar-compra" onclick="enviarFormulario(event)">Finalizar la compra</button>
             <div id="mensaje"></div>
