@@ -49,6 +49,7 @@ $usuadm = $datosarray['USUADM'];
 <html>
 <head>
   <title>Infoshop | Las mejoras ofertas en Informática!</title>
+  <link rel="stylesheet" type="text/css" href="../css/estilo-misc.css">
   <link rel="stylesheet" type="text/css" href="../css/estilo-privacidad.css">
   <link rel="stylesheet" type="text/css" href="js/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css">
@@ -193,7 +194,7 @@ $usuadm = $datosarray['USUADM'];
 
 <h1>Política de Privacidad</h1>
 
-<h2 id="primero">Última actualización: 15 de Mayo de 2023</h2>
+<h2 id="primero">Última actualización: 9 de Junio de 2023</h2>
 
 <p>En Infoshop, estamos comprometidos con la protección de tu privacidad. Esta Política de Privacidad describe cómo recopilamos, utilizamos, divulgamos y protegemos la información personal que obtenemos de los usuarios de nuestro sitio web y clientes. Al utilizar nuestros servicios, aceptas los términos y prácticas descritos en esta Política de Privacidad.</p>
 

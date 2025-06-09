@@ -29,6 +29,12 @@ $(document).ready(function() {
     nextArrow: '<button type="button" class="slick-next custom-arrow"><i class="fa-solid fa-chevron-right"></i></button>',
     responsive: [
       {
+        breakpoint: 1670,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
         breakpoint: 1368,
         settings: {
           slidesToShow: 2,
