@@ -17,10 +17,159 @@
       .datosusuario{
         border-top: 2px solid black;
         padding-top: 15px;
-        width: 80%;
+        gap: 1rem;
+        width: 90%;
         display: flex;
         justify-content: space-evenly;
+        flex-direction: column;
+        align-items: left;
+      }
+
+      .datostickets{
+        margin-top: 2rem;
+        padding-top: 15px;
+        gap: 1rem;
+        width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: left;
+      }
+
+      .customercare{
+        display: flex;
         align-items: center;
+        border: 1px solid lightgray;
+        border-radius: 0.4rem;
+        gap: 2rem;
+      }
+
+      #ticketid{
+        font-weight: bold;
+    }
+
+    .botonesticket{
+        display: flex;
+        align-items: center;
+    }
+
+    .verticket{
+      margin-left: auto;
+    }
+
+
+    .botonesticket a:hover{
+        background-color: #ba221d;
+    }
+
+    .botonesticket button:hover{
+        background-color: #ba221d;
+        cursor: pointer;
+    }
+
+    .botonesticket button:first-child{
+      margin-right: 50px;
+    }
+
+    .historial h2{
+      margin-bottom: 1rem;
+    }
+
+    .ticket{
+        background-color: white;
+        border: 1px solid lightgray;
+        padding: 20px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        min-width: 1000px;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        gap:1rem;
+    }
+    .credenciales{
+        display: flex;
+        border-bottom: 2px solid lightgray;
+        padding-bottom: 5px;
+        align-items: center;
+        font-weight: bold;
+        justify-content: space-between;
+    }
+
+    .botonesticket button{
+     
+        color: white;
+        background-color: #da2822;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: none;
+        font-weight: bold;
+    }
+
+    .botonesticket p{
+        margin-right: 10px;
+    }
+
+      .customercare p{
+        font-size: 1.5rem;
+      }
+
+      .customercare a{
+        color: #da2822;
+      }
+
+      .picture{
+        width: 8rem;
+        height: 8rem;
+        border-radius: 5rem;
+        background-color: rgba(218,40,34, 0.5);
+   
+      }
+
+      #historialBtn{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background-color: #da2822;
+        width: fit-content;
+        padding: 0.5rem;
+        color: white;
+        text-decoration: none;
+        border-radius: 0.4rem;
+        transition: transform 0.2s ease;
+        margin-left: auto;
+      }
+
+      #historialBtn:hover{
+        transform: scale(1.05);
+        
+        cursor: pointer;
+      }
+
+      #historialBtn img{
+        width: 2rem;
+        height: 2rem;
+      }
+
+      #contenidoreseña{
+        text-align: left;
+      }
+
+      .fila, .filagap{
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .filagap{
+        gap: 2rem;
+      }
+
+      .datosusuario h2{
+        text-align: left;
       }
 
       .bloque1{
@@ -32,8 +181,26 @@
         background-color:  white;
         box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.1);
         width: 270px;
-        min-height: 83vh;
+        height: 100vh;
         align-items: center;
+        position: fixed;
+        left: 0;
+        z-index: 9997;
+      }
+
+      .estadisticas h2{
+        width: 20rem;
+        text-align: center;
+      }
+
+      .estadisticas p{
+        color: #da2822;
+      }
+
+      .columna{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
       }
 
       .bloque1 div{
@@ -45,12 +212,20 @@
 
       .bloque1 .secciondatos{
         color: #da2822;
-        border-right: 1px solid #da2822;
+        border-right: 4px solid #da2822;
       }
 
       .bloque1 div:hover{
         cursor: pointer;
         color: #da2822;
+      }
+
+      .secciondatos a{
+        color: #da2822;
+      }
+
+      .secciondatos{
+        width: 15rem;
       }
 
       
@@ -143,15 +318,16 @@
 
       .input input{
         margin-right: 12px;
+        padding: 0.2rem;
       }
 
       .disabled{
         pointer-events: none;
       }
 
-      .input input:focus{
-        outline: none;
-        border: none;
+      .icon{
+        height: 2rem;
+        width: 2rem;
       }
 
       .input{
@@ -331,6 +507,8 @@
       .dividir{
         display: flex;
         padding-top: 6rem;
+        padding-bottom: 4rem;
+        justify-content: center;
       }
   
   div[contenedor]{
@@ -347,16 +525,10 @@
     
 
   
-  
-    footer {
-      background-color: #333;
-      font-weight: bold;
-      color: #fff;
-      padding: 0px 0;
+    .separar{
       width: 100%;
-      position: absolute;
-      bottom: 0;
-      border-top: 1px solid black;
+      display: flex;
+      justify-content: space-between;
     }
 
     .estadisticas a{
@@ -372,130 +544,12 @@
     .estadisticas a:hover{
       background-color: #cec8c4;
     }
-    
-    .contenedor-footer {
-      margin: 0 auto;
-      display: flex;
-      flex:1 0 auto;
-      justify-content: space-around;
-      align-items: center;
-    }
+
     
     .politica {
       text-decoration: none;
       color: white;
     }
-  
-    .logo-footer{
-      display: flex;
-      align-items: center;
-    }
 
-    .dropbtn:hover{
-    background-color: #494949;
-    cursor: pointer;
-  }
-  
-    .busqueda-texto{
-        padding: 20px;
-        padding-right: 20px;
-        width: 600px;
-  
-        border: 1px solid lightgray;
-    }
-  
-    .busqueda-formulario {
-        display:flex;
-        align-items: center;
-    }
-  
-    .busqueda-boton {
-        background: url('../img/lupa.png') no-repeat center center;
-        background-size: cover;
-        border: none;
-        width: 20px;
-        height: 20px;
-        position: relative;
-        right: 30px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-  
-    #cart-sidebar p{
-      font-weight: bold;
-    }
-  
-    .cart-sidebar img{
-      height: 30px;
-      margin-right: 8px;
-    }
-  
-    .cart-sidebar h3 {
-      font-size: 15px;
-      margin-right: 30px;
-    }
-  
-    .product img{
-      height: 300px;
-    }
-    
-    .product p{
-      margin-top: 0px;
-      font-weight: bold;
-    }
-  
-    .product-details {
-      display: flex;
-      font-size: 15px;
-    }
-  
-    .busqueda-boton:hover {
-        transform: scale(1.2);
-    }
-   
-  
-    .busqueda:focus{
-        outline: none;
-        border: 1px solid black;
-    }
-  
-    .logo-footer img{
-      width: 50px;
-      height: 50px;
-      margin-right: 10px;
-    }
-  
-    .logo img {
-      width: 50px;
-      height: 50px;
-      margin-right: 10px;
-    }
-    
-    .redes-sociales a img{
-      display:inline-block;
-      transition: transform 0.6s ease;
-      padding-top: 10px;
-    }
-  
-    .redes-sociales a img:hover{
-      transform: rotate(360deg);
-    }
-  
-    .redes-sociales img {
-      height: 30px;
-      width: 30px;
-      margin: 10px;
-    }
-    
-  
-    .derechos {
-      display: flex;
-      align-items: center;
-    }
-  
-    .derechos p {
-      margin: 0;
-      margin-left: auto;
-      margin-right: 150px;  
-    }
+
   

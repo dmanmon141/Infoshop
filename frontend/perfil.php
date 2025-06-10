@@ -46,6 +46,9 @@ $usuadm = $datosarray['USUADM'];
 $pedidosql = "SELECT * FROM pedidos WHERE USUCOD = '$usucod';";
 $pedidoquery = mysqli_query($conexion, $pedidosql);
 
+$ticketsql = "SELECT * FROM tickets WHERE USUCOD = '$usucod' ORDER BY TICKFEC DESC LIMIT 1;";
+$ticketquery = mysqli_query($conexion, $ticketsql);
+
 $pedidos = mysqli_num_rows($pedidoquery);
 
 $reseñasql = "SELECT * FROM reseñas WHERE USUCOD = '$usucod';";
@@ -264,24 +267,62 @@ $newsletter = mysqli_num_rows($newsletterquery);
             </div>
           </div>
           <div class="datosusuario">
+            <div class="fila">
+              <img src="img/pdata.png" class="icon">
+              <h2>Datos personales</h2>
+            </div>
             <div class="personales">
               <form id="datospersonales">
-                <h5>Nombre</h5>
-                <div class="input"><input type="text" id="nombre" class="disabled" name="nombre"
-                    value="<?php echo $usunom ?>" readonly><img onclick="permitirEditar('nombre')" class="editar"
-                    src="img/editar.png"></div>
-                <h5>Apellidos</h5>
-                <div class="input"><input type="text" id="apellidos" class="disabled" name="apellidos"
-                    value="<?php echo $usuape ?>" readonly><img onclick="permitirEditar('apellidos')" class="editar"
-                    src="img/editar.png"></div>
-                <h5>Dirección de correo electrónico</h5>
-                <div class="input"><input type="text" id="correo" class="disabled" name="correo"
-                    value="<?php echo $usucor ?>" readonly><img onclick="permitirEditar('correo')" class="editar"
-                    src="img/editar.png"></div>
-                <h5>Contraseña</h5>
-                <div class="input" style="margin-bottom: 20px"><input type="text" id="contraseña" class="disabled"
-                    name="contraseña" value="*******************" readonly><img onclick="permitirEditar('contraseña')"
-                    class="editar" src="img/editar.png"></div>
+                <div class="separar">
+                  <div class="filagap">
+                    <div class="columna">
+                      <h5>Nombre</h5>
+                      <div class="input"><input type="text" id="nombre" class="disabled" name="nombre"
+                          value="<?php echo $usunom ?>" readonly><img onclick="permitirEditar('nombre')" class="editar"
+                          src="img/editar.png"></div>
+                    </div>
+                    <div class="columna">
+                      <h5>Apellidos</h5>
+                      <div class="input"><input type="text" id="apellidos" class="disabled" name="apellidos"
+                          value="<?php echo $usuape ?>" readonly><img onclick="permitirEditar('apellidos')"
+                          class="editar" src="img/editar.png"></div>
+                    </div>
+
+                  </div>
+                  <div class="filagap">
+                    <div class="estadisticas">
+                      <h2>Productos comprados:</h2>
+                      <p><?php echo $pedidos ?></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="separar">
+                  <div class="filagap">
+                    <div class="columna">
+                      <h5>Dirección de correo electrónico</h5>
+                      <div class="input"><input type="text" id="correo" class="disabled" name="correo"
+                          value="<?php echo $usucor ?>" readonly><img onclick="permitirEditar('correo')" class="editar"
+                          src="img/editar.png"></div>
+                    </div>
+                    <div class="columna">
+                      <h5>Contraseña</h5>
+                      <div class="input" style="margin-bottom: 20px"><input type="text" id="contraseña" class="disabled"
+                          name="contraseña" value="*******************" readonly><img
+                          onclick="permitirEditar('contraseña')" class="editar" src="img/editar.png"></div>
+                    </div>
+                  </div>
+                  <div class="filagap">
+                    <div class="estadisticas">
+                      <h2>Reseñas:</h2>
+                      <p><?php echo $reseñas ?></p>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
                 <?php
 
                 if ($newsletter > 0) {
@@ -305,15 +346,74 @@ $newsletter = mysqli_num_rows($newsletterquery);
                 <div id="mensaje"></div>
               </form>
             </div>
-            <div class="estadisticas">
-              <h2>Productos comprados:</h2>
-              <p><?php echo $pedidos ?></p>
-              <br>
-              <h2>Reseñas:</h2>
-              <p><?php echo $reseñas ?></p>
-              <a href="enviar-ticket">Nuevo ticket</a>
-              <a href="perfil-tickets">Ver mis tickets</a>
+
+          </div>
+          <div class="datostickets">
+            <div class="fila">
+              <img src="img/support.png" class="icon">
+              <h2>Soporte al cliente</h2>
+              <a href="perfil-tickets" id="historialBtn"><img src="img/history-icon.png">Historial de tickets</a>
             </div>
+            <div class="customercare">
+                <img src="img/customercare.png" class="picture">
+                <p>¡Hola! ¿Tienes algún problema? Estamos aquí para ayudarte. <a href="enviar-ticket">Hablar con un técnico</a></p>
+            </div>
+            <div class="historial">
+                <h2>Ticket más reciente</h2>
+                 <?php
+                    if(mysqli_num_rows($ticketquery) == 0){
+                    ?>
+                    <p>No ha creado ningún ticket aún.</p>
+
+                    <?php
+                    
+                    }else{
+                    $ticketarray = mysqli_fetch_assoc($ticketquery);
+                    $ticketid = $ticketarray['TICKID'];
+                    $ticketcontenido = $ticketarray['TICKCONT'];
+                    $ticketestado = $ticketarray['TICKEST'];
+                    $ticketfecha = $ticketarray['TICKFEC'];
+                    ?>
+                    <div class="ticket">
+                    <div class="credenciales">
+                            <input type="text" id="ticketid" value="<?php echo $ticketid ?>" style="display: none">
+                            <p id="ticketid">Ticket con ID <?php echo $ticketid ?> </p>
+                            <p id="fecha"> <?php echo $ticketfecha ?> </p>
+                        </div>
+                        <p id="contenidoreseña"> <?php echo '"' . $ticketcontenido . '"' ?> </p>
+                        <div class="botonesticket">
+                            <p>Estado: <?php if($ticketestado == "Abierto"){
+                                ?>
+                                <p style="color:#00FF00"><?php echo $ticketestado ?></p>
+                                <?php
+                            }else{
+                                ?>
+                                <p style="color: red"><?php echo $ticketestado ?></p>
+                                <?php
+                                } 
+                                ?>
+                            </p>
+                            <form class="verticket" action="ticket" method="POST">
+                            <button name="ticketidboton" value="<?php echo $ticketid ?>">Ver ticket</button>
+                            </form>
+                            <?php
+                            if($ticketestado == "Abierto"){
+                            ?>
+                            <button onclick="mostrarPopup('popup1')">Eliminar</button>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <?php
+                   
+                }
+                    ?>
+            </div>
+            
+              
+
+
           </div>
         </div>
       </div>

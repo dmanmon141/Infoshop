@@ -72,6 +72,7 @@
         border-radius: 0.8rem;
         height: fit-content;
         width: fit-content;
+        min-width: 22rem;
       }
       .product-title {
         word-break: break-word;
@@ -358,7 +359,31 @@
         color: rgb(42, 42, 42);
       }
 
-      
+      .picture{
+        width: 4rem;
+        height: 4rem;
+        border-radius: 5rem;
+        background-color: rgba(218,40,34, 0.5);
+   
+      }
+
+.customercare{
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        border: 1px solid lightgray;
+        border-radius: 0.4rem;
+        gap: 2rem;
+        padding: 0.4rem;
+      }
+
+.customercare p{
+        font-size: 1rem;
+      }
+
+      .customercare a{
+        color: #da2822;
+      }
 
       .reseña a:hover{
         background-color: #c02520;
@@ -389,6 +414,7 @@
       .bloque1{
         display: flex;
         justify-content: space-around;
+        align-items: center;
       }
 
       .bloque2{
