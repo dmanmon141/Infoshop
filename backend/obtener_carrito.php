@@ -10,6 +10,6 @@ if (isset($_SESSION['cartContent'])) {
   echo $cartContent;
 } else {
   // Responder con un mensaje de error si el carrito no está almacenado en la sesión
-  echo '<p>No hay artículos en tu carrito</p>';
+  echo '';
 }
 ?>

@@ -90,7 +90,7 @@ $newsletter = mysqli_num_rows($newsletterquery);
 
   <div id="overlay"></div>
 
-  <div contenedor>
+  <div class="contenedor">
     <div id="myDropdownTienda" class="category-sidebar">
 
       <?php

@@ -137,7 +137,7 @@ $sqlproductosfinal = mysqli_query($conexion, $sqlproductos);
 
   <div id="overlay"></div>
 
-  <div contenedor>
+  <div class="contenedor">
     <div id="myDropdownTienda" class="category-sidebar">
 
       <?php
@@ -384,10 +384,7 @@ $sqlproductosfinal = mysqli_query($conexion, $sqlproductos);
       </div>
 
     </div>
-  </div>
-  <!--Footer -->
-
-  <footer>
+    <footer>
     <div class="contenedor-footer">
       <div class="logo-footer">
         <img src="img/Logo.png" alt="Logo">
@@ -406,6 +403,10 @@ $sqlproductosfinal = mysqli_query($conexion, $sqlproductos);
       </div>
     </div>
   </footer>
+  </div>
+  <!--Footer -->
+
+  
 
 
 

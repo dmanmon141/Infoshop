@@ -83,7 +83,7 @@ $reseñas = mysqli_num_rows($reseñaquery);
 
   <div id="overlay"></div>
 
-  <div contenedor>
+  <div class="contenedor">
     <div id="myDropdownTienda" class="category-sidebar">
 
       <?php
@@ -283,9 +283,9 @@ $reseñas = mysqli_num_rows($reseñaquery);
 
                 ?>
                 <div class="columna">
-                    <img src="img/tarjeta.png" class="tarjetaimg">
-                    <h4><?php echo "Tarjeta " . $tarjeta ?></h4>
-                    </div>
+                  <img src="img/tarjeta.png" class="tarjetaimg">
+                  <h4><?php echo "Tarjeta " . $tarjeta ?></h4>
+                </div>
                 <div class="datocontainer">
                   <div class="dato">
                     <form class="pago">
@@ -358,15 +358,15 @@ $reseñas = mysqli_num_rows($reseñaquery);
                       <button id="aplicarcambios<?php echo $i ?>" class="botonfinal"
                         onclick="cambiarDatos(<?php echo $i ?>)" style="display: none">Aplicar cambios</button>
                     </form>
-                  
+
                   </div>
                   <div class="fila">
-                        <button id="editar<?php echo $i ?>" onclick="permitirEditar(<?php echo $i ?>)"
-                          class="botonfinal">Editar</button>
-                        <button id="eliminar<?php echo $i ?>" onclick="mostrarPopup(<?php echo $i ?>)"
-                          class="botonfinal">Eliminar</button>
+                    <button id="editar<?php echo $i ?>" onclick="permitirEditar(<?php echo $i ?>)"
+                      class="botonfinal">Editar</button>
+                    <button id="eliminar<?php echo $i ?>" onclick="mostrarPopup(<?php echo $i ?>)"
+                      class="botonfinal">Eliminar</button>
                   </div>
-                      <div id="mensaje"></div>
+                  <div id="mensaje"></div>
                 </div>
               </div>
               <?php
@@ -383,29 +383,28 @@ $reseñas = mysqli_num_rows($reseñaquery);
         </div>
       </div>
     </div>
-
+    <footer>
+      <div class="contenedor-footer">
+        <div class="logo-footer">
+          <img src="img/Logo.png" alt="Logo">
+          <h3>Infoshop</h3>
+        </div>
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
+          <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
+          <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
+          <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
+        </div>
+        <div class="derechos">
+          <p> Infoshop &copy; 2023</p>
+          <p><a href="contacto" class="politica">Contacto</a></p>
+          <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
+        </div>
+      </div>
+    </footer>
   </div>
-  <!--Footer -->
 
-  <footer>
-    <div class="contenedor-footer">
-      <div class="logo-footer">
-        <img src="img/Logo.png" alt="Logo">
-        <h3>Infoshop</h3>
-      </div>
-      <div class="redes-sociales">
-        <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
-        <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
-        <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
-        <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
-      </div>
-      <div class="derechos">
-        <p> Infoshop &copy; 2023</p>
-        <p><a href="contacto" class="politica">Contacto</a></p>
-        <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
-      </div>
-    </div>
-  </footer>
+
 
 
 

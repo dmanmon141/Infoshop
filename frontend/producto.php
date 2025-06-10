@@ -292,7 +292,7 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
           <img src="<?php echo $imagen ?>" alt="Producto" class="product-image">
           <h3 id="primeroh3">Descripción</h3>
           <p id="descripcion"><?php echo $descripcion ?></p>
-          
+
           <h3>Reseñas</h3>
           <?php
 
@@ -548,11 +548,11 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
                 onclick="addToCart('<?php echo $titulo ?>', '<?php echo $imagen ?>', '<?php echo $precio . '€' ?>')">Añadir
                 al carrito</button>
             </div>
-              <div class="bloque1">
-                Etiquetas:
-                <a href="buscar?categorias=<?php echo $categoriacod ?>"><?php echo $categoria ?></a>
-                <a href="buscar?marcas=<?php echo $marcacod ?>" id="margen"><?php echo $marca ?></a>
-              </div>
+            <div class="bloque1">
+              Etiquetas:
+              <a href="buscar?categorias=<?php echo $categoriacod ?>"><?php echo $categoria ?></a>
+              <a href="buscar?marcas=<?php echo $marcacod ?>" id="margen"><?php echo $marca ?></a>
+            </div>
           </div>
           <div class="customercare">
             <img src="img/customercare.png" class="picture">
@@ -569,6 +569,7 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
 
 
     </div>
+
 
 
 
@@ -591,7 +592,6 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
         </div>
       </div>
     </footer>
-
   </div>
 
 </body>

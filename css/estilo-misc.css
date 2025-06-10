@@ -9,12 +9,26 @@
   padding: 0;
 }
 
+html{
+  height: 100%;
+}
+
 body {
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: #faf9f9;
   background-size: cover;
+}
+
+.contenedor{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dividir {
+  flex: 1;
 }
 
 .navbar {
@@ -546,9 +560,6 @@ footer {
   padding: 0px 0;
   width: 100%;
   font-weight: bold;
-  position: relative;
-  bottom: 0;
-  left: 0;
   border-top: 1px solid black;
 }
 

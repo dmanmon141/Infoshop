@@ -82,7 +82,7 @@ $fechaactual = date("Y-m-d");
 
   <div id="overlay"></div>
 
-  <div contenedor>
+  <div class="contenedor">
     <div id="myDropdownTienda" class="category-sidebar">
 
               <?php

@@ -150,25 +150,34 @@ function loadCartFromSession() {
       const footer = document.getElementById("cart-sidebar-footer");
       if (response.trim() === '') {
         if (emptyMessage) emptyMessage.style.display = 'block';
-        if (footer) footer.classList.toggle("hide");
+        if (footer) footer.classList.add("hide");
         cartItems.innerHTML = '';
       } else {
-        if (emptyMessage) emptyMessage.style.display = 'none'
-        cartItems.innerHTML = response
-        productCounts.clear(); // Limpia el Map en caso de que haya datos anteriores
+        
+        cartItems.innerHTML = response;
+
+        const hasProducts = cartItems.querySelectorAll('li').length > 0;
+
+        if(hasProducts){
+          if(emptyMessage) emptyMessage.style.display = 'none';
+          if(footer) footer.classList.remove("hide");
+        }else{
+          if(emptyMessage) emptyMessage.style.display = 'block';
+          if (footer) footer.classList.add("hide");
+        }
+
+        productCounts.clear(); 
 
         cartItems.querySelectorAll('li').forEach(item => {
           const productName = item.dataset.product;
           const countElement = item.querySelector('.product-count');
           if (countElement) {
-            const count = parseInt(countElement.textContent.slice(1)); // quita la 'x'
+            const count = parseInt(countElement.textContent.slice(1)); 
             productCounts.set(productName, count); // Actualiza el Map
           }
         });
 
-        console.log(response);
-
-        if (footer) footer.classList.remove("hide");
+  
 
 
 
@@ -223,7 +232,7 @@ function emptyCart() {
 
 
   const footer = document.getElementById("cart-sidebar-footer");
-  footer.classList.toggle("hide");
+  footer.classList.add("hide");
 
   updateTotalPrice();
   saveCartToSession();
@@ -234,8 +243,10 @@ function toggleCartSidebar() {
   const cartSidebar = document.getElementById('cart-sidebar');
   if (overlay.style.display === "block") {
     overlay.style.display = "none";
+    document.body.style.overflow = ""
   } else {
     overlay.style.display = "block";
+    document.body.style.overflow ="hidden"
   }
   cartSidebar.classList.toggle('show');
 
@@ -244,6 +255,7 @@ function toggleCartSidebar() {
 function openCartSidebar(event) {
   const cartSidebar = document.getElementById('cart-sidebar');
   overlay.style.display = "block";
+  document.body.style.overflow = "hidden"
   if (!cartSidebar.classList.contains("show")) {
     cartSidebar.classList.toggle("show");
   }
@@ -252,6 +264,7 @@ function openCartSidebar(event) {
 
 function closeCartSidebar(event) {
   overlay.style.display = "none";
+  document.body.style.overflow = ""
   const cartSidebar = document.getElementById('cart-sidebar');
   if (!event.target.closest('.cart-sidebar')) {
     cartSidebar.classList.remove('show');
