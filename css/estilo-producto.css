@@ -476,15 +476,16 @@
     .star img[src="img/star-off.png"] {
       background-image: url('../img/star-off.png');
     }
-    
+
 
 
     #ratings input{
       margin-left: auto;
       border: none;
-      background-color:#3498db;
+      background-color:#da2822;
       color: white;
       border-radius:5px;
+      padding: 0.5rem;
     }
 
     #loginreminder{
@@ -493,7 +494,7 @@
     }
 
     #ratings input:hover{
-      background-color:#236c9c;
+      background-color:#b0211c;
       cursor: pointer;
     }
 

@@ -564,6 +564,17 @@ footer {
 
 }
 
+.filagap{
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.icon{
+  width: 4rem;
+  height: 4rem;
+}
+
 
 
 .dropbtn:nth-child(2):hover {
