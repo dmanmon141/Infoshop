@@ -43,7 +43,7 @@ $resultado = mysqli_query($conexion, $sql);
 
 
 
-<div contenedor>
+<div class="contenedor">
 <div class="logo">
     <a href="index"><img src="img/Logo.png" alt="Logo"></a>
 </div>
@@ -137,7 +137,7 @@ if(isset($_SESSION['usucod'])){
       <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
     </div>
   <div class="derechos">
-    <p> Infoshop &copy; 2023</p>
+    <p> Infoshop &copy; 2025</p>
     <p><a href="contacto" class="politica">Contacto</a></p>
     <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
   </div>
