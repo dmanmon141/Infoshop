@@ -42,6 +42,7 @@
         border: 1px solid lightgray;
         border-radius: 0.4rem;
         gap: 2rem;
+        padding: 0.5rem;
       }
 
       #ticketid{
@@ -122,8 +123,8 @@
       }
 
       .picture{
-        width: 8rem;
-        height: 8rem;
+        width: 6rem;
+        height: 6rem;
         border-radius: 5rem;
         background-color: rgba(218,40,34, 0.5);
    
