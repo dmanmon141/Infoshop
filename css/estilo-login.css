@@ -80,7 +80,7 @@
   }
 
   .login:hover {
-    background-color: lightgray;
+    background-color: #c4241e;
   }
 
   h3 {
@@ -105,7 +105,7 @@
 
 
   #btn-login:hover {
-    background-color: lightgray;
+    background-color: #a81f1a;
     cursor: pointer;
   }
   
@@ -133,9 +133,7 @@
     font-weight: bold;
   }
 
-  #btn-login:hover{
-    background-color: #a81f1a;
-  }
+
 
   .olvidar:hover {
     color: #da2822;
