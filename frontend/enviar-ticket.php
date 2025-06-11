@@ -208,7 +208,7 @@ $productosresultado = mysqli_query($conexion, $productos);
   <div class="contenedor-footer">
     <div class="logo-footer">
       <img src="img/Logo.png" alt="Logo">
-      <h3>Infoshop</h3>
+      
     </div>
     <div class="redes-sociales">
       <a href="#" class="icono-social"><img src ="img/fblogo.png" alt="Facebook"></i></a>

@@ -4,6 +4,7 @@ function mostrarMenuTienda() {
     var overlay = document.getElementById("overlay");
   
     overlay.style.display = "block";
+    document.body.style.overflow = "hidden";
 
     dropdown.classList.toggle("show");
     rayas.src = "img/rayas.png";
@@ -27,6 +28,7 @@ function mostrarMenuTienda() {
       if (dropdown.classList.contains('show') && !event.target.closest('.dropbtn')) {
         dropdown.classList.remove('show');
         overlay.style.display = "none";
+        document.body.style.overflow = "";
         rayas.src = "img/rayas.png";
       }
     });

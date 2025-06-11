@@ -269,7 +269,7 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
                         <div class="botonesticket">
                             <p>Estado: <?php if($ticketestado == "Abierto"){
                                 ?>
-                                <p style="color:lightgreen"><?php echo $ticketestado ?></p>
+                                <p style="color:#00FF00"><?php echo $ticketestado ?></p>
                                 <?php
                             }else{
                                 ?>
@@ -305,7 +305,7 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
   <div class="contenedor-footer">
     <div class="logo-footer">
       <img src="img/Logo.png" alt="Logo">
-      <h3>Infoshop</h3>
+      
     </div>
     <div class="redes-sociales">
       <a href="#" class="icono-social"><img src ="img/fblogo.png" alt="Facebook"></i></a>

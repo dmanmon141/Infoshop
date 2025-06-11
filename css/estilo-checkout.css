@@ -128,7 +128,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100vh;
+        flex: 1;
     }
 
     #datosclick{
@@ -308,16 +308,7 @@
       grid-area: empty5;
     }
 
-    footer {
-      background-color: #333;
-      font-weight: bold;
-      color: #fff;
-      padding: 0px 0;
-      width: 100%;
-      position: absolute;
-      bottom:0;
-      border-top: 1px solid black;
-    }
+    
 
     .pago{
       font-size: 10px;

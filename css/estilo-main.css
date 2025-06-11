@@ -751,6 +751,10 @@ footer {
    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
+.politica:hover{
+  color: #da2822;
+}
+
 .perfil-imagen {
   width: 42px;
   height: 42px;

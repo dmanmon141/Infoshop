@@ -555,11 +555,14 @@ div[contenedor] {
 
 footer {
   font-weight: bold;
-  color: #fff;
+  color: black;
   padding: 0px 0;
   width: 100%;
   font-weight: bold;
+  padding-top: 0.6rem;
   border-top: 1px solid black;
+   border-top: 1px solid lightgray;
+   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .perfil-imagen {
@@ -604,7 +607,11 @@ footer {
 
 .politica {
   text-decoration: none;
-  color: white;
+  color: black;
+}
+
+.politica:hover{
+  color: #da2822;
 }
 
 .logo-footer {

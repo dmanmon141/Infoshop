@@ -396,7 +396,7 @@ if($productfound != count($productos)){
           $subtotal = $precio * $cantidad; // Calcular el subtotal (precio x cantidad)
           $total += $subtotal;
           ?>
-          <div class="organizar" id="producto">
+          <div class="organizar producto">
             <div id="product-image"><img src="<?php echo $img ?>"> </div>
             <div id="product-name"><a id="producto-alink"
                 href="producto?id=<?php echo $prodcod ?>"><?php echo $producto['name'] ?></a> </div>
@@ -433,7 +433,7 @@ if($productfound != count($productos)){
       <div class="contenedor-footer">
         <div class="logo-footer">
           <img src="img/Logo.png" alt="Logo">
-          <h3>Infoshop</h3>
+          
         </div>
         <div class="redes-sociales">
           <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
