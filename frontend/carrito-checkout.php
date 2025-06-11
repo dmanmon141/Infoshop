@@ -44,6 +44,9 @@ if (isset($_SESSION['usucod'])) {
   $usucont = $datosarray['USUCONT'];
   $usuimg = $datosarray['USUIMG'];
   $usuadm = $datosarray['USUADM'];
+}else{
+  header("Location: ../index");
+  exit();
 }
 
 $productos = array();
@@ -63,6 +66,11 @@ foreach ($_GET as $paramName => $paramValue) {
 
     $productos[] = $producto;
   }
+}
+
+if(count($productos) == 0){
+  header("Location: ../index");
+  exit();
 }
 
 $productfound = 0;
