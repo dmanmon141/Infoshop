@@ -85,6 +85,11 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
   <script src="js/carrito.js"></script>
   <script src="js/redireccionar-producto.js"></script>
   <script src="js/carrito-checkout.js"></script>
+  <script src="js/mensajeria.js"></script>
+  <script>
+  const usuarioActual = <?php echo json_encode($_SESSION['usucod']); ?>;
+</script>
+  
 
   <div id="overlay"></div>
 
@@ -243,7 +248,7 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
             <?php
         } else {
           ?>
-            <h2 id="segundo" style="color: red"><?php echo $ticketestado ?></h2>
+            <h2 id="segundo" style="color: black"><?php echo $ticketestado ?></h2>
             <?php
         }
         ?>
@@ -292,9 +297,9 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
         if ($totalMensajes === 0 && $esAdmin) {
 
           ?>
-          <form class="respondermensaje usuario" action="backend/responder-mensaje.php" method="POST">
+          <form class="respondermensaje usuario">
             <textarea id="respuesta-contenido" name="respuesta-contenido"></textarea>
-            <input name="ticketidmensaje" value="<?php echo $ticketid ?>" style="display: none">
+            <input name="ticketidmensaje" value="<?php echo $ticketid ?>" style="display: none" id="ticketidmensaje">
             <button id="buttonreply" type="submit">Responder</button>
           </form>
           <?php
@@ -365,10 +370,10 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
 
           } else {
               ?>
-              <form class="respondermensaje <?php echo $ultimoMensaje ?>" action="backend/responder-mensaje.php"
-                method="POST">
+              </div>
+              <form class="respondermensaje <?php echo $ultimoMensaje ?>">
                 <textarea id="respuesta-contenido" name="respuesta-contenido"></textarea>
-                <input name="ticketidmensaje" value="<?php echo $ticketid ?>" style="display: none">
+                <input name="ticketidmensaje" value="<?php echo $ticketid ?>" style="display: none" id="ticketidmensaje">
                 <button id="buttonreply" type="submit"><img src="img/send.png" class="icon"></button>
               </form>
               <?php
@@ -381,7 +386,7 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
 
 
 
-      </div>
+      
 
     </div>
 

@@ -109,8 +109,10 @@
     .respondermensaje{
     display: flex;
     gap: 0.5rem;
-    width: 100%;
+    width: 85%;
     align-items: center;
+    margin:auto;
+    margin-bottom: 1.5rem;
     }
 
     .respondermensaje button{
@@ -196,7 +198,7 @@
         text-align: left;
         margin: 0 auto;
         height: fit-content;
-
+        width: 80%;
         border-radius: 25px;
         padding: 2rem;
         padding-top: 2rem;
