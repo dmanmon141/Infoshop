@@ -9,6 +9,11 @@ mysqli_select_db($conexion, "infoshop");
 
 session_start();
 
+if(!isset($_GET['id'])){
+  header("Location: ../index");
+  exit();
+}
+
 $id = $_GET['id'];
 
 
@@ -44,6 +49,10 @@ if (isset($_POST['correo'])) {
 
 $producto = "SELECT * FROM productos WHERE PRODCOD = '$id'";
 $productoresultado = mysqli_query($conexion, $producto);
+if(mysqli_num_rows($productoresultado) == 0){
+  header("Location: ../index");
+  exit();
+}
 $array = mysqli_fetch_row($productoresultado);
 
 $proveedor = "SELECT * FROM proveedores WHERE PROCOD = '$array[11]';";

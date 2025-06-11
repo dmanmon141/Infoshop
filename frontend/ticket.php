@@ -39,8 +39,14 @@ if (isset($_POST['ticketidboton'])) {
   $ticketid = $_SESSION['ticketid'];
 }
 
+
+
 $ticketsql = "SELECT * FROM tickets WHERE TICKID = '$ticketid';";
 $ticketquery = mysqli_query($conexion, $ticketsql);
+if(mysqli_num_rows($ticketquery) == 0){
+  header("Location: ../index");
+  exit();
+}
 $ticketarray = mysqli_fetch_assoc($ticketquery);
 $usucodticket = $ticketarray['USUCOD'];
 $ticketcontenido = $ticketarray['TICKCONT'];

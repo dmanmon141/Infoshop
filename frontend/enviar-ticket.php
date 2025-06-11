@@ -26,7 +26,8 @@ if (isset($_POST['correo'])) {
   
 
 }elseif(!isset($_SESSION['usucod'])){
-  session_destroy();
+  header("Location: ../index");
+  exit();
 }
 
 if(isset($_SESSION['usucod'])){

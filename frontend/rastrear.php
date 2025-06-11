@@ -48,6 +48,11 @@ if (isset($_SESSION['usucod'])) {
 $productos = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODOFE FROM productos ORDER BY PRODOFE DESC LIMIT 6;";
 $productosresultado = mysqli_query($conexion, $productos);
 
+if(!isset($_POST['pedidocod'])){
+  header("Location: ../index");
+  exit();
+}
+
 $pedcod = $_POST['pedidocod'];
 
 
