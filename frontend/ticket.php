@@ -52,7 +52,7 @@ $usucodticket = $ticketarray['USUCOD'];
 $ticketcontenido = $ticketarray['TICKCONT'];
 $ticketfechahora = $ticketarray['TICKFEC'];
 $datetime = new DateTime($ticketfechahora);
-$ticketfecha = $datetime->format('H:i:s');
+$ticketfecha = $datetime->format('H:i');
 $ticketestado = $ticketarray['TICKEST'];
 
 $usuarioticketsql = "SELECT * FROM usuarios WHERE USUCOD = '$usucodticket';";
@@ -323,7 +323,10 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
           }
           $usuimgmensaje = $verificararray['USUIMG'];
           $usunommensaje = $verificararray['USUNOM'];
-          $fechamensaje = $mensaje['MENFEC'];
+          $fechahoramensaje = $mensaje['MENFEC'];
+          $mensajedatetime = new DateTime($fechahoramensaje);
+          $fechamensaje= $mensajedatetime->format('H:i');
+
           $contenidomensaje = $mensaje['MENCONT'];
 
           // Determinar la clase CSS para el mensaje (izquierda o derecha)
@@ -352,7 +355,6 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
         }
         if ($ultimoMensaje) {
           $esUltimoUsuario = $tipoMensaje === 'usuario';
-          $puedeResponder = ($esAdmin && $esUltimoUsuario) || (!$esAdmin && !$esUltimoUsuario);
 
 
           if ($ticketestado != "Abierto") {
@@ -362,7 +364,6 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
             <?php
 
           } else {
-            if ($puedeResponder) {
               ?>
               <form class="respondermensaje <?php echo $ultimoMensaje ?>" action="backend/responder-mensaje.php"
                 method="POST">
@@ -371,7 +372,7 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
                 <button id="buttonreply" type="submit"><img src="img/send.png" class="icon"></button>
               </form>
               <?php
-            }
+            
           }
         }
 
