@@ -56,8 +56,9 @@
     }
 
     .bloque2 h3{
-    font-size: 30px;
+        font-size: 30px;
         color: black;
+        text-align: center;
     }
 
     footer {
@@ -77,6 +78,7 @@
     }
     .bloque-error h1{
         font-size: 80px;
+        text-align: center;
     }
 
  #main-container{
