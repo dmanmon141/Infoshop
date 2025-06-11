@@ -36,6 +36,8 @@
         align-items: left;
       }
 
+     
+
       .customercare{
         display: flex;
         align-items: center;
@@ -43,6 +45,8 @@
         border-radius: 0.4rem;
         gap: 2rem;
         padding: 0.5rem;
+        padding-right: 2rem;
+        width: 100%;
       }
 
       #ticketid{
@@ -82,7 +86,7 @@
         padding: 20px;
         padding-bottom: 5px;
         border-radius: 5px;
-        min-width: 1000px;
+        width: 100%;
         margin-bottom: 30px;
         display: flex;
         flex-direction: column;

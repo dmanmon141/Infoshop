@@ -53,6 +53,7 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
 <html>
 <head>
   <title>Infoshop | Las mejoras ofertas en Informática!</title>
+  <link rel="stylesheet" type="text/css" href="../css/estilo-misc.css">
   <link rel="stylesheet" type="text/css" href="../css/estilo-perfil-tickets.css">
   <link rel="stylesheet" type="text/css" href="js/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css">
@@ -78,6 +79,25 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
 <div id="overlay"></div>
 
 <div class="contenedor">
+  <div id="myDropdownTienda" class="category-sidebar">
+
+              <?php
+              $categorias = "SELECT * FROM categorias";
+              $categoriasql = mysqli_query($conexion, $categorias);
+
+              while ($arraycat = mysqli_fetch_row($categoriasql)) {
+
+                ?>
+                <div class="categoria-item">
+                  <img src="img/<?php echo $arraycat[0] ?>.png" class="cross" onclick="cerrarMenuTienda()">
+                  <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
+                </div>
+                <?php
+              }
+
+              ?>
+
+    </div>
   <nav class="navbar">
       <div class="logo">
         <a href="index"><img src="img/Logo.png"></a>
@@ -122,7 +142,7 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
           <div class="cuenta">
             <button onclick="mostrarMenu()" class="dropbtn" id="menuButton">
               <div class="button-content">
-                <div class="perfil-imagen">
+                <div class="perfil-imagen-sidebar">
                   <img class="userlogo" src="<?php echo $usuimg ?>">
                 </div>
                 <h3><?php echo $usuloginsesion ?></h3>
@@ -217,7 +237,7 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
                           <input type="file" id="inputFile" accept ="image/*" style="display: none" name="imagen">
                           <input type="submit" id="aplicarimagen" value="Aplicar">
                         </form>
-                        <div class="perfil-nombre"><h2><?php echo $usunom . " " . $usuape ?></h2></div>
+                        <div class="perfil-nombre"><h2>Mis tickets</h2></div>
                     </div>
                     <div class="datosusuario">
                         <?php

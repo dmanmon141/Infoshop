@@ -738,16 +738,17 @@ h1 {
 }
 
 footer {
-  background-color: #333;
   font-weight: bold;
-  color: #fff;
+  color: black;
   padding: 0px 0;
+  padding-top: 0.6rem;
   width: 100%;
   font-weight: bold;
   position: relative;
   bottom: 0;
   left: 0;
-  border-top: 1px solid black;
+  border-top: 1px solid lightgray;
+   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .perfil-imagen {
@@ -786,7 +787,7 @@ footer {
 
 .politica {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 .logo-footer {
@@ -873,8 +874,8 @@ footer {
 }
 
 .logo-footer img {
-  width: 50px;
-  height: 50px;
+  width: 10rem;
+  height: 4rem;
   margin-right: 10px;
 }
 

@@ -328,7 +328,7 @@ $fechaactual = date("Y-m-d");
                       <?php
                     } else {
                       ?>
-                      <p style="color: white"><?php echo $arraypedidos[5] ?></p>
+                      <p style="color: black"><?php echo $arraypedidos[5] ?></p>
 
                       <?php
 
