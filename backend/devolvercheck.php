@@ -45,7 +45,7 @@ error_log('Verifying credentials...');
 
 if ($resultado && $resultadoupdate) {
   // Autenticación exitosa
-  Header("Location: historial");
+  Header("Location: ../historial");
 } else {
   // Autenticación incorrecta
   header("Content-Type: text/plain");

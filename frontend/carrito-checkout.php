@@ -46,6 +46,40 @@ if (isset($_SESSION['usucod'])) {
   $usuadm = $datosarray['USUADM'];
 }
 
+$productos = array();
+
+foreach ($_GET as $paramName => $paramValue) {
+  if (strpos($paramName, 'name') !== false) {
+    $index = filter_var($paramName, FILTER_SANITIZE_NUMBER_INT);
+    $name = $paramValue;
+    $price = $_GET['price' . $index];
+    $count = $_GET['count' . $index];
+
+    $producto = array(
+      'name' => $name,
+      'price' => $price,
+      'count' => $count
+    );
+
+    $productos[] = $producto;
+  }
+}
+
+$productfound = 0;
+foreach ($productos as $producto) {
+  $nombreproducto = $producto['name'];
+  $productosql = "SELECT * FROM productos WHERE PRODNOM = '$nombreproducto';";
+  $productosqlresultado = mysqli_query($conexion, $productosql);
+  if(mysqli_num_rows($productosqlresultado) > 0) {
+    $productfound += 1;
+  }
+  $productoarray = mysqli_fetch_assoc($productosqlresultado);
+}
+if($productfound != count($productos)){
+  header("Location: ../index");
+  exit();
+}
+
 ?>
 
 
@@ -214,29 +248,7 @@ if (isset($_SESSION['usucod'])) {
 
 
 
-    <?php
 
-    $productos = array();
-
-    foreach ($_GET as $paramName => $paramValue) {
-      if (strpos($paramName, 'name') !== false) {
-        $index = filter_var($paramName, FILTER_SANITIZE_NUMBER_INT);
-        $name = $paramValue;
-        $price = $_GET['price' . $index];
-        $count = $_GET['count' . $index];
-
-        $producto = array(
-          'name' => $name,
-          'price' => $price,
-          'count' => $count
-        );
-
-        $productos[] = $producto;
-      }
-    }
-
-
-    ?>
 
     <script>
       var productos = <?php echo json_encode($productos); ?>;
@@ -392,7 +404,8 @@ if (isset($_SESSION['usucod'])) {
         </div>
         <div class="organizar2">
           <input type="checkbox" id="politicas-input">
-          <p>He leído y acepto la <a target="_blank" style="color: black" href="/privacidad">política de privacidad</a></p></input>
+          <p>He leído y acepto la <a target="_blank" style="color: black" href="/privacidad">política de privacidad</a>
+          </p></input>
         </div>
         <button id="finalizar-compra" onclick="enviarFormulario(event)">Finalizar la compra</button>
         <div id="mensaje"></div>

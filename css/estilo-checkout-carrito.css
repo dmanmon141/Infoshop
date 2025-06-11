@@ -72,6 +72,10 @@
         transition: transform 0.3s ease;
       }
 
+      .imagen{
+        text-align: center;
+      }
+
       .filadatos:hover{
         transform: scale(1.1);
         cursor: pointer;
