@@ -34,7 +34,7 @@ session_start();
 
 
   <div class="contenedor">
-    <div class="logo">
+    <div class="logomain">
       <a href="index"><img src="img/Logo.png" alt="Logo"></a>
     </div>
 

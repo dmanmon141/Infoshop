@@ -1,29 +1,33 @@
 
 
-  .logo {
+  .logomain {
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 20px;
   }
 
-  .logo img {
-    width: 120px;
-    height: 120px;
+
+
+  .logomain img{
+    width: 160px;
+  height: 60px;
   }
 
   .contenedor2 {
     display: flex;
     justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
     text-align: center;
   }
+
+  body, html {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
   
   .block {
     color: black;
     flex: 0 0 45%;
-    width: 45%;
     padding: 20px;
     display:inline-block;
     border-radius: 25px;
@@ -32,6 +36,15 @@
     background-color: white;
     margin: 10px;
   }
+
+  .dividir{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+
 
 
   .btnenviar {
@@ -47,6 +60,9 @@
     position: relative;
     padding: 5px;
   }
+
+
+
   
   .toggle-password {
     position: absolute;
@@ -87,10 +103,7 @@
     padding-bottom: 5px;
   }
 
-  .politica {
-    text-decoration: none;
-    color: white;
-  }
+
 
   
 
@@ -166,6 +179,12 @@
   }
 
   #login-form {
+
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+
     margin-bottom: 30px;
   }
 
@@ -189,32 +208,24 @@
     font-size: 12px;
   }
 
-  .redes-sociales a img{
-    display:inline-block;
-    transition: transform 0.6s ease;
-  }
-
-  .redes-sociales a img:hover{
-    transform: rotate(360deg);
-  }
-
-  .redes-sociales img {
-    height: 30px;
-    width: 30px;
-    margin: 10px;
-  }
   
-  .derechos {
-    display: flex;
-    align-items: center;
-  }
-
-  .derechos p {
-    margin: 0;
-    margin-left: auto;
-    margin-right: 150px;  
-  }
+ 
 
  li {
     margin-bottom: 15px;
  }
+
+@media(max-width: 980px){
+  .contenedor2{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .formulario{
+    order: 1;
+  }
+
+  .recomendaciones{
+    order: 2;
+  }
+}

@@ -23,6 +23,7 @@ session_start();
   <link rel="stylesheet" type="text/css" href="js/slick/slick.css">
   <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css">
   <link rel="icon" type="image/png" href="img/Logo.png">
+
 </head>
 
 <body>
@@ -35,7 +36,7 @@ session_start();
 
 
   <div class="contenedor">
-    <div class="logo">
+    <div class="logomain">
       <a href="index"><img src="img/Logo.png" alt="Logo"></a>
     </div>
 
