@@ -154,7 +154,7 @@ $reseñas = mysqli_num_rows($reseñaquery);
           <div class="cuenta">
             <button onclick="mostrarMenu()" class="dropbtn" id="menuButton">
               <div class="button-content">
-                <div class="perfil-imagen">
+                <div class="perfil-imagen-sidebar">
                   <img class="userlogo" src="<?php echo $usuimg ?>">
                 </div>
                 <h3><?php echo $usuloginsesion ?></h3>
@@ -235,24 +235,20 @@ $reseñas = mysqli_num_rows($reseñaquery);
       </div>
     </div>
     <div class="dividir">
-
-      <div class="bloque1">
-        <a href="perfil">
-          <div class="secciondatos">Perfil</div>
-        </a>
-        <div class="seccionconfiguracion">
-          <a href="datospago">
-            Datos de pago
-          </a>
-        </div>
-
-        <a href="historial">
-          <div class="seccionhistorial">Historial</div>
-        </a>
-      </div class="bloque1">
-
-
       <div class="bloque2" id="producto-contenedor">
+        <div class="navmenu">
+          <div class="secciondatos">
+            <a href="perfil"><img src="img/user.png" class="profileicon"><p>Perfil</p></a>
+          </div>
+          <div class="seccionconfiguracion">
+            <a href="datospago"><img src="img/tarjetaChosen.png" class="profileicon"><p>Datos de pago</p> </a>
+          </div>
+         
+            <div class="seccionhistorial">
+              <a href="historial"><img src="img/delivery.png" class="profileicon"><p>Historial</p></a>
+            </div>
+          
+        </div>
         <div id="contenido">
           <div class="perfil">
             <div class="perfil-imagen"><img src="<?php echo $usuimg ?>"></div>

@@ -23,74 +23,75 @@
   width: 100%;
 }
 
+.profileicon{
+        width: 2rem;
+        height: 2rem;
+      }
 
-
-.bloque1 {
-  font-size: 25px;
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  background-color: white;
-  box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.1);
-  width: 270px;
-  height: 100vh;
-  align-items: center;
-  position: fixed;
-  left: 0;
-  top:0;
-        padding-top: 3.5rem;
-  z-index: 9994;
-}
-
-.bloque1 div {
-  padding-top: 25px;
-  color: black;
-  padding-bottom: 25px;
-  text-align: center;
-}
-
-.dividir{
+      .navmenu{
         display: flex;
-        padding-top: 8rem;
-        padding-bottom: 4rem;
-        justify-content: center;
-        height: 100vh;
+        width: 100%;
+        justify-content: space-around;
+        margin-bottom: 1rem;
+      }
+
+      .navmenu div{
+        padding-top: 25px;
+        color: black;
+        padding-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        text-align: center;
+      }
+.secciondatos, .seccionconfiguracion, .seccionhistorial{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .seccionhistorial{
+        border-bottom:3px solid #da2822;
+      }
+
+
+      .navmenu div:hover{
+        cursor: pointer;
+        color: #da2822;
+      }
+
+      .navmenu a{
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: black;
       }
 
 
 
-.bloque1 div:hover {
-  cursor: pointer;
-}
 
-.bloque1 .seccionhistorial {
-  color: #da2822;
-  border-right: 4px solid #da2822;
-}
+.dividir{
+        display: flex;
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+        justify-content: center;
+      }
 
-.bloque1 div:hover {
-  cursor: pointer;
-  color: #da2822;
-}
+
+
+
+
+
 
 .seccionhistorial a {
   color: #da2822;
 }
 
-.seccionhistorial {
-  width: 15rem;
-}
 
 
 
 
 
 
-.bloque1 a {
-  width: 70%;
-  text-decoration: none;
-}
+
 
 
 .datosusuario h5 {
@@ -222,6 +223,7 @@
 
 .estado {
   text-align: center;
+  width: 20%;
 }
 
 .botones button {
@@ -243,7 +245,7 @@
 
 .detalles,
 .detalles2 {
-  width: 220px;
+  width: 30%;
   text-align: center;
 }
 
@@ -303,20 +305,58 @@
   height: 100%;
 }
 
-.bloque2 {
-  color: black;
-  background-color: white;
-  border: 1px solid lightgray;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-top: 5rem;
-  display: flex;
-  height: fit-content;
-  width: 80%;
-  border-radius: 25px;
-  padding-bottom: 35px;
-  padding-top: 2rem;
-  margin-bottom: 30px;
-  margin-left: 20rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+.bloque2{
+        color: black;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+        display: flex;
+        border-radius: 25px;
+        padding-bottom: 35px;
+        width: 65%;
+        flex-direction: column;
+        justify-content: center;
+        height: fit-content;
+        transition: width 0.5s ease;
+      }
+
+      @media(max-width: 1605px){
+        .pedido p{
+          font-size: 0.9rem;
+        }
+
+        .pedido img{
+          height: 7rem;
+        }
+
+        .pedido-imagen{
+          min-width: 11rem;
+        }
+      }
+
+      @media(max-width: 1320px){
+        .pedido p{
+          font-size: 0.7rem;
+        }
+
+        .pedido img{
+          height: 6rem;
+        }
+
+        .pedido-imagen{
+          min-width: 8rem;
+        }
+
+        .bloque2{
+          width: 85%;
+        }
+      }
+
+      @media(max-width: 1100px){
+
+        .bloque2{
+          width: 95%;
+        }
+
+        
+      }

@@ -505,6 +505,7 @@
         padding-top: 6rem;
         padding-bottom: 4rem;
         justify-content: center;
+        align-items: center;
       }
   
   div[contenedor]{
@@ -525,6 +526,7 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
 
     .estadisticas a{
@@ -539,6 +541,23 @@
 
     .estadisticas a:hover{
       background-color: #cec8c4;
+    }
+
+    @media(max-width: 1460px){
+      .customercare{
+        width:auto;
+      }
+
+      .ticket{
+        width: auto;
+      }
+    }
+
+    @media(max-width: 1220px){
+      .filagap{
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     

@@ -245,18 +245,14 @@ $newsletter = mysqli_num_rows($newsletterquery);
       <div class="bloque2" id="producto-contenedor">
         <div class="navmenu">
           <div class="secciondatos">
-            <img src="img/userChosen.png" class="profileicon">
-            <a href="perfil">Perfil</a>
+            <a href="perfil"><img src="img/userChosen.png" class="profileicon"><p>Perfil</p></a>
           </div>
-
           <div class="seccionconfiguracion">
-            <img src="img/tarjeta.png" class="profileicon">
-            <a href="datospago">Datos de pago </a>
+            <a href="datospago"><img src="img/tarjeta.png" class="profileicon"><p>Datos de pago</p> </a>
           </div>
          
             <div class="seccionhistorial">
-              <img src="img/delivery.png" class="profileicon">
-              <a href="historial">Historial</a>
+              <a href="historial"><img src="img/delivery.png" class="profileicon"><p>Historial</p></a>
             </div>
           
         </div>

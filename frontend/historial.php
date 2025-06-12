@@ -234,19 +234,20 @@ $fechaactual = date("Y-m-d");
       </div>
     </div>
     <div class="dividir">
-
-      <div class="bloque1">
-        <a href="perfil">
-          <div class="secciondatos">Perfil</div>
-        </a>
-        <a href="datospago">
-          <div class="seccionconfiguracion">Datos de pago</div>
-        </a>
-        <div class="seccionhistorial">
-          <a href="historial">Historial</a>
-        </div>
-      </div class="bloque1">
       <div class="bloque2" id="producto-contenedor">
+        <div class="navmenu">
+          <div class="secciondatos">
+            <a href="perfil"><img src="img/user.png" class="profileicon"><p>Perfil</p></a>
+          </div>
+          <div class="seccionconfiguracion">
+            <a href="datospago"><img src="img/tarjeta.png" class="profileicon"><p>Datos de pago</p> </a>
+          </div>
+         
+            <div class="seccionhistorial">
+              <a href="historial"><img src="img/deliveryChosen.png" class="profileicon"><p>Historial</p></a>
+            </div>
+          
+        </div>
         <div id="contenido">
           <div class="filagap">
             <img src="img/delivery.png" class="icon">
@@ -308,7 +309,7 @@ $fechaactual = date("Y-m-d");
                     <p><?php echo $fecha ?></p>
                   </div>
                   <div class="detalles2">
-                    <p style="color: black">Devolución disponible hasta el:</p>
+                    <p style="color: black">Devolución disponible hasta el</p>
                     <?php
                     if ($arraypedidos[2] <= $fechaactual) {
                       ?>
@@ -322,7 +323,7 @@ $fechaactual = date("Y-m-d");
                     ?>
                   </div>
                   <div class="estado">
-                    <p style="color: black">Estado del paquete:</p>
+                    <p style="color: black">Estado del paquete</p>
                     <?php
                     if ($arraypedidos[5] == "En envío") {
                       ?>
