@@ -177,9 +177,8 @@ body {
   cursor: pointer;
 }
 
-.carrito {
-  padding: 10px;
-  margin-left: 20px;
+.carrito{
+  padding: 0.5rem;
 }
 
 
@@ -188,6 +187,7 @@ body {
   align-items: center;
   cursor: pointer;
   color: black;
+  position: relative;
 }
 
 
@@ -468,14 +468,15 @@ div[contenedor] {
 
 #productCount {
   position: relative;
-  top: -0.8rem;
-  left: 2.8rem;
+  top: -0.7rem;
+  left: 1.1rem;
   z-index: 8000;
   background-color: #da2822;
   border-radius: 4.5rem;
   padding: 0.2rem 0.5rem;
   font-size: 1rem;
   color: white;
+  position: absolute;
 }
 
 .categoria-item {
@@ -622,10 +623,11 @@ footer {
 .busqueda-texto {
   padding: 15px;
   padding-right: 20px;
-  width: 850px;
+  width: 53.5rem;
   border-radius: 0.5rem;
   font-size: 1.2rem;
   border: 1px solid lightgray;
+  transition: width 0.1s ease;
 }
 
 .busqueda-formulario {
@@ -715,4 +717,55 @@ footer {
   margin: 0;
   margin-left: auto;
   margin-right: 150px;
+}
+
+
+@media(max-width: 1700px) {
+  .cart-menu span {
+    display: none;
+  }
+
+  .button-content h3 {
+    display: none;
+  }
+
+}
+
+@media(max-width: 1565px) {
+  .sesiones {
+    justify-content: left;
+  }
+}
+
+@media(max-width: 1515px) {
+  .categorias {
+    min-width: 0;
+  }
+
+  .button-content-tienda h3 {
+    display: none;
+  }
+
+  .sesiones {
+    justify-content: center;
+  }
+}
+
+@media(max-width: 1380px) {
+  .sesiones {
+    justify-content: left;
+  }
+}
+
+@media(max-width: 1335px) {
+  .logo a img {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media(max-width: 1230px) {
+  .busqueda-texto {
+    width: clamp(28rem, 60vw, 53.5rem);
+  }
 }

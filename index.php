@@ -90,26 +90,32 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
   <div contenedor>
     <div id="myDropdownTienda" class="category-sidebar">
 
-              <?php
-              $categorias = "SELECT * FROM categorias";
-              $categoriasql = mysqli_query($conexion, $categorias);
+      <?php
+      $categorias = "SELECT * FROM categorias";
+      $categoriasql = mysqli_query($conexion, $categorias);
 
-              while ($arraycat = mysqli_fetch_row($categoriasql)) {
+      while ($arraycat = mysqli_fetch_row($categoriasql)) {
 
-                ?>
-                <div class="categoria-item">
-                  <img src="img/<?php echo $arraycat[0] ?>.png" class="cross" onclick="cerrarMenuTienda()">
-                  <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
-                </div>
-                <?php
-              }
+        ?>
+        <div class="categoria-item">
+          <img src="img/<?php echo $arraycat[0] ?>.png" class="cross" onclick="cerrarMenuTienda()">
+          <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
+        </div>
+        <?php
+      }
 
-              ?>
+      ?>
 
     </div>
     <nav class="navbar">
       <div class="logo">
-        <a href="index"><img src="img/Logo.png"></a>
+        <a href="index">
+          <picture>
+            <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
+            <img src="img/Logo.png">
+          </picture>
+          
+        </a>
       </div>
       <ul class="nav-links">
         <li class="categorias"><button onclick="mostrarMenuTienda()" class="dropbtn" id="menuButtonShop">
@@ -225,13 +231,14 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
 
     <div class="anuncios">
       <div><img src="img/anuncio1.jpeg" class="anuncio1" onclick="scrollToSection('ofertas')"></div>
-      <div><a href="https://www.logitech.com/es-es" target="_blank"><img src="img/anuncio2.jpg" class="anuncio2"></a></div>
+      <div><a href="https://www.logitech.com/es-es" target="_blank"><img src="img/anuncio2.jpg" class="anuncio2"></a>
+      </div>
     </div>
     <div class="sectionTitle">
-        <h1>Mejor valorado</h1>
-        <a href="buscar">Ver más</a>
+      <h1>Mejor valorado</h1>
+      <a href="buscar">Ver más</a>
     </div>
-    
+
     <div class="separator"></div>
     <div class="slider-container">
       <div class="slider">
@@ -289,8 +296,8 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
     </div>
 
     <div class="sectionTitle">
-        <h1>Lo más vendido</h1>
-        <a href="buscar">Ver más</a>
+      <h1>Lo más vendido</h1>
+      <a href="buscar">Ver más</a>
     </div>
     <div class="separator"></div>
     <div class="slider-container">
@@ -349,8 +356,8 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
     </div>
 
     <div class="sectionTitle">
-        <h1>Últimas unidades</h1>
-        <a href="buscar">Ver más</a>
+      <h1>Últimas unidades</h1>
+      <a href="buscar">Ver más</a>
     </div>
     <div class="separator"></div>
     <div class="slider-container">
@@ -409,8 +416,8 @@ $productosresultado4 = mysqli_query($conexion, $productos4);
     </div>
 
     <div class="sectionTitle" id="ofertas">
-        <h1>Aprovecha nuestras mejores ofertas</h1>
-        <a href="buscar">Ver más</a>
+      <h1>Aprovecha nuestras mejores ofertas</h1>
+      <a href="buscar">Ver más</a>
     </div>
     <div class="separator"></div>
     <div class="slider-container">
