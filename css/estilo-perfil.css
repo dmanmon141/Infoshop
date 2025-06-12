@@ -177,22 +177,11 @@
         text-align: left;
       }
 
-      .bloque1{
-        font-size: 25px;
-        font-weight: bold;
+      .navmenu{
         display: flex;
-        flex-direction: column;
+        width: 100%;
         justify-content: space-around;
-        background-color:  white;
-        box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.1);
-        width: 270px;
-        height: 100vh;
-        align-items: center;
-        position: fixed;
-        left: 0;
-        top:0;
-        padding-top: 3.5rem;
-        z-index: 9994;
+        margin-bottom: 1rem;
       }
 
       .estadisticas h2{
@@ -210,35 +199,37 @@
         gap: 1rem;
       }
 
-      .bloque1 div{
+      .navmenu div{
         padding-top: 25px;
         color: black;
-        padding-bottom: 25px;
+        padding-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
         text-align: center;
       }
 
-      .bloque1 .secciondatos{
-        color: #da2822;
-        border-right: 4px solid #da2822;
-      }
 
-      .bloque1 div:hover{
+
+      .navmenu div:hover{
         cursor: pointer;
         color: #da2822;
       }
 
-      .secciondatos a{
-        color: #da2822;
+      .secciondatos{
+        border-bottom:3px solid #da2822;
       }
 
-      .secciondatos{
-        width: 15rem;
-      }
+  
 
       
-      .bloque1 a{
-        width: 70%;
+      .navmenu a{
         text-decoration: none;
+        font-size: 1.4rem;
+        color: black;
+      }
+
+      .secciondatos a{
+        color: #da2822;
       }
 
       .checkbox{
@@ -393,13 +384,12 @@
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         margin-top: 30px;
         display: flex;
-        margin-left: 130px;
-        height: fit-content;
         border-radius: 25px;
         padding-bottom: 35px;
         width: 65%;
-        flex-wrap: wrap;
+        flex-direction: column;
         justify-content: center;
+        height: fit-content;
       }
 
       .perfil-imagen-sidebar {
@@ -491,19 +481,18 @@
 
       }
 
-      .producto {
-        width: calc(33.33% - 80px);
-        
-        border-radius: 10px;
-        margin-top: 50px;
-        margin-left: 30px;
-        margin-bottom: 80px;
-        padding: 15px;
-        color: white;
-        font-weight: bold;
-        height: fit-content;
-        transition: transform 0.3s ease;
+      .secciondatos, .seccionconfiguracion, .seccionhistorial{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
       }
+
+      .profileicon{
+        width: 2rem;
+        height: 2rem;
+      }
+
+
 
 
       #main-content {
@@ -553,10 +542,7 @@
     }
 
     
-    .politica {
-      text-decoration: none;
-      color: white;
-    }
+
 
 
   

@@ -117,7 +117,7 @@ $newsletter = mysqli_num_rows($newsletterquery);
             <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
             <img src="img/Logo.png">
           </picture>
-          
+
         </a>
       </div>
       <ul class="nav-links">
@@ -160,7 +160,7 @@ $newsletter = mysqli_num_rows($newsletterquery);
           <div class="cuenta">
             <button onclick="mostrarMenu()" class="dropbtn" id="menuButton">
               <div class="button-content">
-                <div class="perfil-imagen">
+                <div class="perfil-imagen-sidebar">
                   <img class="userlogo" src="<?php echo $usuimg ?>">
                 </div>
                 <h3><?php echo $usuloginsesion ?></h3>
@@ -241,23 +241,26 @@ $newsletter = mysqli_num_rows($newsletterquery);
     </div>
     <div class="dividir">
 
-      <div class="bloque1">
-
-        <div class="secciondatos">
-
-          <a href="perfil">Perfil</a>
-        </div>
-
-        <a href="datospago">
-          <div class="seccionconfiguracion">Datos de pago</div>
-        </a>
-        <a href="historial">
-          <div class="seccionhistorial">Historial</div>
-        </a>
-      </div class="bloque1">
-
 
       <div class="bloque2" id="producto-contenedor">
+        <div class="navmenu">
+          <div class="secciondatos">
+            <img src="img/userChosen.png" class="profileicon">
+            <a href="perfil">Perfil</a>
+          </div>
+
+          <div class="seccionconfiguracion">
+            <img src="img/tarjeta.png" class="profileicon">
+            <a href="datospago">Datos de pago </a>
+          </div>
+         
+            <div class="seccionhistorial">
+              <img src="img/delivery.png" class="profileicon">
+              <a href="historial">Historial</a>
+            </div>
+          
+        </div>
+
         <div id="contenido">
           <div class="perfil">
             <div class="perfil-imagen">
@@ -361,63 +364,64 @@ $newsletter = mysqli_num_rows($newsletterquery);
               <a href="perfil-tickets" id="historialBtn"><img src="img/history-icon.png">Historial de tickets</a>
             </div>
             <div class="customercare">
-                <img src="img/customercare.png" class="picture">
-                <p>¡Hola! ¿Tienes algún problema? Estamos aquí para ayudarte. <a href="enviar-ticket">Hablar con un técnico</a></p>
+              <img src="img/customercare.png" class="picture">
+              <p>¡Hola! ¿Tienes algún problema? Estamos aquí para ayudarte. <a href="enviar-ticket">Hablar con un
+                  técnico</a></p>
             </div>
             <div class="historial">
-                <h2>Ticket más reciente</h2>
-                 <?php
-                    if(mysqli_num_rows($ticketquery) == 0){
-                    ?>
-                    <p>No ha creado ningún ticket aún.</p>
+              <h2>Ticket más reciente</h2>
+              <?php
+              if (mysqli_num_rows($ticketquery) == 0) {
+                ?>
+                <p>No ha creado ningún ticket aún.</p>
 
-                    <?php
-                    
-                    }else{
-                    $ticketarray = mysqli_fetch_assoc($ticketquery);
-                    $ticketid = $ticketarray['TICKID'];
-                    $ticketcontenido = $ticketarray['TICKCONT'];
-                    $ticketestado = $ticketarray['TICKEST'];
-                    $ticketfecha = $ticketarray['TICKFEC'];
+                <?php
+
+              } else {
+                $ticketarray = mysqli_fetch_assoc($ticketquery);
+                $ticketid = $ticketarray['TICKID'];
+                $ticketcontenido = $ticketarray['TICKCONT'];
+                $ticketestado = $ticketarray['TICKEST'];
+                $ticketfecha = $ticketarray['TICKFEC'];
+                ?>
+                <div class="ticket">
+                  <div class="credenciales">
+                    <input type="text" id="ticketid" value="<?php echo $ticketid ?>" style="display: none">
+                    <p id="ticketid">Ticket con ID <?php echo $ticketid ?> </p>
+                    <p id="fecha"> <?php echo $ticketfecha ?> </p>
+                  </div>
+                  <p id="contenidoreseña"> <?php echo '"' . $ticketcontenido . '"' ?> </p>
+                  <div class="botonesticket">
+                    <p>Estado: <?php if ($ticketestado == "Abierto") {
+                      ?>
+                      <p style="color:#00FF00"><?php echo $ticketestado ?></p>
+                      <?php
+                    } else {
+                      ?>
+                      <p style="color: red"><?php echo $ticketestado ?></p>
+                      <?php
+                    }
                     ?>
-                    <div class="ticket">
-                    <div class="credenciales">
-                            <input type="text" id="ticketid" value="<?php echo $ticketid ?>" style="display: none">
-                            <p id="ticketid">Ticket con ID <?php echo $ticketid ?> </p>
-                            <p id="fecha"> <?php echo $ticketfecha ?> </p>
-                        </div>
-                        <p id="contenidoreseña"> <?php echo '"' . $ticketcontenido . '"' ?> </p>
-                        <div class="botonesticket">
-                            <p>Estado: <?php if($ticketestado == "Abierto"){
-                                ?>
-                                <p style="color:#00FF00"><?php echo $ticketestado ?></p>
-                                <?php
-                            }else{
-                                ?>
-                                <p style="color: red"><?php echo $ticketestado ?></p>
-                                <?php
-                                } 
-                                ?>
-                            </p>
-                            <form class="verticket" action="ticket" method="POST">
-                            <button name="ticketidboton" value="<?php echo $ticketid ?>">Ver ticket</button>
-                            </form>
-                            <?php
-                            if($ticketestado == "Abierto"){
-                            ?>
-                            <button onclick="mostrarPopup('popup1')">Eliminar</button>
-                            <?php
-                            }
-                            ?>
-                        </div>
-                    </div>
+                    </p>
+                    <form class="verticket" action="ticket" method="POST">
+                      <button name="ticketidboton" value="<?php echo $ticketid ?>">Ver ticket</button>
+                    </form>
                     <?php
-                   
-                }
+                    if ($ticketestado == "Abierto") {
+                      ?>
+                      <button onclick="mostrarPopup('popup1')">Eliminar</button>
+                      <?php
+                    }
                     ?>
+                  </div>
+                </div>
+                <?php
+
+              }
+              ?>
             </div>
-            
-              
+
+
 
 
           </div>
@@ -431,7 +435,7 @@ $newsletter = mysqli_num_rows($newsletterquery);
       <div class="contenedor-footer">
         <div class="logo-footer">
           <img src="img/Logo.png" alt="Logo">
-          
+
         </div>
         <div class="redes-sociales">
           <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>

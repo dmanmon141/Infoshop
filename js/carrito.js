@@ -264,11 +264,12 @@ function openCartSidebar(event) {
 
 
 function closeCartSidebar(event) {
-  overlay.style.display = "none";
-  document.body.style.overflow = ""
+  
   const cartSidebar = document.getElementById('cart-sidebar');
   if (!event.target.closest('.cart-sidebar')) {
     cartSidebar.classList.remove('show');
+    overlay.style.display = "none";
+  document.body.style.overflow = ""
   }
 }
 
