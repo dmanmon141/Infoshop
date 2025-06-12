@@ -302,12 +302,16 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
         </div>
       </div>
       <div class="product">
-        <div class="reseñas">
+        <div class="productmain">
           <h1 class="product-title"><?php echo $titulo ?></h1>
           <img src="<?php echo $imagen ?>" alt="Producto" class="product-image">
+        </div>
+        <div class="descripcion">
+          
           <h3 id="primeroh3">Descripción</h3>
           <p id="descripcion"><?php echo $descripcion ?></p>
-
+          </div>
+            <div class="reseñas">
           <h3>Reseñas</h3>
           <?php
 
@@ -532,7 +536,6 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
 
           ?>
         </div>
-        <div class="column">
           <div class="product-details">
             <div class="precio-oferta">
               <p class="product-price"><?php echo $precio . " €" ?></p>
@@ -574,7 +577,6 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
             <p>¡Hola! ¿Tienes algún problema? <a href="enviar-ticket">Habla con un técnico</a></p>
           </div>
 
-        </div>
 
 
 

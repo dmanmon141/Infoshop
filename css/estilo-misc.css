@@ -12,6 +12,9 @@
 html{
   height: 100%;
 }
+html, body{
+  width: 100%;
+}
 
 body {
   height: 100%;
@@ -719,8 +722,14 @@ footer {
   margin-right: 150px;
 }
 
+.sessionicon{
+  width: 1.8rem;
+  height: 1.8rem;
+  display: none;
+}
 
-@media(max-width: 1700px) {
+
+@media(max-width: 1750px) {
   .cart-menu span {
     display: none;
   }
@@ -731,10 +740,24 @@ footer {
 
 }
 
-@media(max-width: 1565px) {
+@media(max-width: 1675px){
+  .sesiones a li{
+    display: none;
+  }
+
+  .sessionicon{
+    display: block;
+  }
+
   .sesiones {
     justify-content: left;
+    gap: 1.5rem;
+    width: fit-content;
   }
+}
+
+@media(max-width: 1565px) {
+  
 }
 
 @media(max-width: 1515px) {
@@ -746,26 +769,22 @@ footer {
     display: none;
   }
 
-  .sesiones {
-    justify-content: center;
-  }
 }
 
-@media(max-width: 1380px) {
-  .sesiones {
-    justify-content: left;
-  }
-}
 
 @media(max-width: 1335px) {
   .logo a img {
     width: 4rem;
     height: 4rem;
   }
+
+  .slider-container{
+    max-width:85%;
+  }
 }
 
 @media(max-width: 1230px) {
   .busqueda-texto {
-    width: clamp(28rem, 60vw, 53.5rem);
+    width: clamp(28rem, 55vw, 53.5rem);
   }
 }
