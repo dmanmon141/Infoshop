@@ -210,9 +210,11 @@ if($productfound != count($productos)){
           ?>
           <a href='login'>
             <li>Iniciar sesión</li>
+            <img src="img/login.png" class="sessionicon">
           </a>
           <a href='register'>
             <li>Registrarse</li>
+            <img src="img/register.png" class="sessionicon">
           </a>
           <?php
         }
