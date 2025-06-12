@@ -75,119 +75,123 @@ $productosresultado = mysqli_query($conexion, $productos);
 
 <div class="contenedor">
   <nav class="navbar">
-    <div class="logo">
-      <a href="index"><img src="img/Logo.png"></a>
-    </div>
-    <ul class="nav-links">
-      <li class="categorias"><button onclick="mostrarMenuTienda()" class="dropbtn" id="menuButtonShop">
-          <div class="button-content-tienda">
-          <img id="rayas" src="img/rayas.png">   
-          <h3>Todas las categorías</h3>  
-          </div>
-            <div id="myDropdownTienda" class="dropdown-content">
-              <?php
-            $categorias = "SELECT * FROM categorias";
-            $categoriasql= mysqli_query($conexion, $categorias);
-
-            while($arraycat = mysqli_fetch_row($categoriasql)){
-
-            ?>
-              <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
-
-            <?php
-            }
-?>
-            </div>      
-    </li>
-      <li class="busqueda">
-        <!-- Formulario de búsqueda -->
-        <form method="GET" action="buscar" class="busqueda-formulario">
+      <div class="logo">
+        <a href="index">
+          <picture>
+            <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
+            <img src="img/Logo.png">
+          </picture>
+          
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li class="categorias"><button onclick="mostrarMenuTienda()" class="dropbtn" id="menuButtonShop">
+            <div class="button-content-tienda">
+              <img id="rayas" src="img/rayas.png">
+              <h3>Todas las categorías</h3>
+            </div>
+        </li>
+        <li class="busqueda">
+          <!-- Formulario de búsqueda -->
+          <form method="GET" action="buscar" class="busqueda-formulario" onsubmit="aplicarFiltro()">
             <input type="text" name="query" class="busqueda-texto" placeholder="Buscar productos">
             <input type="submit" value="" class="busqueda-boton">
-        </form>
-      </li>
-      <li class="carrito">
-            <div class="cart-menu" onclick="toggleCartSidebar()">
-                <img src="img/carrito.png" alt="Carrito de compras">
-                <span>Mi carrito</span>
-            </div>
-            <div class="cart-sidebar" id="cart-sidebar" style="text-align: left;">
-                <p style="font-size:20px">Mi carrito</p>
-                <?php 
-                if(isset($_SESSION['usucod'])){
-
-                ?>  
-
-                <ul id="cart-items" class="cart-items"></ul>
-                <div class="cart-sidebar-footer" id="cart-sidebar-footer">
-                <p id="cart-total">TOTAL  0.00€</p>
-                <button id="carritoVaciarBtn" class="carrito-vaciar-btn" onclick="emptyCart()">Vacíar carrito</button>
-                <a  id="carritoCheckout" class="carrito-checkout" onclick="checkout()">Ver artículos del carrito</a>
-
-                <?php
-                }else {
-                  ?>
-
-                  <img id="carrito-error" src="img/carritoerror.png">
-                  <p id="login-carrito">Inicia sesión para utilizar el carrito.</p>
-
-                  <?php
-                }
-
-                ?>
-                </div>
-           
-      </li>
-      <?php
-            if(isset($_SESSION['usucod'])){
-              if($usuadm == 1){
-                ?>
-                <a href="panel-administrador?productos" id="administrador"><li class="panel-adm">
-                  <div class="panel-administrador">
-                    <img src="img/panel.png">
-                    <span>Panel de administrador</span>
-                  </div>
-                </li></a>
-                <?php
-              }
-            }
+          </form>
+        </li>
+        <?php
+        if (isset($_SESSION['usucod'])) {
+          if ($usuadm == 1) {
             ?>
-    </ul>
-    <ul class="sesiones">
-      <?php 
+            <a href="panel-administrador?productos" id="administrador">
+              <li class="panel-adm">
+                <div class="panel-administrador">
+                  <img src="img/panel.png">
+                  <span>Panel de administrador</span>
+                </div>
+              </li>
+            </a>
+            <?php
+          }
+        }
+        ?>
+      </ul>
+      <ul class="sesiones">
+        <?php
 
-        if(isset($_SESSION['usucod'])){
+        if (isset($_SESSION['usucod'])) {
           $usuloginsesion = $_SESSION['usunom'];
           ?>
           <div class="cuenta">
-          <button onclick="mostrarMenu()" class="dropbtn" id="menuButton">
-          <div class="button-content">
-          <div class="perfil-imagen">
-          <img class ="userlogo" src="<?php echo $usuimg ?>">
-          </div>
-          <h3><?php echo $usuloginsesion ?></h3>
-          <img id="flecha" src="img/flecha.png">
-          </div>
-            <div id="myDropdown" class="dropdown-content menu-contenedor">
-              <a href="perfil">Mi cuenta</a>
-              <a href="historial">Historial de pedidos</a>
-              <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
-            </div>
+            <button onclick="mostrarMenu()" class="dropbtn" id="menuButton">
+              <div class="button-content">
+                <div class="perfil-imagen">
+                  <img class="userlogo" src="<?php echo $usuimg ?>">
+                </div>
+                <h3><?php echo $usuloginsesion ?></h3>
+                <img id="flecha" src="img/flecha.png">
+              </div>
+              <div id="myDropdown" class="dropdown-content menu-contenedor">
+                <a href="perfil">Mi cuenta</a>
+                <a href="historial">Historial de pedidos</a>
+                <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+              </div>
             </button>
-         </div>
+          </div>
 
-         <?php 
-        }else{
-          ?> 
-          <a href='login'><li>Iniciar sesión</li></a>
-                <a href='register'><li>Registrarse</li></a>
+
+          <?php
+        } else {
+          ?>
+          <a href='login'>
+            <li>Iniciar sesión</li>
+          </a>
+          <a href='register'>
+            <li>Registrarse</li>
+          </a>
           <?php
         }
-      
-      
-      ?>
-    </ul>
-  </nav>
+
+
+        ?>
+        <div class="carrito">
+          <div class="cart-menu" onclick="toggleCartSidebar()">
+            <p id="productCount">0</p>
+            <img src="img/carrito.png" alt="Carrito de compras">
+            <span>Mi carrito</span>
+          </div>
+          <div class="cart-sidebar" id="cart-sidebar" style="text-align: left;">
+            <div class="cart-title">
+              <p style="font-size:20px">Mi carrito</p><img src="img/cross.png" alt="Cerrar" class="cart-close"
+                onclick="toggleCartSidebar()">
+            </div>
+            <?php
+            if (isset($_SESSION['usucod'])) {
+
+              ?>
+
+              <ul id="cart-items" class="cart-items"></ul>
+              <p id="empty-message">No hay artículos en tu carrito</p>
+              <div class="cart-sidebar-footer" id="cart-sidebar-footer">
+                <p id="cart-total">TOTAL 0.00€</p>
+                <button id="carritoVaciarBtn" class="carrito-vaciar-btn" onclick="emptyCart()">Vacíar carrito</button>
+                <a id="carritoCheckout" class="carrito-checkout" onclick="checkout()">Ver artículos del carrito</a>
+
+                <?php
+            } else {
+              ?>
+
+                <img id="carrito-error" src="img/carritoerror.png">
+                <p id="login-carrito">Inicia sesión para utilizar el carrito.</p>
+
+                <?php
+            }
+
+            ?>
+            </div>
+
+          </div>
+      </ul>
+    </nav>
         <div id="main-container">
         <div class="bloque-error">
         <img src="img/error404.png">

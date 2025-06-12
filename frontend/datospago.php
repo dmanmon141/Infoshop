@@ -106,7 +106,13 @@ $reseñas = mysqli_num_rows($reseñaquery);
 
     <nav class="navbar">
       <div class="logo">
-        <a href="index"><img src="img/Logo.png"></a>
+        <a href="index">
+          <picture>
+            <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
+            <img src="img/Logo.png">
+          </picture>
+
+        </a>
       </div>
       <ul class="nav-links">
         <li class="categorias"><button onclick="mostrarMenuTienda()" class="dropbtn" id="menuButtonShop">
@@ -148,7 +154,7 @@ $reseñas = mysqli_num_rows($reseñaquery);
           <div class="cuenta">
             <button onclick="mostrarMenu()" class="dropbtn" id="menuButton">
               <div class="button-content">
-                <div class="perfil-imagen-sidebar">
+                <div class="perfil-imagen">
                   <img class="userlogo" src="<?php echo $usuimg ?>">
                 </div>
                 <h3><?php echo $usuloginsesion ?></h3>
@@ -383,30 +389,30 @@ $reseñas = mysqli_num_rows($reseñaquery);
         </div>
       </div>
     </div>
-    
+
   </div>
 
-<footer>
-      <div class="contenedor-footer">
-        <div class="logo-footer">
-          <img src="img/Logo.png" alt="Logo">
-          
-        </div>
-        <div class="redes-sociales">
-          <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
-          <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
-          <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
-          <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
-        </div>
-        <div class="derechos">
-          <p> Infoshop &copy; 2025</p>
-          <p><a href="contacto" class="politica">Contacto</a></p>
-          <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
-        </div>
-      </div>
-    </footer>
+  <footer>
+    <div class="contenedor-footer">
+      <div class="logo-footer">
+        <img src="img/Logo.png" alt="Logo">
 
-</div>
+      </div>
+      <div class="redes-sociales">
+        <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
+        <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
+        <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
+        <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
+      </div>
+      <div class="derechos">
+        <p> Infoshop &copy; 2025</p>
+        <p><a href="contacto" class="politica">Contacto</a></p>
+        <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
+      </div>
+    </div>
+  </footer>
+
+  </div>
 
 </body>
 

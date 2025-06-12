@@ -2,7 +2,6 @@ const cartMenu = document.getElementById("cart-menu");
 const cartSidebar = document.getElementById("cart-sidebar");
 const productCounts = new Map();
 
-document.querySelectorAll('*').forEach(el => el.style.outline = '1px solid red');
 
 function addToCart(productName, productImage, productPrice) {
   // Crear el elemento de la lista de productos del carrito

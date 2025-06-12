@@ -100,7 +100,13 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
     </div>
   <nav class="navbar">
       <div class="logo">
-        <a href="index"><img src="img/Logo.png"></a>
+        <a href="index">
+          <picture>
+            <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
+            <img src="img/Logo.png">
+          </picture>
+          
+        </a>
       </div>
       <ul class="nav-links">
         <li class="categorias"><button onclick="mostrarMenuTienda()" class="dropbtn" id="menuButtonShop">
@@ -142,7 +148,7 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
           <div class="cuenta">
             <button onclick="mostrarMenu()" class="dropbtn" id="menuButton">
               <div class="button-content">
-                <div class="perfil-imagen-sidebar">
+                <div class="perfil-imagen">
                   <img class="userlogo" src="<?php echo $usuimg ?>">
                 </div>
                 <h3><?php echo $usuloginsesion ?></h3>

@@ -115,7 +115,13 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
     </div>
     <nav class="navbar">
       <div class="logo">
-        <a href="index"><img src="img/Logo.png"></a>
+        <a href="index">
+          <picture>
+            <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
+            <img src="img/Logo.png">
+          </picture>
+          
+        </a>
       </div>
       <ul class="nav-links">
         <li class="categorias"><button onclick="mostrarMenuTienda()" class="dropbtn" id="menuButtonShop">
