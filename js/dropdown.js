@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
     var dropdown = document.getElementById("myDropdown");
     var flecha = document.getElementById("flecha");
 
-    if (dropdown.classList.contains('show') && !event.target.closest('.cuenta')) {
+    if (dropdown && dropdown.classList.contains('show') && !event.target.closest('.cuenta')) {
       dropdown.classList.remove('show');
       flecha.classList.remove('rotar-180');
       flecha.classList.add('rotar-0');

@@ -560,13 +560,14 @@ div[contenedor] {
 footer {
   font-weight: bold;
   color: black;
-  padding: 0px 0;
+  padding-top: 0.6rem;
   width: 100%;
   font-weight: bold;
-  padding-top: 0.6rem;
-  border-top: 1px solid black;
-   border-top: 1px solid lightgray;
-   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid lightgray;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .perfil-imagen {
@@ -600,13 +601,20 @@ footer {
 }
 
 .contenedor-footer {
-
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex: 1 0 auto;
   justify-content: space-around;
   align-items: center;
   height: 100%;
+}
+
+.redes-sociales{
+  width: 50%;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
 }
 
 .politica {
@@ -695,7 +703,6 @@ footer {
 }
 
 .redes-sociales a img {
-  display: inline-block;
   transition: transform 0.6s ease;
   padding-top: 10px;
 }
@@ -707,20 +714,17 @@ footer {
 .redes-sociales img {
   height: 30px;
   width: 30px;
-  margin: 10px;
 }
 
 
 .derechos {
+  width: 65%;
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 
-.derechos p {
-  margin: 0;
-  margin-left: auto;
-  margin-right: 150px;
-}
+
 
 .sessionicon{
   width: 1.8rem;

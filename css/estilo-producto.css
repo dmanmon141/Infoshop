@@ -79,7 +79,6 @@
         margin-right: 20px;
         margin-left: 20px;
         border-radius: 20px;
-
       }
       .product-details {
         display: flex;
@@ -561,7 +560,7 @@
       animation: custom-cursor 0.8s infinite linear;
     }
 
-    @media(max-width: 1330px){
+    @media(max-width: 1400px){
         .product-title{
           font-size: 1.5rem;
         }
@@ -569,6 +568,16 @@
         .product-image{
           height: 12rem;
           width: 18rem;
+        }
+
+        .product{
+          justify-items: center;
+          grid-template-areas: 
+          "main"
+          "aside"
+          "customer"
+          "details"
+          "reseñas";
         }
     }
   
