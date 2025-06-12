@@ -1,0 +1,23 @@
+# Composer dependencies
+/vendor/
+
+# Logs y errores
+*.log
+*.lock
+
+# Archivos temporales
+*.tmp
+*.temp
+.DS_Store
+
+# Configuraciones del entorno local
+.env
+*.env
+
+# IDEs y editores
+.vscode/
+.idea/
+
+# XAMPP/Windows específico
+Thumbs.db
+desktop.ini
