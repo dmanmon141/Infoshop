@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  window.scrollTo(0, document.body.scrollHeight);
 
     const socket = new WebSocket("ws://localhost:8080");
 
@@ -19,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             </div>
           </div>`;
-        container.scrollTop = container.scrollHeight;
-       
+      
+        window.scrollTo(0, document.body.scrollHeight);
         console.log("Usuario logeado: " + usuarioActual);
         console.log("Usuario del mensaje: " + message.usuario);
         if(message.usucod !== usuarioActual){
