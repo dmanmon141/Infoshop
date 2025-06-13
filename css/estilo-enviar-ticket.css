@@ -9,9 +9,14 @@
     #main-container{
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         flex: 1;
+        gap: 6rem;
+        padding: 8rem;
+    }
+
+    #main-container img{
+        width: 24rem;
     }
 
  
@@ -24,31 +29,62 @@
         color: white;
     }
 
-    .ticket textarea{
-        resize: none;
-        height: 120px;
-        width: 560px;
-    }
+    textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Segoe UI', sans-serif;
+    resize: vertical;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    background-color: #fff;
+    color: #333;
+}
 
-    button{
-        background-color: #F2E9E4;
-        outline: none;
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid black;
-        font-size: 16px;
-        width: 40%;
-        cursor: pointer;
-    }
+textarea:focus {
+    border-color: #d32f2f; /* rojo profesional */
+    box-shadow: 0 0 5px rgba(211, 47, 47, 0.4);
+    background-color: #fff;
+}
+    
 
-    button:hover{
-    background-color: #cac3c2;
-    }
+    #main-container button {
+    background-color: #d32f2f; /* rojo profesional */
+    color: #fff;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#main-container button:hover {
+    background-color: #b71c1c;
+}
+
+#main-container button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.4);
+}
+
+#main-container button:active {
+    background-color: #a31515;
+}
 
     
   
   
-  
+  body {
+  background: linear-gradient(to bottom, #ffffff 60%, #f2f2f2 100%);
+}
     
   
     .bloque-error {
@@ -56,12 +92,48 @@
         background-color: white;
         border: 1px solid lightgray;
         border-radius: 25px;
-        padding: 50px;
+        width: 100%;
+    }
+
+    .contenido-interior{
+        padding: 2rem 1.5rem 2rem 1.5rem;
     }
 
  
     #error-h3{
         color: white;
+    }
+
+    .columna{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .bloque-customer{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        border: 1px solid lightgray;
+        border-radius: 8rem;
+        width: 100%;
+    }
+
+    .bloque-customer #customerimg{
+        width: 8rem;
+        background-color: #cf8b89;
+        border-radius: 18rem;
+    }
+
+    .bloque-customer span{
+        font-weight: bold;
+    }
+
+    @media(max-width: 980px){
+        #main-container{
+            justify-content: center;
+        }
     }
 
     

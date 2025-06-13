@@ -219,15 +219,25 @@ $productosresultado = mysqli_query($conexion, $productos);
     </nav>
     <div id="main-container">
       <img id="img" src="img/Logo.png">
-      <div class="bloque-error">
-        <h1>Enviar ticket</h1>
-        <form class="ticket">
-          <p>Cuéntanos qué pasa.</p>
-          <textarea name="contenido" id="contenido"></textarea>
-          <br><br>
-        </form>
-        <button onclick="enviarTicket()">Enviar</button>
+      <div class="columna">
+        <div class="bloque-error">
+          <div class="contenido-interior">
+            <h1>Enviar ticket</h1>
+            <form class="ticket">
+              <p>Cuéntanos qué pasa.</p>
+              <textarea name="contenido" id="contenido"></textarea>
+              <br><br>
+            </form>
+            <button onclick="enviarTicket()">Enviar</button>
+          </div>
+
+        </div>
+        <div class="bloque-customer">
+          <img src="img/customercare2.png" id="customerimg">
+          <p>Nuestro equipo de soporte te atenderá en las próximas <span>24 horas.</span></p>
+        </div>
       </div>
+
     </div>
 
 
