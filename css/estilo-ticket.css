@@ -204,6 +204,11 @@
         padding-top: 2rem;
     }
 
+    .contenido p{
+      font-size: 0.8rem;
+    }
+
+
    
     #primero{
     margin-left: auto;
