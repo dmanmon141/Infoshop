@@ -262,6 +262,8 @@ Recuerda que el uso de nuestro sitio web y servicios está sujeto a los término
 Gracias por confiar en Infoshop.
 </p>
 </div>
+
+</div>
 <footer>
   <div class="contenedor-footer">
     <div class="logo-footer">
@@ -281,7 +283,6 @@ Gracias por confiar en Infoshop.
   </div>
 </div>
 </footer>
-</div>
 </div>
 </body>
 </html>

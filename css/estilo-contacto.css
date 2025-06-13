@@ -61,16 +61,7 @@
         text-align: center;
     }
 
-    footer {
-      background-color: #333;
-      font-weight: bold;
-      color: #fff;
-      padding: 0px 0;
-      width: 100%;
-      position: absolute;
-      bottom:0;
-      border-top: 1px solid black;
-    }
+
     
   
     #error-h3{
@@ -86,5 +77,21 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        flex: 1;
+    }
+
+    @media(max-width: 1700px){
+        .bloque2{
+            order: 1;
+        }
+
+        .bloque1{
+            order: 2;
+        }
+
+        .dividir-bloque{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }

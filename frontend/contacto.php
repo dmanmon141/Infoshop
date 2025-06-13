@@ -241,7 +241,13 @@ $productosresultado = mysqli_query($conexion, $productos);
 
 
       <!-- Resto del contenido de la página -->
-      <footer>
+      
+
+
+    </div>
+
+
+<footer>
         <div class="contenedor-footer">
           <div class="logo-footer">
             <img src="img/Logo.png" alt="Logo">
@@ -260,12 +266,6 @@ $productosresultado = mysqli_query($conexion, $productos);
           </div>
         </div>
       </footer>
-
-
-    </div>
-
-
-
 
 
 
