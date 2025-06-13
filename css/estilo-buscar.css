@@ -78,7 +78,7 @@
     }
 
     .bloque1 h1:first-of-type{
-      margin-top: 2.5rem;
+      margin-top: 0.5rem;
       text-align: left;
       margin-bottom: 2rem;
     }
@@ -91,7 +91,7 @@
 
     label {
       font-size: 0.75rem;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       color: black;
       cursor: pointer;
       width: 250px;
@@ -202,12 +202,13 @@
       font-weight: normal;
       color: black;
         width: 270px;
-        min-height: 100vh;
+        height: 100vh;
         padding-left: 30px;
         position: fixed;
         left:0;
         box-shadow: 5px 0 5px rgba(0, 0, 0, 0.1);
         z-index: 9995;
+        overflow-y: auto;
     }
   
   
@@ -239,3 +240,19 @@
       font-size: 15px;
     }
   
+  @media(max-width: 1500px){
+    .producto{
+      width: calc(50% - 80px);
+    }
+  }
+
+  @media(max-width: 1115px){
+    .bloque1{
+      width: 12rem;
+      padding-left: 0;
+    }
+
+    .bloque2{
+      margin-left: 10rem;
+    }
+  }
