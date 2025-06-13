@@ -302,3 +302,9 @@
         gap:1rem;
         color: black;
     }
+
+  @media(max-width: 980px){
+    .dividir{
+      align-items: center;
+    }
+  }

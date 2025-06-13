@@ -148,7 +148,7 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
           <div class="cuenta">
             <button onclick="mostrarMenu()" class="dropbtn" id="menuButton">
               <div class="button-content">
-                <div class="perfil-imagen">
+                <div class="perfil-imagen-sidebar">
                   <img class="userlogo" src="<?php echo $usuimg ?>">
                 </div>
                 <h3><?php echo $usuloginsesion ?></h3>
