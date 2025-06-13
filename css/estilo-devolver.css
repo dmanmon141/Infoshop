@@ -25,7 +25,6 @@
     .bloque {
         color: black;
         flex: 0 0 45%;
-        padding: 20px;
         display:flex;
         flex-direction: column;
         gap: 2rem;
@@ -89,6 +88,7 @@
       display: flex;
       justify-content: space-between;
       flex-direction: column;
+      align-items: center;
       gap: 5rem;
      }
 
@@ -170,7 +170,6 @@
     .detalles textarea{
         width: 300px;
         height: 58px;
-        box-sizing: border-box;
         text-align: left;
         font-family: 'FuentePagina', sans-serif;
     }
@@ -186,6 +185,7 @@
         align-items: center;
         justify-content: space-evenly;
         flex: 1;
+        padding: 8rem;
     }
   
     .logo img {
@@ -222,3 +222,51 @@
       margin-right: 150px;  
     }
   
+    @media(max-width: 1640px){
+      .container{
+        flex-direction: column;
+      }
+    }
+
+    @media(max-width: 1215px){
+      .bloque2{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .bloque h2{
+        display: none;
+      }
+
+      .bloque{
+        flex-direction: row;
+      }
+
+      .fila{
+        flex-direction: column;
+        width: auto;
+        border-right: 3px solid #da2822;
+      }
+      
+      .producto-detalles{
+        flex-direction: column;
+        width: auto;
+        height: 100%;
+        border: none;
+        gap: 6rem;
+      }
+
+      .producto-imagen{
+        margin-bottom: -4rem;
+      }
+
+      .producto-detalles img{
+        height: 100%;
+        width: 100%;
+      }
+
+      .fila p:nth-last-of-type(3){
+        margin: 0;
+      }
+    }
