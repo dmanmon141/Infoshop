@@ -86,6 +86,25 @@ $arrayproductos = mysqli_fetch_row($productosql);
 <div id="overlay"></div>
 
 <div class="contenedor">
+  <div id="myDropdownTienda" class="category-sidebar">
+
+      <?php
+      $categorias = "SELECT * FROM categorias";
+      $categoriasql = mysqli_query($conexion, $categorias);
+
+      while ($arraycat = mysqli_fetch_row($categoriasql)) {
+
+        ?>
+        <div class="categoria-item">
+          <img src="img/<?php echo $arraycat[0] ?>.png" class="cross" onclick="cerrarMenuTienda()">
+          <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
+        </div>
+        <?php
+      }
+
+      ?>
+
+    </div>
   <nav class="navbar">
       <div class="logo">
         <a href="index">

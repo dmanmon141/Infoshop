@@ -1,6 +1,6 @@
 <?php
 
-$servidor= "localhost";
+$servidor = "localhost";
 $usuario = "root";
 $password = "";
 $conexion = mysqli_connect($servidor, $usuario, $password);
@@ -17,31 +17,31 @@ if (isset($_POST['correo'])) {
   $usuloginsesion = mysqli_fetch_assoc($usuloginsql);
   $_SESSION['usunom'] = $usuloginsesion['USUNOM'];
 
-  
+
   $usucod = "SELECT USUCOD FROM usuarios WHERE USUCOR = '$correo';";
   $usucodsql = mysqli_query($conexion, $usucod);
-  $usucodsesion =  mysqli_fetch_assoc($usucodsql);
+  $usucodsesion = mysqli_fetch_assoc($usucodsql);
   $_SESSION['usucod'] = $usucodsesion['USUCOD'];
 
-  
 
-}elseif(!isset($_SESSION['usucod'])){
+
+} elseif (!isset($_SESSION['usucod'])) {
   session_destroy();
 }
 
-if(isset($_SESSION['usucod'])){
+if (isset($_SESSION['usucod'])) {
 
-$usucodsesion = $_SESSION['usucod'];
+  $usucodsesion = $_SESSION['usucod'];
 
-$datosql = "SELECT * FROM usuarios WHERE USUCOD = '$usucodsesion';";
-$datosquery = mysqli_query($conexion, $datosql);
-$datosarray = mysqli_fetch_assoc($datosquery);
-$usunom = $datosarray['USUNOM'];
-$usuape = $datosarray['USUAPE'];
-$usucor = $datosarray['USUCOR'];
-$usucont = $datosarray['USUCONT'];
-$usuimg = $datosarray['USUIMG'];
-$usuadm = $datosarray['USUADM'];
+  $datosql = "SELECT * FROM usuarios WHERE USUCOD = '$usucodsesion';";
+  $datosquery = mysqli_query($conexion, $datosql);
+  $datosarray = mysqli_fetch_assoc($datosquery);
+  $usunom = $datosarray['USUNOM'];
+  $usuape = $datosarray['USUAPE'];
+  $usucor = $datosarray['USUCOR'];
+  $usucont = $datosarray['USUCONT'];
+  $usuimg = $datosarray['USUIMG'];
+  $usuadm = $datosarray['USUADM'];
 }
 
 
@@ -53,35 +53,56 @@ $productosresultado = mysqli_query($conexion, $productos);
 
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Infoshop | Las mejoras ofertas en Informática!</title>
-  
+  <link rel="stylesheet" type="text/css" href="../css/estilo-misc.css">
   <link rel="stylesheet" type="text/css" href="../css/estilo-404.css">
   <link rel="stylesheet" type="text/css" href="js/slick/slick.css">
-<link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css">
-<link rel="icon" type="image/png" href="img/Logo.png">
+  <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css">
+  <link rel="icon" type="image/png" href="img/Logo.png">
 </head>
+
 <body>
-<script src="js/jquery-3.7.0.min.js"></script>
-<script src="js/slick/slick.min.js"></script>
-<script src="js/slider.js"></script>
-<script src="js/dropdown.js"></script>
-<script src="js/dropdowntienda.js"></script>
-<script src="js/carrito.js"></script>
-<script src="js/redireccionar-producto.js"></script>
-<script src="js/carrito-checkout.js"></script>
+  <script src="js/jquery-3.7.0.min.js"></script>
+  <script src="js/slick/slick.min.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/dropdown.js"></script>
+  <script src="js/dropdowntienda.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/redireccionar-producto.js"></script>
+  <script src="js/carrito-checkout.js"></script>
 
-<div id="overlay"></div>
+  <div id="overlay"></div>
 
-<div class="contenedor">
-  <nav class="navbar">
+  <div class="contenedor">
+    <div id="myDropdownTienda" class="category-sidebar">
+
+      <?php
+      $categorias = "SELECT * FROM categorias";
+      $categoriasql = mysqli_query($conexion, $categorias);
+
+      while ($arraycat = mysqli_fetch_row($categoriasql)) {
+
+        ?>
+        <div class="categoria-item">
+          <img src="img/<?php echo $arraycat[0] ?>.png" class="cross" onclick="cerrarMenuTienda()">
+          <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
+        </div>
+        <?php
+      }
+
+      ?>
+
+    </div>
+    <nav class="navbar">
       <div class="logo">
         <a href="index">
           <picture>
             <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
             <img src="img/Logo.png">
           </picture>
-          
+
         </a>
       </div>
       <ul class="nav-links">
@@ -194,38 +215,38 @@ $productosresultado = mysqli_query($conexion, $productos);
           </div>
       </ul>
     </nav>
-        <div id="main-container">
-        <div class="bloque-error">
+    <div id="main-container">
+      <div class="bloque-error">
         <img src="img/error404.png">
         <h1>Página no encontrada</h1>
         <h3 id="error-h3">Lo sentimos, esta página no existe.</h3>
-        </div>
-        </div>
+      </div>
+    </div>
 
 
-  <!-- Resto del contenido de la página -->
-  <footer>
-  <div class="contenedor-footer">
-    <div class="logo-footer">
-      <img src="img/Logo.png" alt="Logo">
-      
-    </div>
-    <div class="redes-sociales">
-      <a href="#" class="icono-social"><img src ="img/fblogo.png" alt="Facebook"></i></a>
-      <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
-      <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
-      <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
-    </div>
-  <div class="derechos">
-    <p> Infoshop &copy; 2025</p>
-    <p><a href="contacto" class="politica">Contacto</a></p>
-    <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
+    <!-- Resto del contenido de la página -->
+    <footer>
+      <div class="contenedor-footer">
+        <div class="logo-footer">
+          <img src="img/Logo.png" alt="Logo">
+
+        </div>
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
+          <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
+          <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
+          <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
+        </div>
+        <div class="derechos">
+          <p> Infoshop &copy; 2025</p>
+          <p><a href="contacto" class="politica">Contacto</a></p>
+          <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
+        </div>
+      </div>
+    </footer>
+
+
   </div>
-</div>
-</footer>
-
-
-</div>
 
 
 
@@ -236,4 +257,5 @@ $productosresultado = mysqli_query($conexion, $productos);
 
 
 </body>
+
 </html>
