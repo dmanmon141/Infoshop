@@ -9,7 +9,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 40px;
+        margin-top: 40px;
         grid-area: Check;
       }
 
@@ -45,6 +45,7 @@
 
       #producto-alink{
         color: black;
+        text-align: center;
       }
 
       #producto-alink:hover{
@@ -129,6 +130,7 @@
         align-items: center;
         justify-content: center;
         flex: 1;
+        padding-top: 5rem;
     }
 
     #datosclick{
@@ -346,4 +348,16 @@
 
     .codigoseg{
       grid-area: Codigoseg;
+    }
+
+    @media(max-width: 1615px){
+      .container{
+        flex-direction: column;
+        padding-top: 7rem;
+        margin-bottom: 1rem;
+      }
+
+      .direccion{
+        grid-template-rows: 3vh 2vh 3vh 2vh 3vh 3vh;
+      }
     }

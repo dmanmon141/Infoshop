@@ -92,7 +92,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 40px;
+        margin-top: 40px;
         grid-area: Check;
       }
 
@@ -318,12 +318,13 @@
       text-decoration: none;
     }
   
-    .container{
-      display: flex;
-      align-items: center;
-      flex: 1;
-      justify-content: center;
-  }
+    .container, .main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        padding-top: 5rem;
+    }
   
     h1{
       font-size: 50px;
@@ -430,4 +431,16 @@
     .product-details {
       display: flex;
       font-size: 15px;
+    }
+
+    @media(max-width: 1615px){
+      .container{
+        flex-direction: column;
+        padding-top: 7rem;
+        margin-bottom: 1rem;
+      }
+
+      .direccion{
+        grid-template-rows: 3vh 2vh 3vh 2vh 3vh 3vh;
+      }
     }
