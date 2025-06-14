@@ -195,7 +195,6 @@ h2 {
   padding-top: 6rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .bloque-error {
@@ -206,6 +205,7 @@ h2 {
   border-radius: 25px;
   padding: 2rem;
   padding-top: 2rem;
+  margin-top: auto;
 }
 
 .contenido p {

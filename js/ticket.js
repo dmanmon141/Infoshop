@@ -8,8 +8,8 @@ var formData = new FormData();
 formData.append('contenido', contenido);
 
 
-if(contenido.length < 30){
-alert("Por favor, introduzca más de 30 caracteres.")
+if(contenido.length < 5){
+alert("Por favor, introduzca más de 5 caracteres.")
 return;
 }
 
