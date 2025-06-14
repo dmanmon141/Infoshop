@@ -16,6 +16,7 @@ session_start();
 <html>
 <head>
   <title>Infoshop | Las mejoras ofertas en Informática!</title>
+  <link rel="stylesheet" type="text/css" href="../css/estilo-misc.css">
   <link rel="stylesheet" type="text/css" href="js/jquery-3.7.0.min.js">
   <link rel="stylesheet" type="text/css" href="../css/estilo-exito.css">
   <link rel="stylesheet" type="text/css" href="js/slick/slick.css">
@@ -32,27 +33,13 @@ session_start();
 
 
 <div class="contenedor">
-<div class="logo">
+<div class="logomain">
     <a href="index"><img src="img/Logo.png" alt="Logo"></a>
 </div>
 
 
 <div class="contenedor2">
-    <div class="block recomendaciones">
-        <div class="bloque1">
-          <img src="img/comprar.png" style="width:50px;height:50px;margin-top:25px;">
-          <h3> Accede a tu historial de pedidos</h3>
-        </div>
-        <div class="bloque2">
-          <img src="img/tarjeta.png" style="width:50px;height:50px;margin-top:20px;">
-          <h3> Guarda tus datos de compra como:</h3>
-          <ul style="list-style:none;padding:5px;">
-            <li> Método de pago</li>
-            <li>Número de Teléfono</li>
-            <li>Dirección</li>
-          </ul>
-        </div>
-    </div>
+
 
     <?php
 
@@ -79,19 +66,14 @@ session_start();
 
     <div class="block formulario">
         <h2 style="margin-bottom: 80px;">Restablecer contraseña</h2>
-        <form id="login-form" onsubmit="enviarFormulario(event)" method="POST" action="">
-        <fieldset>
             <h1>Su contraseña ha sido restablecida con éxito. Redirigiendo...</h1>
             <?php
             ob_start();
             Header("Refresh: 2; URL=login");
             ob_end_flush();
             ?>
-        </fieldset>
-        </form>
-        <div id="mensaje"></div>
     </div>
-</div>
+
 
 <?php
 
@@ -100,6 +82,8 @@ session_start();
 ?>
 
 
+
+</div>
 <footer>
   <div class="contenedor-footer">
     <div class="logo-footer">
@@ -119,7 +103,6 @@ session_start();
   </div>
 </div>
 </footer>
-
 </div>
 
 </body>
