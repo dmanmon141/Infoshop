@@ -280,7 +280,7 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
 
 
         ?>
-
+        <button class="floatingbutton"><img src="img/flecha.png"></button>
         <div class="mensajeinicial">
           <div class="credenciales">
             <div class="crgroup1"><img src="<?php echo $usuimgticket ?>">

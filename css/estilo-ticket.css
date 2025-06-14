@@ -1,231 +1,256 @@
-
-  
-    .eliminar-btn:hover{
-      transform: scale(1.1);
-      cursor: pointer;
-    }
-  
-      #main-content {
-        min-height: 100vh;
-      }
-
-
-      .bloque1{
-      font-size: 25px;
-      font-weight: bold;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      background-color: #333;
-      width: 270px;
-      min-height: 83vh;
-      align-items: center;
-      }
-
-      .bloque1 div{
-        border-radius: 5px;
-        padding-top: 25px;
-        color: white;
-        padding-bottom: 25px;
-        text-align: center;
-      }
-
-      .bloque1 div:hover{
-        background-color: #494949;
-        cursor: pointer;
-      }
-
-      
-      .bloque1 a{
-        width: 70%;
-        text-decoration: none;
-        color: black;
-      }
-  
-  
-    .mensajeinicial{
-        background-color: white;
-        padding: 10px;
-        color: black;
-        border-radius: 5px;
-        margin-bottom: 50px;
-        padding: 1rem;
-        width: fit-content;
-        border: 1px solid lightgray;
-        min-width: 12rem;
-    }
-    .credenciales{
-        display: flex;
-        border-bottom: 2px solid lightgray;
-        padding-bottom: 5px;
-        margin-bottom: 1rem;
-        color: black;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .crgroup1{
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .credenciales img{
-        height: 45px;
-        border-radius: 2rem;
-    }
-
-    .credenciales p{
-        font-weight: bold;
-    }
-    
-  
-  
-  
-    h1{
-      font-size: 40px;
-      font-weight: bold;
-      color: white;
-      margin-bottom: 0;
-      margin-top: 0;
-    }
-
-    h2{
-      margin-bottom: 0;
-      margin-top: 0;
-    }
-    
-  
-  
-    #respuesta-contenido{
-    resize: none;
-    width: 100%;
-    border-radius: 2rem;
-    padding: 0.3rem;
-    padding-left: 0.8rem;
-    padding-right: 0.8rem;
-    }
-
-    .respondermensaje{
-    display: flex;
-    gap: 0.5rem;
-    width: 85%;
-    align-items: center;
-    margin:auto;
-    margin-bottom: 1.5rem;
-    }
-
-    .respondermensaje button{
-      padding: 10px;
-      background-color: #da2822;
-      border: none;
-      cursor: pointer;
-      border-radius: 2rem;
-    }
-
-    .icon{
-      width:1.3rem;
-      height: 1.3rem;
-    }
-
-    .usuario{
-      margin-left: auto;
-    }
-    
-    .texto-fondo h2 {
-      font-size: 11px;
-      margin-bottom: 6px;
-    }
-
-    #fecha{
-      font-weight: normal;
-      color: black;
-      font-size: 0.8rem;
-    }
-
-    .mensaje-usuario, .mensaje-administrador{
-      text-align: justify;
-       
-        padding: 10px;
-        max-width: 500px;
-        border-radius: 5px;
-        margin-bottom: 50px;
-        color: black;
-        width: fit-content;
-        border: 1px solid lightgray;
-        min-width: 12rem;
-        
-    }
-
-    .mensaje-usuario{
-      background-color: white;
-      
-    }
-
-    .mensaje-administrador{
-        margin-left: auto;
-        background-color: #f4f2f2;
-    }
-
-    #segundo{
-    
-    margin-right: 30px;}
-
-    .fila{
-    display: flex;
-    align-items: center ;
-    width: 100%;
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
-      border-bottom: 2px solid lightgray;
-      position: sticky;
-      top: 0;
-      background-color: #da2822;
-      
-    }
-
-    .fila h2{
-      
-      font-weight: bold;
-      color: white;
-    }
-
-    .dividir{
-      padding-top: 6rem;
-    }
-  
-    .bloque-error {
-        text-align: left;
-        margin: 0 auto;
-        height: fit-content;
-        width: 80%;
-        border-radius: 25px;
-        padding: 2rem;
-        padding-top: 2rem;
-    }
-
-    .contenido p{
-      font-size: 0.8rem;
-    }
-
-
-   
-    #primero{
-    margin-left: auto;
-    margin-right: 10px;
-    }
-  
-#cerrarticket{
-      width: 300px;
-      font-size: 20px;
-      padding: 10px;
-      background-color: #F2E9E4;
-      border: 1px solid black;
-      border-radius: 5px;
-      cursor: pointer;
+.eliminar-btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
-.cerrar-ticket{
+#main-content {
+  min-height: 100vh;
+}
 
-margin-left: auto;
+
+.bloque1 {
+  font-size: 25px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #333;
+  width: 270px;
+  min-height: 83vh;
+  align-items: center;
+}
+
+.bloque1 div {
+  border-radius: 5px;
+  padding-top: 25px;
+  color: white;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+.bloque1 div:hover {
+  background-color: #494949;
+  cursor: pointer;
+}
+
+
+.bloque1 a {
+  width: 70%;
+  text-decoration: none;
+  color: black;
+}
+
+
+.mensajeinicial {
+  background-color: white;
+  padding: 10px;
+  color: black;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  padding: 1rem;
+  width: fit-content;
+  border: 1px solid lightgray;
+  min-width: 12rem;
+}
+
+.credenciales {
+  display: flex;
+  border-bottom: 2px solid lightgray;
+  padding-bottom: 5px;
+  margin-bottom: 1rem;
+  color: black;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.crgroup1 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.credenciales img {
+  height: 45px;
+  border-radius: 2rem;
+}
+
+.credenciales p {
+  font-weight: bold;
+}
+
+
+
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h2 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+
+
+#respuesta-contenido {
+  resize: none;
+  width: 100%;
+  border-radius: 2rem;
+  padding: 0.3rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+.respondermensaje {
+  display: flex;
+  gap: 0.5rem;
+  width: 85%;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 1.5rem;
+}
+
+.respondermensaje button {
+  padding: 10px;
+  background-color: #da2822;
+  border: none;
+  cursor: pointer;
+  border-radius: 2rem;
+}
+
+.icon {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.usuario {
+  margin-left: auto;
+}
+
+.texto-fondo h2 {
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+#fecha {
+  font-weight: normal;
+  color: black;
+  font-size: 0.8rem;
+}
+
+.mensaje-usuario,
+.mensaje-administrador {
+  text-align: justify;
+
+  padding: 10px;
+  max-width: 500px;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  color: black;
+  width: fit-content;
+  border: 1px solid lightgray;
+  min-width: 12rem;
+
+}
+
+.mensaje-usuario {
+  background-color: white;
+
+}
+
+.mensaje-administrador {
+  margin-left: auto;
+  background-color: #f4f2f2;
+}
+
+#segundo {
+
+  margin-right: 30px;
+}
+
+.fila {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  border-bottom: 2px solid lightgray;
+  position: sticky;
+  top: 0;
+  background-color: #da2822;
+
+}
+
+.fila h2 {
+
+  font-weight: bold;
+  color: white;
+}
+
+.dividir {
+  padding-top: 6rem;
+}
+
+.bloque-error {
+  text-align: left;
+  margin: 0 auto;
+  height: fit-content;
+  width: 80%;
+  border-radius: 25px;
+  padding: 2rem;
+  padding-top: 2rem;
+}
+
+.contenido p {
+  font-size: 0.8rem;
+}
+
+.floatingbutton {
+  display: none;
+  background: none;
+  border: none;
+  position: fixed;
+  border-radius: 18rem;
+  background-color: #db9997;
+  bottom: 5rem;
+  right: 12rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.floatingbutton:hover{
+  cursor: pointer;
+}
+
+.floatingbutton img {
+  position: relative;
+  width: 0.8rem;
+  bottom: -0.2rem;
+}
+
+
+
+
+#primero {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+#cerrarticket {
+  width: 300px;
+  font-size: 20px;
+  padding: 10px;
+  background-color: #F2E9E4;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cerrar-ticket {
+
+  margin-left: auto;
 }
