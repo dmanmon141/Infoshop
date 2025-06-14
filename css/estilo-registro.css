@@ -1,276 +1,276 @@
+.dropbtn:hover {
+  background-color: #494949;
+  cursor: pointer;
+}
 
-
-  .dropbtn:hover{
-    background-color: #494949;
-    cursor: pointer;
-  }
-
-   .logomain {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20px;
-  }
+.logomain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
 
 
 
-  .logomain img{
-    width: 160px;
+.logomain img {
+  width: 160px;
   height: 60px;
-  }
+}
 
+.contenedor2 {
+  display: flex;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  flex: 1;
+}
+
+.block {
+  color: black;
+  flex: 0 0 45%;
+  width: 45%;
+  padding: 20px;
+  display: inline-block;
+  border-radius: 25px;
+  border: 1px solid lightgray;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin: 10px;
+}
+
+fieldset {
+  border: none;
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-container:first-of-type {
+  margin-bottom: 2rem;
+}
+
+
+.toggle-password {
+  position: absolute;
+  top: 45%;
+  right: 25px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-image: url('../img/eye.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+}
+
+#sesioniniciada {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#sesioniniciada h2 {
+  text-align: center;
+}
+
+.toggle-password-rp {
+  position: absolute;
+  top: 45%;
+  right: 25px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-image: url('../img/eye.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+}
+
+
+/* Cambia el ícono cuando se muestra la contraseña */
+.toggle-password.show {
+  background-image: url('../img/eye-slash.png');
+}
+
+.toggle-password-rp.show {
+  background-image: url('../img/eye-slash.png');
+}
+
+
+
+#politicas-input {
+  width: 0.8rem;
+}
+
+.formulario h2 {
+  margin-bottom: 1.5rem;
+}
+
+#login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 30px;
+}
+
+#login-form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#btn-login {
+  background-color: #da2822;
+  color: white;
+  font-weight: bold;
+}
+
+
+.primero {
+  margin-bottom: 20px;
+}
+
+.login {
+  display: inline-block;
+  margin: 0 auto;
+  background-color: #da2822;
+  border-radius: 5px;
+  padding: 10px;
+  width: 17.2rem;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+fieldset input {
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+
+.fila {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+label {
+  font-size: 11px;
+  color: black;
+}
+
+label a {
+  color: black;
+}
+
+label a:hover {
+  color: #bb231d;
+}
+
+
+.btnenviar:hover {
+  cursor: pointer;
+}
+
+
+
+.block:nth-child(2) {
+  margin-right: 0 auto;
+}
+
+.perfil-imagen {
+  width: 150px;
+  height: 150px;
+  margin-left: 65px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid gray;
+}
+
+.perfil-imagen img {
+  width: 100%;
+  height: 100%;
+}
+
+#mensaje {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: rgba(255, 0, 0, 0);
+  display: none;
+  border-color: red;
+  border-width: 2px;
+  border-style: solid;
+  margin-bottom: 20px;
+  font-size: 14px;
+  max-width: 250px;
+  margin-left: 19px;
+}
+
+
+.recomendaciones {
+  width: 300px;
+  order: 1;
+  height: fit-content;
+  margin-top: 120px;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+ul li {
+
+  margin-bottom: 10px;
+
+}
+
+.formulario {
+  width: 300px;
+  order: 2;
+  margin-bottom: 6rem;
+  height: fit-content;
+}
+
+
+
+
+input:focus {
+  border-color: #d32f2f;
+  box-shadow: 0 0 5px rgba(211, 47, 47, 0.4);
+  background-color: #fff;
+  outline: none;
+}
+
+div[contenedor] {
+  position: relative;
+  min-height: 100vh;
+}
+
+@media(max-width: 980px) {
   .contenedor2 {
-    display: flex;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    flex: 1;
-  }
-  
-  .block {
-    color: black;
-    flex: 0 0 45%;
-    width: 45%;
-    padding: 20px;
-    display:inline-block;
-    border-radius: 25px;
-    border: 1px solid lightgray;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    margin: 10px;
-  }
-
-  fieldset {
-    border: none;
-  }
-
-  .password-container {
-    position: relative;
-  }
-
-  .password-container:first-of-type{
-    margin-bottom: 2rem;
-  }
-  
-
-  .toggle-password {
-    position: absolute;
-    top: 45%;
-    right: 25px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    background-image: url('../img/eye.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 25px;
-    height: 25px;
-  }
-
-  #sesioniniciada{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #sesioniniciada h2{
-    text-align: center;
-  }
-
-  .toggle-password-rp {
-    position: absolute;
-    top: 45%;
-    right: 25px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    background-image: url('../img/eye.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 25px;
-    height: 25px;
-  }
-
-  
-  /* Cambia el ícono cuando se muestra la contraseña */
-  .toggle-password.show {
-    background-image: url('../img/eye-slash.png');
-  }
-
-  .toggle-password-rp.show {
-    background-image: url('../img/eye-slash.png');
-  }
-
-
-
-  #politicas-input{
-    width: 0.8rem;
-  }
-
-  .formulario h2{
-    margin-bottom: 1.5rem;
-  }
-
-  #login-form{
-    display: flex
-;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 30px;
-  }
-
-  #login-form fieldset{
-    display: flex;
     flex-direction: column;
-    gap: 0.5rem;
     align-items: center;
-  }
-
-  #btn-login{
-    background-color: #da2822;
-    color: white;
-    font-weight: bold;
-  }
-
-
-  .primero{
-    margin-bottom: 20px;
-  }
-
-  .login {
-    display: inline-block;
-    margin:0 auto;
-    background-color: #da2822;
-    border-radius: 5px;
-    padding: 10px;
-    width: 17.2rem;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  fieldset input{
-    width: 300px;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid lightgray;
-    padding: 10px;
-  }
-
-  .fila{
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
     justify-content: center;
-  }
-  
-  label {
-    font-size: 11px;
-    color: black;
-  }
-
-  label a {
-    color: black;
-  }
-
-  label a:hover{
-    color: #bb231d;
-  }
-
-
-  .btnenviar:hover{
-    cursor: pointer;
-  }
-
-  
-  
-  .block:nth-child(2){
-    margin-right: 0 auto;
-  }
-
-  .perfil-imagen{
-    width: 150px;
-    height: 150px;
-    margin-left: 65px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid gray;
-  }
-
-  .perfil-imagen img{
-    width: 100%;
-    height: 100%;
-  }
-
-  #mensaje{
-    background-color: white;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: rgba( 255, 0, 0, 0);
-    display: none;
-    border-color: red;
-    border-width: 2px;
-    border-style: solid;
-    margin-bottom: 20px;
-    font-size: 14px;
-    max-width: 250px;
-    margin-left: 19px;
-  }
-
-
-  .recomendaciones {
-    width: 300px;   
-    order:1;
-    height: fit-content;
-    margin-top: 120px;
-    display: flex;
-    gap: 2rem;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  ul li{
-
-    margin-bottom:10px;
-
   }
 
   .formulario {
-    width: 300px;
-    order:2;
-    margin-bottom: 6rem;
-    height: fit-content;
+    order: 1;
+    margin-bottom: 2rem;
   }
 
-
-  
-
-
-
-  div[contenedor] {
-    position: relative;
-    min-height: 100vh;
+  .recomendaciones {
+    order: 2;
+    margin: 0;
+    margin-bottom: 2rem;
   }
-
-  @media(max-width: 980px){
-    .contenedor2{
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .formulario{
-      order: 1;
-      margin-bottom: 2rem;
-    }
-
-    .recomendaciones{
-      order: 2;
-      margin: 0;
-      margin-bottom: 2rem;
-    }
-  }
-  
-
+}

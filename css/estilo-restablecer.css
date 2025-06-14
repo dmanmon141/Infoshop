@@ -1,126 +1,42 @@
-@font-face{
-    font-family: 'FuentePagina';
-    src: url('fonts/SFUIText-Heavy.otf') format('otf');
-  }
-  
-  body {
-    height:100%;
-    margin: 0;
-    padding: 0;
-    background-color: #4A4E69;
-    background-size: cover;
-    font-family:'FuentePagina', sans-serif;
-  }
 
-  footer {
-    background-color: #333;
-    font-weight: bold;
-    color: #fff;
-    padding: 0px 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-top: 1px solid black;
-  }
-  
-  div[contenedor] {
-    position: relative;
-    min-height: 100vh;
-  }
-
-  #menuButtonShop{
-    background-color: white;	
-    }
-
-    #menuButton{
-      color: white;
-    }
-  
-  .contenedor-footer {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-  }
-  
-  .logo-footer{
-    display: flex;
-    align-items: center;
-  }
-
-  .politica{
-  text-decoration: none;
-  color: white;
-  }
-
-  .logo-footer img{
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    margin-left: 100px;
-  }
-
-  .dropbtn:hover{
-    background-color: #494949;
-    cursor: pointer;
-  }
-
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  .logo img {
-    width: 120px;
-    height: 120px;
-  }
 
   .formulario-container {
     margin: 0 auto;
     text-align: center;
-    width: 20%; /* Ajusta el valor según tus necesidades */
   }
 
-  .contenedor2 {
+ .logomain {
     display: flex;
     justify-content: center;
-    max-width: 800px;
-    height: 100vh;
+    align-items: center;
+    padding-top: 20px;
   }
 
-  .perfil-imagen{
-    width: 150px;
-    height: 150px;
-    margin-left: 65px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid gray;
+
+
+  .logomain img{
+    width: 160px;
+  height: 60px;
   }
 
-  .perfil-imagen img{
-    width: 100%;
-    height: 100%;
-  }
-  
   .block {
-    color: white;
+    color: black;
     flex: 0 0 45%;
     width: 45%;
+    height: fit-content;
+    min-height: 30rem;
     padding: 20px;
     border-radius: 25px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: white;
   }
 
-  .btnenviar {
-    padding: 15px;
-    font-family:'FuentePagina',sans-serif;
+  .dividir{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
 
   fieldset {
     border: none;
@@ -169,10 +85,14 @@
   }
 
   .login {
-    color: white;
+    color: black;
     font-size: 12px;
     display: block;
     margin-top: 10px;
+  }
+
+  .login:hover{
+    color: #da2822;
   }
 
   #loader {
@@ -206,10 +126,6 @@
     100% { transform: rotate(360deg); }
   }
 
-  .login:hover {
-    text-decoration: none;
-    color: blue;
-  }
 
   h3 {
     padding-bottom: 5px;
@@ -219,14 +135,19 @@
     width: 250px;
     height: 50px;
     border-radius: 5px;
-    border: 1px gray;
+    border: 1px solid lightgray;
     padding: 5px;
+    outline: none;
   }
 
-  fieldset input:focus{
-    outline: none;
-    box-shadow: 0 0 10px 5px rgb(55,55,255,1);
-  }
+
+
+  input:focus {
+    border-color: #d32f2f; /* rojo profesional */
+    box-shadow: 0 0 5px rgba(211, 47, 47, 0.4);
+    background-color: #fff;
+}
+
 
   #btn-login{
     display: block;
@@ -234,10 +155,13 @@
     margin-bottom: 20px;
     width: 200px;
     margin-left: 50px;
+    color: white;
+    font-weight: bold;
+    background-color: #d32f2f;
   }
 
   #btn-login:hover {
-    background-color: lightgray;
+    background-color: #bd2c2c;
     cursor: pointer;
   }
   
@@ -255,11 +179,6 @@
     text-align: center;
   }
 
-  .recomendaciones {
-    width: 300px;   
-    flex-grow: 1;
-    order:1;
-  }
 
   .formulario h2 {
     margin-top: 80px;
@@ -276,23 +195,24 @@
   .volver {
     text-decoration: none;
     color: white;
-    background-color: darkviolet;
+    background-color: #da2822;
     padding: 15px;
     padding-left: 60px;
     padding-right: 60px;
+    border-radius: 0.5rem;
   }
 
   .volver:hover {
-    background-color: purple;
+    background-color: #a31f1a;
   }
   
   .token-expired h2{
     margin-top: 80px;
     padding-bottom: 20px;
+    line-height: 3rem;
   }
 
   .token-expired {
-    width: 300px;
     order:2;
     text-align: center;
     height: 60%;
@@ -307,37 +227,3 @@
   .primero {
     margin-bottom: 40px;
   }
-
-  .olvidar {
-    color: white;
-    float:left;
-    margin-left: 15px;
-    margin-top: 10px;
-    margin-bottom: 40px;
-    font-size: 12px;
-  }
-
-  .redes-sociales a img:hover{
-    transform: rotate(360deg);
-  }
-
-  .redes-sociales img {
-    height: 30px;
-    width: 30px;
-    margin: 10px;
-  }
-  
-  .derechos {
-    display: flex;
-    align-items: center;
-  }
-
-  .derechos p {
-    margin: 0;
-    margin-left: auto;
-    margin-right: 150px;  
-  }
-
- li {
-    margin-bottom: 15px;
- }

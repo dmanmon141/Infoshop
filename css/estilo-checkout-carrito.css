@@ -19,6 +19,13 @@
         margin-bottom: 1rem;
       }
 
+      input:focus {
+    border-color: #d32f2f; /* rojo profesional */
+    box-shadow: 0 0 5px rgba(211, 47, 47, 0.4);
+    background-color: #fff;
+    outline: none;
+}
+
 
 
       #totalprecio{

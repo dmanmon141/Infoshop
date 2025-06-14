@@ -167,6 +167,13 @@
         border-bottom: 2px solid lightgray;
     }
 
+    input:focus {
+    border-color: #d32f2f; /* rojo profesional */
+    box-shadow: 0 0 5px rgba(211, 47, 47, 0.4);
+    background-color: #fff;
+    outline: none;
+}
+
     .filadatos{
       font-size: 13px;
       font-weight: bold;
