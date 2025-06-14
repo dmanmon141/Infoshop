@@ -48,9 +48,9 @@ if ($usuadm != 1) {
   exit;
 }
 
-//if(empty($_GET)){
-//  header("Location: index");
-//}
+if (empty($_GET)) {
+  header("Location: index");
+}
 
 
 $pedidosql = "SELECT * FROM pedidos WHERE USUCOD = '$usucod';";
@@ -73,6 +73,7 @@ $newsletter = mysqli_num_rows($newsletterquery);
 
 <head>
   <title>Infoshop | Las mejoras ofertas en Informática!</title>
+  <link rel="stylesheet" type="text/css" href="../css/estilo-misc.css">
   <link rel="stylesheet" type="text/css" href="../css/estilo-panel-administrador.css">
   <link rel="stylesheet" type="text/css" href="js/slick/slick.css">
   <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css">
@@ -98,6 +99,25 @@ $newsletter = mysqli_num_rows($newsletterquery);
   <div id="overlay"></div>
 
   <div class="contenedor">
+    <div id="myDropdownTienda" class="category-sidebar">
+
+      <?php
+      $categorias = "SELECT * FROM categorias";
+      $categoriasql = mysqli_query($conexion, $categorias);
+
+      while ($arraycat = mysqli_fetch_row($categoriasql)) {
+
+        ?>
+        <div class="categoria-item">
+          <img src="img/<?php echo $arraycat[0] ?>.png" class="cross" onclick="cerrarMenuTienda()">
+          <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
+        </div>
+        <?php
+      }
+
+      ?>
+
+    </div>
     <nav class="navbar">
       <div class="logo">
         <a href="index">
@@ -218,24 +238,37 @@ $newsletter = mysqli_num_rows($newsletterquery);
     <!-- Resto del contenido de la página -->
     <div class="dividir">
 
-      <div class="bloque1">
-        <a href="panel-administrador?productos">
-          <div class="seccionproductos">Productos</div>
-        </a>
-        <a href="panel-administrador?tickets">
-          <div class="secciontickets">Tickets</div>
-        </a>
-        <a href="panel-administrador?notificaciones">
-          <div class="seccionnotificaciones">Notificaciones</div>
-        </a>
-        <a href="panel-administrador?basedatos">
-          <div class="seccionbasedatos">Base de datos</div>
-        </a>
-      </div class="bloque1">
+
 
       <!-- Contenido de la pagina -->
 
       <div class="bloque2" id="producto-contenedor">
+        <div class="bloque1">
+          <div class="seccionproductos" style="border-bottom: <?php if(isset($_GET['productos'])){echo "3px solid #da2822";} ?>">
+            <a href="panel-administrador?productos" style="color: <?php if(isset($_GET['productos'])){echo "#da2822";}?>">
+              <img src="<?php if(isset($_GET['productos'])){echo "img/productsChosen.png";}else{echo "img/products.png";} ?>" class="icon">
+              Productos
+            </a>
+          </div>
+          <div class="secciontickets" style="border-bottom: <?php if(isset($_GET['tickets'])){echo "3px solid #da2822";} ?>">
+            <a href="panel-administrador?tickets" style="color: <?php if(isset($_GET['tickets'])){echo "#da2822";}?>">
+              <img src="<?php if(isset($_GET['tickets'])){echo "img/ticketsChosen.png";}else{echo "img/tickets.png";} ?>" class="icon">
+              Tickets
+            </a>
+          </div>
+          <div class="seccionnotificaciones" style="border-bottom: <?php if(isset($_GET['notificaciones'])){echo "3px solid #da2822";} ?>">
+            <a href="panel-administrador?notificaciones" style="color: <?php if(isset($_GET['notificaciones'])){echo "#da2822";}?>">
+              <img src="<?php if(isset($_GET['notificaciones'])){echo "img/bellChosen.png";}else{echo "img/bell.png";} ?>" class="icon">
+              Notificaciones
+            </a>
+          </div>
+          <div class="seccionbasedatos" style="border-bottom: <?php if(isset($_GET['basedatos'])){echo "3px solid #da2822";} ?>">
+            <a href="panel-administrador?basedatos"  style="color: <?php if(isset($_GET['basedatos'])){echo "#da2822";}?>">
+              <img src="<?php if(isset($_GET['basedatos'])){echo "img/databaseChosen.png";}else{echo "img/database.png";} ?>" class="icon">
+              Base de datos
+            </a>
+          </div>
+        </div class="bloque1">
         <div id="contenido">
           <?php
 
@@ -400,10 +433,10 @@ $newsletter = mysqli_num_rows($newsletterquery);
                           <input type="text" name="categoriaproducto2" value="<?php echo $productoarray['CATCOD'] ?>">
                         </div>
                       </div>
-                      <br><br>
                       <div class="fila" id="filabotones">
                         <button type="submit" name="aplicar">Aplicar</button>
                         <button onclick="mostrarPopup('popup1')">Eliminar</button>
+                      </div>
                     </form>
 
                     <?php
@@ -606,28 +639,29 @@ $newsletter = mysqli_num_rows($newsletterquery);
       </div>
       <!-- Fin de contenido de la pagina-->
     </div>
+    <footer>
+      <div class="contenedor-footer">
+        <div class="logo-footer">
+          <img src="img/Logo.png" alt="Logo">
+
+        </div>
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
+          <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
+          <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
+          <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
+        </div>
+        <div class="derechos">
+          <p> Infoshop &copy; 2025</p>
+          <p><a href="contacto" class="politica">Contacto</a></p>
+          <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
+        </div>
+      </div>
+    </footer>
   </div>
   <!--Footer -->
 
-  <footer>
-    <div class="contenedor-footer">
-      <div class="logo-footer">
-        <img src="img/Logo.png" alt="Logo">
 
-      </div>
-      <div class="redes-sociales">
-        <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
-        <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
-        <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
-        <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
-      </div>
-      <div class="derechos">
-        <p> Infoshop &copy; 2025</p>
-        <p><a href="contacto" class="politica">Contacto</a></p>
-        <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
-      </div>
-    </div>
-  </footer>
 
 
 
