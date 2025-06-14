@@ -55,4 +55,10 @@
         color: black;
     }
 
+    @media(max-width: 980px){
+      #main-container{
+        justify-content: center;
+      }
+    }
+
   

@@ -26,7 +26,8 @@ if (isset($_POST['correo'])) {
   
 
 }elseif(!isset($_SESSION['usucod'])){
-  session_destroy();
+  header("Location: ../index");
+  exit();
 }
 
 if(isset($_SESSION['usucod'])){
@@ -52,6 +53,7 @@ $usuadm = $datosarray['USUADM'];
 <html>
 <head>
   <title>Infoshop | Las mejoras ofertas en Informática!</title>
+  <link rel="stylesheet" type="text/css" href="../css/estilo-misc.css">
   <link rel="stylesheet" type="text/css" href="../css/estilo-checkout.css">
   <link rel="stylesheet" type="text/css" href="js/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css">
