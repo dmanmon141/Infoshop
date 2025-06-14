@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 05-06-2025 a las 13:52:40
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Jun 14, 2025 at 06:08 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `infoshop`
+-- Database: `infoshop`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -34,7 +34,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `categorias`
+-- Dumping data for table `categorias`
 --
 
 INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES
@@ -52,7 +52,7 @@ INSERT INTO `categorias` (`CATCOD`, `CATNOM`, `CATDESC`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `datos`
+-- Table structure for table `datos`
 --
 
 CREATE TABLE `datos` (
@@ -69,10 +69,17 @@ CREATE TABLE `datos` (
   `DATOSTEL` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Dumping data for table `datos`
+--
+
+INSERT INTO `datos` (`USUCOD`, `DATOSNOM`, `DATOSAPE`, `DATOSTAR`, `DATOSCAD`, `DATOSCODSEG`, `DATOSCIU`, `DATOSDIR`, `DATOSCP`, `DATOSPAIS`, `DATOSTEL`) VALUES
+(1, 'Daniel', 'Manzano Montes', '1234123412341234', '03/27', 123, 'Algeciras', 'Calle de las Palmas 23', 11204, 'España', '689023123');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `devoluciones`
+-- Table structure for table `devoluciones`
 --
 
 CREATE TABLE `devoluciones` (
@@ -85,7 +92,7 @@ CREATE TABLE `devoluciones` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `mensajes`
+-- Table structure for table `mensajes`
 --
 
 CREATE TABLE `mensajes` (
@@ -96,18 +103,10 @@ CREATE TABLE `mensajes` (
   `TICKID` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `mensajes`
---
-
-INSERT INTO `mensajes` (`MENID`, `MENCONT`, `MENFEC`, `USUCOD`, `TICKID`) VALUES
-(3, 'Hola, soy Daniel Manzano, técnico de Infoshop. En qué puedo ayudarle hoy??', '2025-06-03 11:07:36', 2, '5055a9c9906cf8fb66b4bb455804c8ca'),
-(4, 'Pues como le comentaba, me duele la barriga y pensé que aquí me podríais ayudar.', '2025-06-03 11:12:11', 1, '5055a9c9906cf8fb66b4bb455804c8ca');
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `notificaciones`
+-- Table structure for table `notificaciones`
 --
 
 CREATE TABLE `notificaciones` (
@@ -117,7 +116,7 @@ CREATE TABLE `notificaciones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `notificaciones`
+-- Dumping data for table `notificaciones`
 --
 
 INSERT INTO `notificaciones` (`NOTCOD`, `NOTNOM`, `NOTDESC`) VALUES
@@ -129,7 +128,7 @@ INSERT INTO `notificaciones` (`NOTCOD`, `NOTNOM`, `NOTDESC`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `paneladmin`
+-- Table structure for table `paneladmin`
 --
 
 CREATE TABLE `paneladmin` (
@@ -139,21 +138,21 @@ CREATE TABLE `paneladmin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `paneladmin`
+-- Dumping data for table `paneladmin`
 --
 
 INSERT INTO `paneladmin` (`ADMCOD`, `ADMCONT`, `NOTCOD`) VALUES
-(0, '2147483647', 1),
-(1, '683', 3),
-(2, 'Código de pedido: 2', 1),
-(3, 'Pedido con código 2 reenviado a la dirección: Espa', 2),
-(4, 'Pedido con código 2 reenviado a la dirección: Espa', 2),
-(5, 'Pedido con código 2 reenviado a la dirección: Espa', 2);
+(0, '0', 4),
+(1, '6d8f706e148eb85b2c0e44e8d8288487', 3),
+(2, '82d8d21af293863493db0dfc8ce4be5f', 3),
+(3, '3861d5612a78431ea1e636cb4bc20e54', 3),
+(4, 'dc7d003bafe0719d67098849ffc0b787', 3),
+(5, 'c12ca40d9dec7e610f65ed4f08cac692', 3);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pedidos`
+-- Table structure for table `pedidos`
 --
 
 CREATE TABLE `pedidos` (
@@ -173,10 +172,26 @@ CREATE TABLE `pedidos` (
   `PEDTEL` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Dumping data for table `pedidos`
+--
+
+INSERT INTO `pedidos` (`PEDCOD`, `PEDFECCOMP`, `PEDFECDEV`, `USUCOD`, `PRODCOD`, `PEDEST`, `PEDTAR`, `PEDCAD`, `PEDCODSEG`, `PEDCIU`, `PEDDIR`, `PEDCP`, `PEDPAIS`, `PEDTEL`) VALUES
+(0, '2025-06-06', '2025-07-06', 1, 9, 'En envío', '1234123412341234', '03/27', 123, 'Algeciras', 'Calle de las Palmas 23', 11203, 'España', '689023123'),
+(1, '2025-06-06', '2025-07-06', 1, 16, 'En envío', '1234123412341234', '03/27', 123, 'Algeciras', 'Calle de las Palmas 23', 11203, 'España', '689023123'),
+(2, '2025-06-06', '2025-07-06', 1, 10, 'En envío', '1234123412341234', '03/27', 132, 'Algeciras', 'Calle de las Palmas 23', 11203, 'España', '689023123'),
+(3, '2025-06-06', '2025-07-06', 1, 17, 'En envío', '1234123412341234', '093/2', 123, 'Algeciras', 'Calle de las Palmas 23', 11203, 'España', '689023123'),
+(4, '2025-06-06', '2025-07-06', 1, 10, 'En envío', '1234123412341234', '12341', 123, 'Algeciras', 'Calle de las Palmas 23', 11203, 'España', '689023123'),
+(5, '2025-06-06', '2025-07-06', 1, 10, 'En envío', '1234123412341234', '31231', 123, 'Algeciras', 'Calle de las Palmas 23', 11203, 'España', '689023123'),
+(6, '2025-06-06', '2025-07-06', 1, 17, 'En envío', '1234123412341234', '12314', 123, 'Algeciras', 'Calle de las Palmas 23', 11203, 'España', '689023123'),
+(7, '2025-06-06', '2025-07-06', 1, 16, 'En envío', '1234123412341234', '12341', 123, 'Algeciras', 'Calle de las Palmas 23', 11203, 'España', '689023123'),
+(8, '2025-06-06', '2025-07-06', 1, 16, 'En envío', '1234123412341234', '12341', 123, 'Algeciras', 'Calle de las Palmas 23', 11203, 'España', '689023123'),
+(9, '2025-06-06', '2025-07-06', 1, 16, 'En envío', '1234123412341234', '12341', 123, 'Algeciras', 'Calle de las Palmas 23', 11203, 'España', '689023123');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Table structure for table `productos`
 --
 
 CREATE TABLE `productos` (
@@ -195,7 +210,7 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `productos`
+-- Dumping data for table `productos`
 --
 
 INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`, `PRODINV`, `PRODOFE`, `PRODNUMVENT`, `PRODPRECORI`, `PRODVAL`, `CATCOD`, `PROCOD`) VALUES
@@ -205,17 +220,17 @@ INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`
 (4, 'img/productos/grafica1.png', 'NVIDIA Geforce GTX 1650', 'Experimenta la máxima calidad visual con esta GPU, preparada para ray tracing y altos FPS en 1440p y 4K. Todo lo que ves, fluye.', 319.99, 56, 20, 38, 399.99, 4, 2, 3),
 (5, 'img/productos/grafica2.png', 'AMD Radeon 6500 RX', 'Con arquitectura de vanguardia y refrigeración avanzada, esta tarjeta gráfica lleva tu experiencia gaming al siguiente nivel. Nada de lag, todo rendimiento.', 449.9, 6, 18, 105, 549.9, 5, 2, 4),
 (6, 'img/productos/monitor1.png', 'MSI Monitor Gaming M245 165Hz', 'Monitor con alta tasa de refresco (144Hz), respuesta rápida y panel IPS. Perfecto para juegos competitivos donde cada milisegundo importa.', 279.99, 59, 20, 163, 349.99, 4, 9, 2),
-(7, 'img/productos/monitor2.png', 'Gigabyte G309 Monitor Gaming 27\"', 'Disfruta de imágenes nítidas, colores vibrantes y gran amplitud visual en este monitor diseñado para gamers exigentes y creativos.', 189.9, 78, 24, 24, 249.9, 3, 9, 1),
+(7, 'img/productos/monitor2.png', 'Gigabyte G309 Monitor Gaming 27', 'Disfruta de imágenes nítidas, colores vibrantes y gran amplitud visual en este monitor diseñado para gamers exigentes y creativos.', 189.9, 78, 24, 24, 249.9, 3, 9, 1),
 (8, 'img/productos/placabase1.png', 'Gigabyte B360M H Placa Base', 'Compatibilidad total, robustez y capacidad de expansión. Esta placa base está lista para construir el equipo de tus sueños.', 139.9, 54, 22, 29, 179.9, 4, 1, 1),
-(9, 'img/productos/placabase2.png', 'Gigabyte H410M H V3 Placa Base', 'Con soporte para las últimas tecnologías, overclocking seguro y una estética imponente, esta motherboard es la base perfecta para gamers y entusiastas.', 89.9, 12, 10, 93, 99.9, 5, 1, 1),
-(10, 'img/productos/psu1.png', 'Corsair RM 850X', 'Fuente de alimentación certificada 80 PLUS para eficiencia superior y protección completa. Tu hardware seguro, tu mente tranquila.\r\n\r\n', 109, 55, 21, 72, 139, 5, 5, 7),
+(9, 'img/productos/placabase2.png', 'Gigabyte H410M H V3 Placa Base', 'Con soporte para las últimas tecnologías, overclocking seguro y una estética imponente, esta motherboard es la base perfecta para gamers y entusiastas.', 89.9, 11, 10, 93, 99.9, 5, 1, 1),
+(10, 'img/productos/psu1.png', 'Corsair RM 850X', 'Fuente de alimentación certificada 80 PLUS para eficiencia superior y protección completa. Tu hardware seguro, tu mente tranquila.\r\n\r\n', 109, 52, 21, 72, 139, 5, 5, 7),
 (11, 'img/productos/psu2.png', 'MSI A850GF Fuente de Alimentación', 'Diseñada para configuraciones exigentes, esta PSU modular combina fiabilidad, silencio y potencia continua. Rendimiento sin interrupciones.', 74.9, 41, 16, 15, 89.9, 3, 5, 2),
 (12, 'img/productos/ram1.png', 'Corsair VENGEANCE 2x16GB 3200Mhz', 'Memoria RAM DDR4/DDR5 de alto rendimiento, ideal para gaming fluido, multitarea y productividad. Overclock estable y latencias ajustadas.', 79.9, 64, 11, 39, 89.9, 4, 3, 7),
 (13, 'img/productos/ram2.png', 'Kingston FURY BEAST 2x16GB 3200 Mhz', 'Mejora el rendimiento general de tu PC con esta RAM de baja latencia y disipación térmica optimizada. Rápida, eficiente, esencial.', 124.9, 18, 17, 98, 149.9, 5, 3, 5),
 (14, 'img/productos/raton1.png', 'Corsair A321 Ratón Wireless Gaming Ultra Lightweig', 'Sensor óptico de alta resolución, DPI ajustable y diseño ergonómico. Este ratón es tu arma secreta en cualquier batalla.', 49.99, 6, 16, 62, 59.99, 5, 7, 7),
 (15, 'img/productos/raton2.png', 'MSI M322 Ratón Gaming 1600DPI', 'Ligero, personalizable y con switches de alta durabilidad, este mouse está hecho para dominar cada partida.', 29.9, 28, 25, 15, 39.9, 3, 7, 2),
-(16, 'img/productos/raton3.png', 'Logitech G201 Ratón Gaming Ligero RGB', 'Lleva tu experiencia de juego al siguiente nivel con el Logitech G201, un ratón gaming diseñado para ofrecer precisión, ligereza y estilo. Con un sensor óptico avanzado de hasta 8.000 DPI y un diseño ultraligero, es perfecto para movimientos rápidos y precisos en cualquier tipo de juego.\r\n\r\nDisfruta de una iluminación RGB personalizable con más de 16,8 millones de colores, que puedes ajustar desde el software Logitech G HUB. Además, sus 6 botones programables te permiten configurar accesos directos y macros para una ventaja competitiva real.\r\n\r\nCaracterísticas destacadas:\r\n\r\nSensor óptico de hasta 8.000 DPI para precisión milimétrica\r\n\r\nDiseño ultraligero y ergonómico (solo 85 g)\r\n\r\nIluminación RGB LIGHTSYNC totalmente personalizable\r\n\r\n6 botones programables para un control total\r\n\r\nCompatible con Windows y macOS mediante Logitech G HUB', 59.99, 3, 15, 512, 69.99, 5, 7, 6),
-(17, 'img/productos/ssd1.png', 'Kingston 1TB SSD', 'SSD NVMe ultrarrápido con velocidades que transforman tu sistema. Ideal para gaming, edición y arranque veloz.', 94.9, 15, 24, 197, 124.9, 5, 6, 5),
+(16, 'img/productos/raton3.png', 'Logitech G201 Ratón Gaming Ligero RGB', 'Lleva tu experiencia de juego al siguiente nivel con el Logitech G201, un ratón gaming diseñado para ofrecer precisión, ligereza y estilo. Con un sensor óptico avanzado de hasta 8.000 DPI y un diseño ultraligero, es perfecto para movimientos rápidos y precisos en cualquier tipo de juego.\r\n\r\nDisfruta de una iluminación RGB personalizable con más de 16,8 millones de colores, que puedes ajustar desde el software Logitech G HUB. Además, sus 6 botones programables te permiten configurar accesos directos y macros para una ventaja competitiva real.\r\n\r\nCaracterísticas destacadas:\r\n\r\nSensor óptico de hasta 8.000 DPI para precisión milimétrica\r\n\r\nDiseño ultraligero y ergonómico (solo 85 g)\r\n\r\nIluminación RGB LIGHTSYNC totalmente personalizable\r\n\r\n6 botones programables para un control total\r\n\r\nCompatible con Windows y macOS mediante Logitech G HUB', 59.99, 1, 15, 512, 69.99, 5, 7, 6),
+(17, 'img/productos/ssd1.png', 'Kingston 1TB SSD', 'SSD NVMe ultrarrápido con velocidades que transforman tu sistema. Ideal para gaming, edición y arranque veloz.', 94.9, 13, 24, 197, 124.9, 5, 6, 5),
 (18, 'img/productos/teclado1.png', 'MARS GAMING Teclado Mecánico RGB MG301', 'Teclado mecánico con switches precisos, retroiluminación RGB y construcción sólida. Para escribir, jugar y destacar.', 54.9, 70, 21, 32, 69.9, 2, 8, 8),
 (19, 'img/productos/teclado2.png', 'Corsair C355 Teclado Gaming RGB Mecánico', 'Con respuesta ultra rápida, teclas anti-ghosting y diseño gamer, este teclado se convierte en una extensión de tus reflejos.', 79.99, 27, 11, 101, 89.99, 5, 8, 7),
 (20, 'img/productos/teclado3.png', 'Logitech G355 Teclado RGB Gaming', 'El Logitech G355 combina estética, rendimiento y comodidad en un teclado RGB diseñado para los jugadores más exigentes. Con tecnología anti-ghosting, teclas de respuesta rápida y una estructura resistente, te ofrece una experiencia de juego fluida y precisa.\r\n\r\nSus efectos de iluminación RGB LIGHTSYNC personalizables permiten sincronizar con tu setup y crear un ambiente inmersivo. Ideal tanto para gaming como para escribir con velocidad y precisión.\r\n\r\nCaracterísticas destacadas:\r\n\r\nIluminación RGB LIGHTSYNC con múltiples efectos dinámicos\r\n\r\nTeclas de respuesta rápida con sensación mecánica mejorada\r\n\r\nAnti-ghosting para un control preciso en cada pulsación\r\n\r\nDiseño duradero con estructura reforzada\r\n\r\nTotalmente configurable desde Logitech G HUB', 109.9, 0, 15, 168, 129, 4, 8, 6);
@@ -223,7 +238,7 @@ INSERT INTO `productos` (`PRODCOD`, `PRODIMG`, `PRODNOM`, `PRODDESC`, `PRODPREC`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proveedores`
+-- Table structure for table `proveedores`
 --
 
 CREATE TABLE `proveedores` (
@@ -233,7 +248,7 @@ CREATE TABLE `proveedores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `proveedores`
+-- Dumping data for table `proveedores`
 --
 
 INSERT INTO `proveedores` (`PROCOD`, `PRONOM`, `PRODESC`) VALUES
@@ -249,7 +264,7 @@ INSERT INTO `proveedores` (`PROCOD`, `PRONOM`, `PRODESC`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `reseñas`
+-- Table structure for table `reseñas`
 --
 
 CREATE TABLE `reseñas` (
@@ -261,10 +276,17 @@ CREATE TABLE `reseñas` (
   `PRODCOD` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Dumping data for table `reseñas`
+--
+
+INSERT INTO `reseñas` (`RESCOD`, `RESVAL`, `RESCONT`, `RESFEC`, `USUCOD`, `PRODCOD`) VALUES
+(0, 5, 'Este producto es altamente recomendado por los consumidores, y os lo recomiendo yo también.', '2025-06-14', 2, 10);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tickets`
+-- Table structure for table `tickets`
 --
 
 CREATE TABLE `tickets` (
@@ -276,16 +298,16 @@ CREATE TABLE `tickets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `tickets`
+-- Dumping data for table `tickets`
 --
 
 INSERT INTO `tickets` (`TICKID`, `TICKCONT`, `TICKEST`, `TICKFEC`, `USUCOD`) VALUES
-('5055a9c9906cf8fb66b4bb455804c8ca', 'hola que tal, me duele un poco el estomago', 'Abierto', '2025-06-02 14:43:22', 1);
+('dc7d003bafe0719d67098849ffc0b787', 'No puedo hacer el pago  cuando quiero comprar un producto ', 'Abierto', '2025-06-14 17:25:51', 3);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -300,18 +322,19 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`USUCOD`, `USUNOM`, `USUAPE`, `USUIMG`, `USUNEWS`, `USUCOR`, `USUCONT`, `USUADM`) VALUES
 (0, 'Daniel', 'Manzano Montes', 'img/users/latest.png', 0, 'nigga@fortnite.com', '$2y$10$cy/MVErr.IKuoe2Fj/kHterwQGcnlBhhz5Dtkqg2A0PJbpQdSylDm', 0),
-(1, 'Daniel', 'Manzano Montes', 'img/users/latest.png', 1, 'dmanmon141@gmail.com', '$2y$10$0fggXNy/XgsURek8a93s1.0eGTm6LGaK.mdhvzKWB6b8ZS8BhDG/W', 0),
-(2, 'Admin', 'Istrador', 'img/users/default.jpg', 0, 'admin@gmail.com', '$2y$10$A1zSeudaZhPuRg3ToegTPu/G6J0JSW0BPiiPori18Ylt2oPz/.yiq', 1);
+(1, 'Daniel', 'Snow Elf', 'img/users/snowElf.png', 1, 'dmanmon141@gmail.com', '$2y$10$ihMXADnM3UIge4tXna9eH.JI2IIlUfBctoYcVRUSe2qBSM000FniS', 0),
+(2, 'Admin', 'Istrador', 'img/users/default.jpg', 0, 'admin@gmail.com', '$2y$10$A1zSeudaZhPuRg3ToegTPu/G6J0JSW0BPiiPori18Ylt2oPz/.yiq', 1),
+(3, 'Catalina', 'Montes Jiménez', 'img/users/default.jpg', 1, 'catalinamontesj@gmail.com', '$2y$10$JgSvvM7QntL.SUT9ygWq/OFEaz3EKM/UAQZqaImUMmEpq6vLS2SrG', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `verificar`
+-- Table structure for table `verificar`
 --
 
 CREATE TABLE `verificar` (
@@ -321,37 +344,30 @@ CREATE TABLE `verificar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `verificar`
---
-
-INSERT INTO `verificar` (`VERTOK`, `VEREXP`, `USUCOD`) VALUES
-('3f1dda07d791f613d33863dc305b240d', '2025-06-02 10:13:33', 0);
-
---
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`CATCOD`);
 
 --
--- Indices de la tabla `datos`
+-- Indexes for table `datos`
 --
 ALTER TABLE `datos`
   ADD KEY `FK_USUCOD_DAT` (`USUCOD`);
 
 --
--- Indices de la tabla `devoluciones`
+-- Indexes for table `devoluciones`
 --
 ALTER TABLE `devoluciones`
   ADD PRIMARY KEY (`DEVCOD`),
   ADD KEY `FK_PEDCOD` (`PEDCOD`);
 
 --
--- Indices de la tabla `mensajes`
+-- Indexes for table `mensajes`
 --
 ALTER TABLE `mensajes`
   ADD PRIMARY KEY (`MENID`),
@@ -359,20 +375,20 @@ ALTER TABLE `mensajes`
   ADD KEY `FK_TICKID_MEN` (`TICKID`);
 
 --
--- Indices de la tabla `notificaciones`
+-- Indexes for table `notificaciones`
 --
 ALTER TABLE `notificaciones`
   ADD PRIMARY KEY (`NOTCOD`);
 
 --
--- Indices de la tabla `paneladmin`
+-- Indexes for table `paneladmin`
 --
 ALTER TABLE `paneladmin`
   ADD PRIMARY KEY (`ADMCOD`),
   ADD KEY `FK_NOTCOD_ADM` (`NOTCOD`);
 
 --
--- Indices de la tabla `pedidos`
+-- Indexes for table `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`PEDCOD`),
@@ -380,7 +396,7 @@ ALTER TABLE `pedidos`
   ADD KEY `FK_PRODCOD_PED` (`PRODCOD`);
 
 --
--- Indices de la tabla `productos`
+-- Indexes for table `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`PRODCOD`),
@@ -389,13 +405,13 @@ ALTER TABLE `productos`
   ADD KEY `CATCOD_2` (`CATCOD`,`PROCOD`);
 
 --
--- Indices de la tabla `proveedores`
+-- Indexes for table `proveedores`
 --
 ALTER TABLE `proveedores`
   ADD PRIMARY KEY (`PROCOD`);
 
 --
--- Indices de la tabla `reseñas`
+-- Indexes for table `reseñas`
 --
 ALTER TABLE `reseñas`
   ADD PRIMARY KEY (`RESCOD`),
@@ -403,83 +419,83 @@ ALTER TABLE `reseñas`
   ADD KEY `FK_PRODCOD` (`PRODCOD`);
 
 --
--- Indices de la tabla `tickets`
+-- Indexes for table `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`TICKID`),
   ADD KEY `FK_USUCOD_TICK` (`USUCOD`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`USUCOD`);
 
 --
--- Indices de la tabla `verificar`
+-- Indexes for table `verificar`
 --
 ALTER TABLE `verificar`
   ADD PRIMARY KEY (`VERTOK`),
   ADD KEY `FK_USUCOD_VER` (`USUCOD`);
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `datos`
+-- Constraints for table `datos`
 --
 ALTER TABLE `datos`
   ADD CONSTRAINT `FK_USUCOD_DAT` FOREIGN KEY (`USUCOD`) REFERENCES `usuarios` (`USUCOD`);
 
 --
--- Filtros para la tabla `devoluciones`
+-- Constraints for table `devoluciones`
 --
 ALTER TABLE `devoluciones`
   ADD CONSTRAINT `FK_PEDCOD` FOREIGN KEY (`PEDCOD`) REFERENCES `pedidos` (`PEDCOD`);
 
 --
--- Filtros para la tabla `mensajes`
+-- Constraints for table `mensajes`
 --
 ALTER TABLE `mensajes`
   ADD CONSTRAINT `FK_TICKID_MEN` FOREIGN KEY (`TICKID`) REFERENCES `tickets` (`TICKID`),
   ADD CONSTRAINT `FK_USUCOD_MEN` FOREIGN KEY (`USUCOD`) REFERENCES `usuarios` (`USUCOD`);
 
 --
--- Filtros para la tabla `paneladmin`
+-- Constraints for table `paneladmin`
 --
 ALTER TABLE `paneladmin`
   ADD CONSTRAINT `FK_NOTCOD_ADM` FOREIGN KEY (`NOTCOD`) REFERENCES `notificaciones` (`NOTCOD`);
 
 --
--- Filtros para la tabla `pedidos`
+-- Constraints for table `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD CONSTRAINT `FK_PRODCOD_PED` FOREIGN KEY (`PRODCOD`) REFERENCES `productos` (`PRODCOD`),
   ADD CONSTRAINT `FK_USUCOD_PED` FOREIGN KEY (`USUCOD`) REFERENCES `usuarios` (`USUCOD`);
 
 --
--- Filtros para la tabla `productos`
+-- Constraints for table `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `FK_CATCOD` FOREIGN KEY (`CATCOD`) REFERENCES `categorias` (`CATCOD`),
   ADD CONSTRAINT `FK_PROCOD` FOREIGN KEY (`PROCOD`) REFERENCES `proveedores` (`PROCOD`);
 
 --
--- Filtros para la tabla `reseñas`
+-- Constraints for table `reseñas`
 --
 ALTER TABLE `reseñas`
   ADD CONSTRAINT `FK_PRODCOD` FOREIGN KEY (`PRODCOD`) REFERENCES `productos` (`PRODCOD`),
   ADD CONSTRAINT `FK_USUCOD` FOREIGN KEY (`USUCOD`) REFERENCES `usuarios` (`USUCOD`);
 
 --
--- Filtros para la tabla `tickets`
+-- Constraints for table `tickets`
 --
 ALTER TABLE `tickets`
   ADD CONSTRAINT `FK_USUCOD_TICK` FOREIGN KEY (`USUCOD`) REFERENCES `usuarios` (`USUCOD`);
 
 --
--- Filtros para la tabla `verificar`
+-- Constraints for table `verificar`
 --
 ALTER TABLE `verificar`
   ADD CONSTRAINT `FK_USUCOD_VER` FOREIGN KEY (`USUCOD`) REFERENCES `usuarios` (`USUCOD`);
