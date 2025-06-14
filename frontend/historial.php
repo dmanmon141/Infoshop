@@ -85,21 +85,21 @@ $fechaactual = date("Y-m-d");
   <div class="contenedor">
     <div id="myDropdownTienda" class="category-sidebar">
 
-              <?php
-              $categorias = "SELECT * FROM categorias";
-              $categoriasql = mysqli_query($conexion, $categorias);
+      <?php
+      $categorias = "SELECT * FROM categorias";
+      $categoriasql = mysqli_query($conexion, $categorias);
 
-              while ($arraycat = mysqli_fetch_row($categoriasql)) {
+      while ($arraycat = mysqli_fetch_row($categoriasql)) {
 
-                ?>
-                <div class="categoria-item">
-                  <img src="img/<?php echo $arraycat[0] ?>.png" class="cross" onclick="cerrarMenuTienda()">
-                  <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
-                </div>
-                <?php
-              }
+        ?>
+        <div class="categoria-item">
+          <img src="img/<?php echo $arraycat[0] ?>.png" class="cross" onclick="cerrarMenuTienda()">
+          <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
+        </div>
+        <?php
+      }
 
-              ?>
+      ?>
 
     </div>
 
@@ -110,7 +110,7 @@ $fechaactual = date("Y-m-d");
             <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
             <img src="img/Logo.png">
           </picture>
-          
+
         </a>
       </div>
       <ul class="nav-links">
@@ -127,22 +127,6 @@ $fechaactual = date("Y-m-d");
             <input type="submit" value="" class="busqueda-boton">
           </form>
         </li>
-        <?php
-        if (isset($_SESSION['usucod'])) {
-          if ($usuadm == 1) {
-            ?>
-            <a href="panel-administrador?productos" id="administrador">
-              <li class="panel-adm">
-                <div class="panel-administrador">
-                  <img src="img/panel.png">
-                  <span>Panel de administrador</span>
-                </div>
-              </li>
-            </a>
-            <?php
-          }
-        }
-        ?>
       </ul>
       <ul class="sesiones">
         <?php
@@ -160,6 +144,17 @@ $fechaactual = date("Y-m-d");
                 <img id="flecha" src="img/flecha.png">
               </div>
               <div id="myDropdown" class="dropdown-content menu-contenedor">
+                <?php
+                if (isset($_SESSION['usucod'])) {
+                  if ($usuadm == 1) {
+                    ?>
+                    <a href="panel-administrador?productos" id="administrador">
+                      <span>Panel de administrador</span>
+                    </a>
+                    <?php
+                  }
+                }
+                ?>
                 <a href="perfil">Mi cuenta</a>
                 <a href="historial">Historial de pedidos</a>
                 <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
@@ -173,9 +168,11 @@ $fechaactual = date("Y-m-d");
           ?>
           <a href='login'>
             <li>Iniciar sesión</li>
+            <img src="img/login.png" class="sessionicon">
           </a>
           <a href='register'>
             <li>Registrarse</li>
+            <img src="img/register.png" class="sessionicon">
           </a>
           <?php
         }
@@ -237,16 +234,22 @@ $fechaactual = date("Y-m-d");
       <div class="bloque2" id="producto-contenedor">
         <div class="navmenu">
           <div class="secciondatos">
-            <a href="perfil"><img src="img/user.png" class="profileicon"><p>Perfil</p></a>
+            <a href="perfil"><img src="img/user.png" class="profileicon">
+              <p>Perfil</p>
+            </a>
           </div>
           <div class="seccionconfiguracion">
-            <a href="datospago"><img src="img/tarjeta.png" class="profileicon"><p>Datos de pago</p> </a>
+            <a href="datospago"><img src="img/tarjeta.png" class="profileicon">
+              <p>Datos de pago</p>
+            </a>
           </div>
-         
-            <div class="seccionhistorial">
-              <a href="historial"><img src="img/deliveryChosen.png" class="profileicon"><p>Historial</p></a>
-            </div>
-          
+
+          <div class="seccionhistorial">
+            <a href="historial"><img src="img/deliveryChosen.png" class="profileicon">
+              <p>Historial</p>
+            </a>
+          </div>
+
         </div>
         <div id="contenido">
           <div class="filagap">
@@ -391,7 +394,7 @@ $fechaactual = date("Y-m-d");
       <div class="contenedor-footer">
         <div class="logo-footer">
           <img src="img/Logo.png" alt="Logo">
-          
+
         </div>
         <div class="redes-sociales">
           <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>

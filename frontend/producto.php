@@ -9,7 +9,7 @@ mysqli_select_db($conexion, "infoshop");
 
 session_start();
 
-if(!isset($_GET['id'])){
+if (!isset($_GET['id'])) {
   header("Location: ../index");
   exit();
 }
@@ -49,7 +49,7 @@ if (isset($_POST['correo'])) {
 
 $producto = "SELECT * FROM productos WHERE PRODCOD = '$id'";
 $productoresultado = mysqli_query($conexion, $producto);
-if(mysqli_num_rows($productoresultado) == 0){
+if (mysqli_num_rows($productoresultado) == 0) {
   header("Location: ../index");
   exit();
 }
@@ -167,7 +167,7 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
             <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
             <img src="img/Logo.png">
           </picture>
-          
+
         </a>
       </div>
       <ul class="nav-links">
@@ -184,22 +184,6 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
             <input type="submit" value="" class="busqueda-boton">
           </form>
         </li>
-        <?php
-        if (isset($_SESSION['usucod'])) {
-          if ($usuadm == 1) {
-            ?>
-            <a href="panel-administrador?productos" id="administrador">
-              <li class="panel-adm">
-                <div class="panel-administrador">
-                  <img src="img/panel.png">
-                  <span>Panel de administrador</span>
-                </div>
-              </li>
-            </a>
-            <?php
-          }
-        }
-        ?>
       </ul>
       <ul class="sesiones">
         <?php
@@ -217,6 +201,17 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
                 <img id="flecha" src="img/flecha.png">
               </div>
               <div id="myDropdown" class="dropdown-content menu-contenedor">
+                <?php
+                if (isset($_SESSION['usucod'])) {
+                  if ($usuadm == 1) {
+                    ?>
+                    <a href="panel-administrador?productos" id="administrador">
+                      <span>Panel de administrador</span>
+                    </a>
+                    <?php
+                  }
+                }
+                ?>
                 <a href="perfil">Mi cuenta</a>
                 <a href="historial">Historial de pedidos</a>
                 <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
@@ -309,11 +304,11 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
           <img src="<?php echo $imagen ?>" alt="Producto" class="product-image">
         </div>
         <div class="descripcion">
-          
+
           <h3 id="primeroh3">Descripción</h3>
           <p id="descripcion"><?php echo $descripcion ?></p>
-          </div>
-            <div class="reseñas">
+        </div>
+        <div class="reseñas">
           <h3>Reseñas</h3>
           <?php
 
@@ -538,46 +533,46 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
 
           ?>
         </div>
-          <div class="product-details">
-            <div class="precio-oferta">
-              <p class="product-price"><?php echo $precio . " €" ?></p>
-              <p class="product-price-original"><?php echo $preciooriginal . " €" ?></p>
-              <p class="product-offer"><?php echo "- " . $oferta . "%" ?></p>
-            </div>
-            <div class="separar">
-              <p><?php echo $valoracion ?>/5 <span style="color: gold">★</span></p>
-              <p class="product-stock">
-                <?php if ($stock == 1) {
-                  echo "✅ En stock" . " (" . $inventario . ")";
-                } else {
-                  echo "Fuera de stock";
-                } ?>
-              </p>
-            </div>
-
-
-
-
-            <div class="bloque2">
-              <p class="info">🚚 Envío: Gratis</p>
-              <p>📅 Entrega estimada: 2-3 días</p>
-            </div>
-            <div class="botones">
-              <button class="product-btn" onclick="redireccionarCheckout('<?php echo $id ?>')">Comprar ahora</button>
-              <button class="product-btn"
-                onclick="addToCart('<?php echo $titulo ?>', '<?php echo $imagen ?>', '<?php echo $precio . '€' ?>')">Añadir
-                al carrito</button>
-            </div>
-            <div class="bloque1">
-              Etiquetas:
-              <a href="buscar?categorias=<?php echo $categoriacod ?>"><?php echo $categoria ?></a>
-              <a href="buscar?marcas=<?php echo $marcacod ?>" id="margen"><?php echo $marca ?></a>
-            </div>
+        <div class="product-details">
+          <div class="precio-oferta">
+            <p class="product-price"><?php echo $precio . " €" ?></p>
+            <p class="product-price-original"><?php echo $preciooriginal . " €" ?></p>
+            <p class="product-offer"><?php echo "- " . $oferta . "%" ?></p>
           </div>
-          <div class="customercare">
-            <img src="img/customercare.png" class="picture">
-            <p>¡Hola! ¿Tienes algún problema? <a href="enviar-ticket">Habla con un técnico</a></p>
+          <div class="separar">
+            <p><?php echo $valoracion ?>/5 <span style="color: gold">★</span></p>
+            <p class="product-stock">
+              <?php if ($stock == 1) {
+                echo "✅ En stock" . " (" . $inventario . ")";
+              } else {
+                echo "Fuera de stock";
+              } ?>
+            </p>
           </div>
+
+
+
+
+          <div class="bloque2">
+            <p class="info">🚚 Envío: Gratis</p>
+            <p>📅 Entrega estimada: 2-3 días</p>
+          </div>
+          <div class="botones">
+            <button class="product-btn" onclick="redireccionarCheckout('<?php echo $id ?>')">Comprar ahora</button>
+            <button class="product-btn"
+              onclick="addToCart('<?php echo $titulo ?>', '<?php echo $imagen ?>', '<?php echo $precio . '€' ?>')">Añadir
+              al carrito</button>
+          </div>
+          <div class="bloque1">
+            Etiquetas:
+            <a href="buscar?categorias=<?php echo $categoriacod ?>"><?php echo $categoria ?></a>
+            <a href="buscar?marcas=<?php echo $marcacod ?>" id="margen"><?php echo $marca ?></a>
+          </div>
+        </div>
+        <div class="customercare">
+          <img src="img/customercare.png" class="picture">
+          <p>¡Hola! ¿Tienes algún problema? <a href="enviar-ticket">Habla con un técnico</a></p>
+        </div>
 
 
 
@@ -596,7 +591,7 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
       <div class="contenedor-footer">
         <div class="logo-footer">
           <img src="img/Logo.png" alt="Logo">
-          
+
         </div>
         <div class="redes-sociales">
           <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>

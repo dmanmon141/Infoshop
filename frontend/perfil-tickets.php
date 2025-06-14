@@ -1,6 +1,6 @@
 <?php
 
-$servidor= "localhost";
+$servidor = "localhost";
 $usuario = "root";
 $password = "";
 $conexion = mysqli_connect($servidor, $usuario, $password);
@@ -17,15 +17,15 @@ if (isset($_POST['correo'])) {
   $usuloginsesion = mysqli_fetch_assoc($usuloginsql);
   $_SESSION['usunom'] = $usuloginsesion['USUNOM'];
 
-  
+
   $usucod = "SELECT USUCOD FROM usuarios WHERE USUCOR = '$correo';";
   $usucodsql = mysqli_query($conexion, $usucod);
-  $usucodsesion =  mysqli_fetch_assoc($usucodsql);
+  $usucodsesion = mysqli_fetch_assoc($usucodsql);
   $_SESSION['usucod'] = $usucodsesion['USUCOD'];
 
-  
 
-}elseif(!isset($_SESSION['usucod'])){
+
+} elseif (!isset($_SESSION['usucod'])) {
   session_destroy();
   header("Location: login");
   exit;
@@ -51,61 +51,63 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
 
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Infoshop | Las mejoras ofertas en Informática!</title>
   <link rel="stylesheet" type="text/css" href="../css/estilo-misc.css">
   <link rel="stylesheet" type="text/css" href="../css/estilo-perfil-tickets.css">
   <link rel="stylesheet" type="text/css" href="js/slick/slick.css">
-<link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css">
-<link rel="icon" type="image/png" href="img/Logo.png">
+  <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css">
+  <link rel="icon" type="image/png" href="img/Logo.png">
 </head>
+
 <body>
-<script src="js/jquery-3.7.0.min.js"></script>
-<script src="js/slick/slick.min.js"></script>
-<script src="js/slider.js"></script>
-<script src="js/dropdown.js"></script>
-<script src="js/dropdowntienda.js"></script>
-<script src="js/carrito.js"></script>
-<script src="js/redireccionar-producto.js"></script>
-<script src="js/filtros.js"></script>
-<script src="js/carrito-checkout.js"></script>
-<script src="js/cambiar-datos.js"></script>
-<script src="js/newsletter.js"></script>
-<script src="js/actualizar-imagen.js"></script>
-<script src="js/popup-admin.js"></script>
-<script src="js/ticket.js"></script>
+  <script src="js/jquery-3.7.0.min.js"></script>
+  <script src="js/slick/slick.min.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/dropdown.js"></script>
+  <script src="js/dropdowntienda.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/redireccionar-producto.js"></script>
+  <script src="js/filtros.js"></script>
+  <script src="js/carrito-checkout.js"></script>
+  <script src="js/cambiar-datos.js"></script>
+  <script src="js/newsletter.js"></script>
+  <script src="js/actualizar-imagen.js"></script>
+  <script src="js/popup-admin.js"></script>
+  <script src="js/ticket.js"></script>
 
 
-<div id="overlay"></div>
+  <div id="overlay"></div>
 
-<div class="contenedor">
-  <div id="myDropdownTienda" class="category-sidebar">
+  <div class="contenedor">
+    <div id="myDropdownTienda" class="category-sidebar">
 
-              <?php
-              $categorias = "SELECT * FROM categorias";
-              $categoriasql = mysqli_query($conexion, $categorias);
+      <?php
+      $categorias = "SELECT * FROM categorias";
+      $categoriasql = mysqli_query($conexion, $categorias);
 
-              while ($arraycat = mysqli_fetch_row($categoriasql)) {
+      while ($arraycat = mysqli_fetch_row($categoriasql)) {
 
-                ?>
-                <div class="categoria-item">
-                  <img src="img/<?php echo $arraycat[0] ?>.png" class="cross" onclick="cerrarMenuTienda()">
-                  <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
-                </div>
-                <?php
-              }
+        ?>
+        <div class="categoria-item">
+          <img src="img/<?php echo $arraycat[0] ?>.png" class="cross" onclick="cerrarMenuTienda()">
+          <a href="buscar?categorias=<?php echo $arraycat[0] ?>"><?php echo $arraycat[1] ?></a>
+        </div>
+        <?php
+      }
 
-              ?>
+      ?>
 
     </div>
-  <nav class="navbar">
+    <nav class="navbar">
       <div class="logo">
         <a href="index">
           <picture>
             <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
             <img src="img/Logo.png">
           </picture>
-          
+
         </a>
       </div>
       <ul class="nav-links">
@@ -122,22 +124,6 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
             <input type="submit" value="" class="busqueda-boton">
           </form>
         </li>
-        <?php
-        if (isset($_SESSION['usucod'])) {
-          if ($usuadm == 1) {
-            ?>
-            <a href="panel-administrador?productos" id="administrador">
-              <li class="panel-adm">
-                <div class="panel-administrador">
-                  <img src="img/panel.png">
-                  <span>Panel de administrador</span>
-                </div>
-              </li>
-            </a>
-            <?php
-          }
-        }
-        ?>
       </ul>
       <ul class="sesiones">
         <?php
@@ -148,13 +134,24 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
           <div class="cuenta">
             <button onclick="mostrarMenu()" class="dropbtn" id="menuButton">
               <div class="button-content">
-                <div class="perfil-imagen-sidebar">
+                <div class="perfil-imagen">
                   <img class="userlogo" src="<?php echo $usuimg ?>">
                 </div>
                 <h3><?php echo $usuloginsesion ?></h3>
                 <img id="flecha" src="img/flecha.png">
               </div>
               <div id="myDropdown" class="dropdown-content menu-contenedor">
+                <?php
+                if (isset($_SESSION['usucod'])) {
+                  if ($usuadm == 1) {
+                    ?>
+                    <a href="panel-administrador?productos" id="administrador">
+                      <span>Panel de administrador</span>
+                    </a>
+                    <?php
+                  }
+                }
+                ?>
                 <a href="perfil">Mi cuenta</a>
                 <a href="historial">Historial de pedidos</a>
                 <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
@@ -168,9 +165,11 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
           ?>
           <a href='login'>
             <li>Iniciar sesión</li>
+            <img src="img/login.png" class="sessionicon">
           </a>
           <a href='register'>
             <li>Registrarse</li>
+            <img src="img/register.png" class="sessionicon">
           </a>
           <?php
         }
@@ -217,118 +216,120 @@ $ticketquery = mysqli_query($conexion, $ticketsql);
       </ul>
     </nav>
 
-  <!-- Resto del contenido de la página -->
-        <div id="popup1" class="popup">
-          <div class="popup-contenido">
-            <h3>AVISO</h3>
-            <p>Va a eliminar este ticket.<br> ¿Está seguro?</p>
-            <div class="popup-botones">
-              <button onclick="eliminarTicket()">Sí</button>
-              <button onclick="cerrarPopup('popup1')">No</button>
+    <!-- Resto del contenido de la página -->
+    <div id="popup1" class="popup">
+      <div class="popup-contenido">
+        <h3>AVISO</h3>
+        <p>Va a eliminar este ticket.<br> ¿Está seguro?</p>
+        <div class="popup-botones">
+          <button onclick="eliminarTicket()">Sí</button>
+          <button onclick="cerrarPopup('popup1')">No</button>
+        </div>
+      </div>
+    </div>
+    <div class="dividir">
+
+
+
+      <div class="bloque2" id="producto-contenedor">
+        <div id="contenido">
+          <div class="perfil">
+            <div class="perfil-imagen">
+              <img class="imagen-original" id="imagen" src="<?php echo $usuimg ?>">
+              <img class="imagen-hover" onclick="abrirInputFile()" src="img/añadir.png">
+            </div>
+            <form action="subir-imagen" method="POST" enctype="multipart/form-data">
+              <input type="file" id="inputFile" accept="image/*" style="display: none" name="imagen">
+              <input type="submit" id="aplicarimagen" value="Aplicar">
+            </form>
+            <div class="perfil-nombre">
+              <h2>Mis tickets</h2>
             </div>
           </div>
-        </div> 
-        <div class="dividir">
+          <div class="datosusuario">
+            <?php
+            if (mysqli_num_rows($ticketquery) == 0) {
+              ?>
+              <p>No ha creado ningún ticket aún.</p>
+
+              <?php
+
+            } else {
 
 
 
-            <div class="bloque2" id="producto-contenedor">
-                <div id="contenido">
-                    <div class="perfil">
-                        <div class="perfil-imagen">
-                          <img class="imagen-original" id="imagen" src="<?php echo $usuimg ?>">
-                          <img class="imagen-hover" onclick="abrirInputFile()" src="img/añadir.png">
-                        </div>
-                        <form action="subir-imagen" method="POST" enctype="multipart/form-data">
-                          <input type="file" id="inputFile" accept ="image/*" style="display: none" name="imagen">
-                          <input type="submit" id="aplicarimagen" value="Aplicar">
-                        </form>
-                        <div class="perfil-nombre"><h2>Mis tickets</h2></div>
-                    </div>
-                    <div class="datosusuario">
-                        <?php
-                    if(mysqli_num_rows($ticketquery) == 0){
+
+
+              while ($ticketarray = mysqli_fetch_assoc($ticketquery)) {
+                $ticketid = $ticketarray['TICKID'];
+                $ticketcontenido = $ticketarray['TICKCONT'];
+                $ticketestado = $ticketarray['TICKEST'];
+                $ticketfecha = $ticketarray['TICKFEC'];
+                ?>
+                <div class="ticket">
+                  <div class="credenciales">
+                    <input type="text" id="ticketid" value="<?php echo $ticketid ?>" style="display: none">
+                    <p id="ticketid">Ticket con ID <?php echo $ticketid ?> </p>
+                    <p id="fecha"> <?php echo $ticketfecha ?> </p>
+                  </div>
+                  <p id="contenidoreseña"> <?php echo '"' . $ticketcontenido . '"' ?> </p>
+                  <div class="botonesticket">
+                    <p>Estado: <?php if ($ticketestado == "Abierto") {
+                      ?>
+                      <p style="color:#00FF00"><?php echo $ticketestado ?></p>
+                      <?php
+                    } else {
+                      ?>
+                      <p style="color: red"><?php echo $ticketestado ?></p>
+                      <?php
+                    }
                     ?>
-                    <p>No ha creado ningún ticket aún.</p>
-
+                    </p>
+                    <form class="verticket" action="ticket" method="POST">
+                      <button name="ticketidboton" value="<?php echo $ticketid ?>">Ver ticket</button>
+                    </form>
                     <?php
-                    
-                    }else{
-                    
-                    
-                    
-
-
-                    while($ticketarray = mysqli_fetch_assoc($ticketquery)){
-                    $ticketid = $ticketarray['TICKID'];
-                    $ticketcontenido = $ticketarray['TICKCONT'];
-                    $ticketestado = $ticketarray['TICKEST'];
-                    $ticketfecha = $ticketarray['TICKFEC'];
+                    if ($ticketestado == "Abierto") {
+                      ?>
+                      <button onclick="mostrarPopup('popup1')">Eliminar</button>
+                      <?php
+                    }
                     ?>
-                    <div class="ticket">
-                    <div class="credenciales">
-                            <input type="text" id="ticketid" value="<?php echo $ticketid ?>" style="display: none">
-                            <p id="ticketid">Ticket con ID <?php echo $ticketid ?> </p>
-                            <p id="fecha"> <?php echo $ticketfecha ?> </p>
-                        </div>
-                        <p id="contenidoreseña"> <?php echo '"' . $ticketcontenido . '"' ?> </p>
-                        <div class="botonesticket">
-                            <p>Estado: <?php if($ticketestado == "Abierto"){
-                                ?>
-                                <p style="color:#00FF00"><?php echo $ticketestado ?></p>
-                                <?php
-                            }else{
-                                ?>
-                                <p style="color: red"><?php echo $ticketestado ?></p>
-                                <?php
-                                } 
-                                ?>
-                            </p>
-                            <form class="verticket" action="ticket" method="POST">
-                            <button name="ticketidboton" value="<?php echo $ticketid ?>">Ver ticket</button>
-                            </form>
-                            <?php
-                            if($ticketestado == "Abierto"){
-                            ?>
-                            <button onclick="mostrarPopup('popup1')">Eliminar</button>
-                            <?php
-                            }
-                            ?>
-                        </div>
-                    </div>
-                    <?php
-                   }
-                }
-                    ?>
-                    </div>
+                  </div>
                 </div>
-             </div>
+                <?php
+              }
+            }
+            ?>
+          </div>
+        </div>
+      </div>
 
     </div>
-  <!--Footer -->
+    <!--Footer -->
 
-<footer>
-  <div class="contenedor-footer">
-    <div class="logo-footer">
-      <img src="img/Logo.png" alt="Logo">
-      
-    </div>
-    <div class="redes-sociales">
-      <a href="#" class="icono-social"><img src ="img/fblogo.png" alt="Facebook"></i></a>
-      <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
-      <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
-      <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
-    </div>
-  <div class="derechos">
-    <p> Infoshop &copy; 2025</p>
-    <p><a href="contacto" class="politica">Contacto</a></p>
-    <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
-  </div>
-</div>
-</footer>
+    <footer>
+      <div class="contenedor-footer">
+        <div class="logo-footer">
+          <img src="img/Logo.png" alt="Logo">
+
+        </div>
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
+          <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
+          <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
+          <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
+        </div>
+        <div class="derechos">
+          <p> Infoshop &copy; 2025</p>
+          <p><a href="contacto" class="politica">Contacto</a></p>
+          <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
+        </div>
+      </div>
+    </footer>
 
 
 
 </body>
-</html>
 
+</html>

@@ -531,8 +531,9 @@ div[contenedor] {
 #administrador {
   display: flex;
   align-items: center;
-  color: white;
+  color: black;
   text-decoration: none;
+  font-weight: bold;
 }
 
 #menuButton {

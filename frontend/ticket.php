@@ -43,7 +43,7 @@ if (isset($_POST['ticketidboton'])) {
 
 $ticketsql = "SELECT * FROM tickets WHERE TICKID = '$ticketid';";
 $ticketquery = mysqli_query($conexion, $ticketsql);
-if(mysqli_num_rows($ticketquery) == 0){
+if (mysqli_num_rows($ticketquery) == 0) {
   header("Location: ../index");
   exit();
 }
@@ -87,9 +87,9 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
   <script src="js/carrito-checkout.js"></script>
   <script src="js/mensajeria.js"></script>
   <script>
-  const usuarioActual = <?php echo json_encode($_SESSION['usucod']); ?>;
-</script>
-  
+    const usuarioActual = <?php echo json_encode($_SESSION['usucod']); ?>;
+  </script>
+
 
   <div id="overlay"></div>
 
@@ -120,7 +120,7 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
             <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
             <img src="img/Logo.png">
           </picture>
-          
+
         </a>
       </div>
       <ul class="nav-links">
@@ -137,22 +137,6 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
             <input type="submit" value="" class="busqueda-boton">
           </form>
         </li>
-        <?php
-        if (isset($_SESSION['usucod'])) {
-          if ($usuadm == 1) {
-            ?>
-            <a href="panel-administrador?productos" id="administrador">
-              <li class="panel-adm">
-                <div class="panel-administrador">
-                  <img src="img/panel.png">
-                  <span>Panel de administrador</span>
-                </div>
-              </li>
-            </a>
-            <?php
-          }
-        }
-        ?>
       </ul>
       <ul class="sesiones">
         <?php
@@ -170,6 +154,17 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
                 <img id="flecha" src="img/flecha.png">
               </div>
               <div id="myDropdown" class="dropdown-content menu-contenedor">
+                <?php
+                if (isset($_SESSION['usucod'])) {
+                  if ($usuadm == 1) {
+                    ?>
+                    <a href="panel-administrador?productos" id="administrador">
+                      <span>Panel de administrador</span>
+                    </a>
+                    <?php
+                  }
+                }
+                ?>
                 <a href="perfil">Mi cuenta</a>
                 <a href="historial">Historial de pedidos</a>
                 <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
@@ -183,9 +178,11 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
           ?>
           <a href='login'>
             <li>Iniciar sesión</li>
+            <img src="img/login.png" class="sessionicon">
           </a>
           <a href='register'>
             <li>Registrarse</li>
+            <img src="img/register.png" class="sessionicon">
           </a>
           <?php
         }
@@ -336,7 +333,7 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
           $usunommensaje = $verificararray['USUNOM'];
           $fechahoramensaje = $mensaje['MENFEC'];
           $mensajedatetime = new DateTime($fechahoramensaje);
-          $fechamensaje= $mensajedatetime->format('H:i');
+          $fechamensaje = $mensajedatetime->format('H:i');
 
           $contenidomensaje = $mensaje['MENCONT'];
 
@@ -375,15 +372,15 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
             <?php
 
           } else {
-              ?>
-              </div>
-              <form class="respondermensaje <?php echo $ultimoMensaje ?>">
-                <textarea id="respuesta-contenido" name="respuesta-contenido"></textarea>
-                <input name="ticketidmensaje" value="<?php echo $ticketid ?>" style="display: none" id="ticketidmensaje">
-                <button id="buttonreply" type="submit"><img src="img/send.png" class="icon"></button>
-              </form>
-              <?php
-            
+            ?>
+          </div>
+          <form class="respondermensaje <?php echo $ultimoMensaje ?>">
+            <textarea id="respuesta-contenido" name="respuesta-contenido"></textarea>
+            <input name="ticketidmensaje" value="<?php echo $ticketid ?>" style="display: none" id="ticketidmensaje">
+            <button id="buttonreply" type="submit"><img src="img/send.png" class="icon"></button>
+          </form>
+          <?php
+
           }
         }
 
@@ -392,7 +389,7 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
 
 
 
-      
+
 
     </div>
 

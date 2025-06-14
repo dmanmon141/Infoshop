@@ -1,6 +1,6 @@
 <?php
 
-$servidor= "localhost";
+$servidor = "localhost";
 $usuario = "root";
 $password = "";
 $conexion = mysqli_connect($servidor, $usuario, $password);
@@ -9,12 +9,12 @@ mysqli_select_db($conexion, "infoshop");
 
 session_start();
 
-if(isset($_GET['id'])){
-$id = $_GET['id'];
-}else{
-        ob_start();
-        Header("Refresh:0, URL=index");
-        ob_end_flush();
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
+} else {
+  ob_start();
+  Header("Refresh:0, URL=index");
+  ob_end_flush();
 }
 
 if (isset($_POST['correo'])) {
@@ -24,22 +24,22 @@ if (isset($_POST['correo'])) {
   $usuloginsesion = mysqli_fetch_assoc($usuloginsql);
   $_SESSION['usunom'] = $usuloginsesion['USUNOM'];
 
-  
+
   $usucod = "SELECT USUCOD FROM usuarios WHERE USUCOR = '$correo';";
   $usucodsql = mysqli_query($conexion, $usucod);
-  $usucodsesion =  mysqli_fetch_assoc($usucodsql);
+  $usucodsesion = mysqli_fetch_assoc($usucodsql);
   $_SESSION['usucod'] = $usucodsesion['USUCOD'];
 
-  
 
-}elseif(!isset($_SESSION['usucod'])){
+
+} elseif (!isset($_SESSION['usucod'])) {
   session_destroy();
 }
 
-if(isset($_SESSION['usucod'])){
+if (isset($_SESSION['usucod'])) {
 
   $usucodsesion = $_SESSION['usucod'];
-  
+
   $datosql = "SELECT * FROM usuarios WHERE USUCOD = '$usucodsesion';";
   $datosquery = mysqli_query($conexion, $datosql);
   $datosarray = mysqli_fetch_assoc($datosquery);
@@ -49,7 +49,7 @@ if(isset($_SESSION['usucod'])){
   $usucont = $datosarray['USUCONT'];
   $usuimg = $datosarray['USUIMG'];
   $usuadm = $datosarray['USUADM'];
-  }
+}
 
 $producto = "SELECT * FROM productos WHERE PRODCOD = '$id'";
 
@@ -61,32 +61,34 @@ $arrayproductos = mysqli_fetch_row($productosql);
 
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Infoshop | Las mejoras ofertas en Informática!</title>
   <link rel="stylesheet" type="text/css" href="../css/estilo-misc.css">
   <link rel="stylesheet" type="text/css" href="../css/estilo-checkout.css">
   <link rel="stylesheet" type="text/css" href="js/slick/slick.css">
-<link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css">
-<link rel="icon" type="image/png" href="img/Logo.png">
+  <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css">
+  <link rel="icon" type="image/png" href="img/Logo.png">
 </head>
+
 <body>
-<script src="js/jquery-3.7.0.min.js"></script>
-<script src="js/slick/slick.min.js"></script>
-<script src="js/slider.js"></script>
-<script src="js/dropdown.js"></script>
-<script src="js/dropdowntienda.js"></script>
-<script src="js/carrito.js"></script>
-<script src="js/redireccionar-producto.js"></script>
-<script src="js/filtros.js"></script>
-<script src="js/checkout.js"></script>
-<script src="js/popupaviso.js"></script>
-<script src="js/carrito-checkout.js"></script>
-<script src="js/usar-datos.js"></script>
+  <script src="js/jquery-3.7.0.min.js"></script>
+  <script src="js/slick/slick.min.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/dropdown.js"></script>
+  <script src="js/dropdowntienda.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/redireccionar-producto.js"></script>
+  <script src="js/filtros.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/popupaviso.js"></script>
+  <script src="js/carrito-checkout.js"></script>
+  <script src="js/usar-datos.js"></script>
 
-<div id="overlay"></div>
+  <div id="overlay"></div>
 
-<div class="contenedor">
-  <div id="myDropdownTienda" class="category-sidebar">
+  <div class="contenedor">
+    <div id="myDropdownTienda" class="category-sidebar">
 
       <?php
       $categorias = "SELECT * FROM categorias";
@@ -105,14 +107,14 @@ $arrayproductos = mysqli_fetch_row($productosql);
       ?>
 
     </div>
-  <nav class="navbar">
+    <nav class="navbar">
       <div class="logo">
         <a href="index">
           <picture>
             <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
             <img src="img/Logo.png">
           </picture>
-          
+
         </a>
       </div>
       <ul class="nav-links">
@@ -129,22 +131,6 @@ $arrayproductos = mysqli_fetch_row($productosql);
             <input type="submit" value="" class="busqueda-boton">
           </form>
         </li>
-        <?php
-        if (isset($_SESSION['usucod'])) {
-          if ($usuadm == 1) {
-            ?>
-            <a href="panel-administrador?productos" id="administrador">
-              <li class="panel-adm">
-                <div class="panel-administrador">
-                  <img src="img/panel.png">
-                  <span>Panel de administrador</span>
-                </div>
-              </li>
-            </a>
-            <?php
-          }
-        }
-        ?>
       </ul>
       <ul class="sesiones">
         <?php
@@ -162,6 +148,17 @@ $arrayproductos = mysqli_fetch_row($productosql);
                 <img id="flecha" src="img/flecha.png">
               </div>
               <div id="myDropdown" class="dropdown-content menu-contenedor">
+                <?php
+                if (isset($_SESSION['usucod'])) {
+                  if ($usuadm == 1) {
+                    ?>
+                    <a href="panel-administrador?productos" id="administrador">
+                      <span>Panel de administrador</span>
+                    </a>
+                    <?php
+                  }
+                }
+                ?>
                 <a href="perfil">Mi cuenta</a>
                 <a href="historial">Historial de pedidos</a>
                 <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
@@ -226,33 +223,33 @@ $arrayproductos = mysqli_fetch_row($productosql);
       </ul>
     </nav>
 
-  <!-- Resto del contenido de la página -->
+    <!-- Resto del contenido de la página -->
 
 
-        <?php
+    <?php
 
-        if(!isset($_SESSION['usucod'])){
-            ?>
-            <div class="main">
-            <div class="block sesion" id="sesioniniciada">
-            <img src="img/carritoerror.png">
-            <h2>Por favor, inicia sesión para adquirir nuestros productos.</h2>
-            </div>
-            </div>
-            <?php
-        }else{
-            ?>
-        <div class="container">
-          <div class="block datosguardados">
-            <h2>Usar datos guardados</h2>
-            <?php
-            $usucod = $_SESSION['usucod'];
-            $datosguardadosql = "SELECT * FROM datos WHERE USUCOD='$usucod';";
-            $datosguardadosresultado = mysqli_query($conexion, $datosguardadosql);
-            $i = 1;
-            if(mysqli_num_rows($datosguardadosresultado) != 0){
-            while($arraydatos = mysqli_fetch_row($datosguardadosresultado)){
-              
+    if (!isset($_SESSION['usucod'])) {
+      ?>
+      <div class="main">
+        <div class="block sesion" id="sesioniniciada">
+          <img src="img/carritoerror.png">
+          <h2>Por favor, inicia sesión para adquirir nuestros productos.</h2>
+        </div>
+      </div>
+      <?php
+    } else {
+      ?>
+      <div class="container">
+        <div class="block datosguardados">
+          <h2>Usar datos guardados</h2>
+          <?php
+          $usucod = $_SESSION['usucod'];
+          $datosguardadosql = "SELECT * FROM datos WHERE USUCOD='$usucod';";
+          $datosguardadosresultado = mysqli_query($conexion, $datosguardadosql);
+          $i = 1;
+          if (mysqli_num_rows($datosguardadosresultado) != 0) {
+            while ($arraydatos = mysqli_fetch_row($datosguardadosresultado)) {
+
               $ultimosDos = substr($arraydatos[3], -2);
               $asteriscos = str_repeat("*", strlen($arraydatos[3]) - 2);
 
@@ -262,142 +259,148 @@ $arrayproductos = mysqli_fetch_row($productosql);
               $nombrefull = $apellidos . ", " . $nombre;
               ?>
               <div id="<?php echo $i ?>" class="popup popupestilo">
-          <div class="popup-contenido">
-            <h3>AVISO</h3>
-            <p>Si ya tiene datos introducidos, se sobreescribirán.<br> ¿Quiere continuar?</p>
-            <div class="popup-botones">
-              <button onclick="usardatos(<?php echo $arraydatos[3] ?>)">Sí</button>
-              <button onclick="cerrarPopup(<?php echo $i ?>)">No</button>
-            </div>
-          </div>
-        </div>      
+                <div class="popup-contenido">
+                  <h3>AVISO</h3>
+                  <p>Si ya tiene datos introducidos, se sobreescribirán.<br> ¿Quiere continuar?</p>
+                  <div class="popup-botones">
+                    <button onclick="usardatos(<?php echo $arraydatos[3] ?>)">Sí</button>
+                    <button onclick="cerrarPopup(<?php echo $i ?>)">No</button>
+                  </div>
+                </div>
+              </div>
               <div class="filadatos" onclick="mostrarPopup(<?php echo $i ?>)">
                 <div class="imagen">
-                <img src="img/tarjeta.png" style="width:50px;margin-bottom: 15px;">
-            </div>
-                <?php echo $i . " ." ?> <?php echo "Tarjeta " . $tarjeta . " a nombre de " . $nombrefull ?>
+                  <img src="img/tarjeta.png" style="width:50px;margin-bottom: 15px;">
+                </div>
+                <?php echo $i . " ." ?>       <?php echo "Tarjeta " . $tarjeta . " a nombre de " . $nombrefull ?>
               </div>
 
               <?php
               $i += 1;
             }
-          }else{
+          } else {
             ?>
             <p style="font-size:13px;">Aún no tienes datos guardados.</p>
             <?php
           }
 
           ?>
-          
 
-         
-          </div>
-            <div class="block formulario">
-              <h2>1. Método de pago</h2>
-              <form class="pago">
-                <div class="empty6"></div>
-                <div class="tarjeta">
-                <p>Número de tarjeta</p>
-                <input type="text" maxlength="16" minlength="16" id="tarjeta-input"></input>
-                 </div>
-                <div class="caducidad">
-                <p>Fecha de caducidad</p>
-                <input type="text" maxlength="5" id="caducidad-input"></input>
-                </div>
-                <div class="codigoseg">
-                <p>Código de seguridad</p>
-                <input type="number" maxlength="3" id="codigoseg-input"></input>
-                </div>
-              </form>
-             <h2>2. Dirección</h2>
-                <form class="direccion">
-                    <div class="nombre">
-                    <p>Nombre</p>
-                    <input type="text" id="nombre-input"></input>
-                     </div>
-                     <div class="apellidos">
-                    <p>Apellidos</p>
-                    <input type="text" id="apellidos-input"></input>
-                    </div>
-                    <div class="ciudad">
-                    <p>Ciudad</p>
-                    <input type="text" id="ciudad-input"></input>
-                    </div>
-                    <div class="direccion1">
-                    <p>Dirección</p>
-                    <input type="text" id="direccion-input"></input>
-                    </div>
-                    <div class="codigopost">
-                    <p>Código Postal</p>
-                    <input type="number" maxlength="5" id="codigopost-input"></input>
-                    </div>
-                    <div class="empty"></div>
-                    <div class="empty2"></div>
-                    <div class="empty3"></div>
-                    <div class="empty4"></div>
-                    <div class="empty5"></div>
-                    <div class="pais">
-                    <p>País</p>
-                    <input type="text" id="pais-input"></input>
-                    </div>
-                    <div class="telefono">
-                    <p>Teléfono</p>
-                    <input type="number" id="telefono-input"></input>
-                    </div>                        
-                    <div class="organizar2">
-                    <input type="checkbox" id="guardar"><p>Guardar mis datos para la próxima compra</p></input>
-                    </div>
+
+
+        </div>
+        <div class="block formulario">
+          <h2>1. Método de pago</h2>
+          <form class="pago">
+            <div class="empty6"></div>
+            <div class="tarjeta">
+              <p>Número de tarjeta</p>
+              <input type="text" maxlength="16" minlength="16" id="tarjeta-input"></input>
             </div>
-
-            <div class="block datos">
-            <h2>Datos del producto</h2>
-            <div class="organizar" id="producto">
-                <img src="<?php echo $arrayproductos[1] ?>">
-                <a href="producto?id=<?php echo $arrayproductos[0] ?>" id="producto-alink"><p id="precionom"><?php echo $arrayproductos[2] ?></p></a>
-                <p><?php echo $arrayproductos[4] . " €" ?></p>
+            <div class="caducidad">
+              <p>Fecha de caducidad</p>
+              <input type="text" maxlength="5" id="caducidad-input"></input>
+            </div>
+            <div class="codigoseg">
+              <p>Código de seguridad</p>
+              <input type="number" maxlength="3" id="codigoseg-input"></input>
+            </div>
+          </form>
+          <h2>2. Dirección</h2>
+          <form class="direccion">
+            <div class="nombre">
+              <p>Nombre</p>
+              <input type="text" id="nombre-input"></input>
+            </div>
+            <div class="apellidos">
+              <p>Apellidos</p>
+              <input type="text" id="apellidos-input"></input>
+            </div>
+            <div class="ciudad">
+              <p>Ciudad</p>
+              <input type="text" id="ciudad-input"></input>
+            </div>
+            <div class="direccion1">
+              <p>Dirección</p>
+              <input type="text" id="direccion-input"></input>
+            </div>
+            <div class="codigopost">
+              <p>Código Postal</p>
+              <input type="number" maxlength="5" id="codigopost-input"></input>
+            </div>
+            <div class="empty"></div>
+            <div class="empty2"></div>
+            <div class="empty3"></div>
+            <div class="empty4"></div>
+            <div class="empty5"></div>
+            <div class="pais">
+              <p>País</p>
+              <input type="text" id="pais-input"></input>
+            </div>
+            <div class="telefono">
+              <p>Teléfono</p>
+              <input type="number" id="telefono-input"></input>
             </div>
             <div class="organizar2">
-            <input type="checkbox" id="politicas-input"><p>He leído y acepto la <a target="_blank" style="color: black" href="/privacidad">política de privacidad</a></p></input>
-            </div>
-            <button id ="finalizar-compra" onclick="enviarFormulario(event)">Finalizar la compra</button>
-            <div id="mensaje"></div>
+              <input type="checkbox" id="guardar">
+              <p>Guardar mis datos para la próxima compra</p></input>
             </div>
         </div>
-            <?php
-        }
-        
 
-        ?>
-       
+        <div class="block datos">
+          <h2>Datos del producto</h2>
+          <div class="organizar" id="producto">
+            <img src="<?php echo $arrayproductos[1] ?>">
+            <a href="producto?id=<?php echo $arrayproductos[0] ?>" id="producto-alink">
+              <p id="precionom"><?php echo $arrayproductos[2] ?></p>
+            </a>
+            <p><?php echo $arrayproductos[4] . " €" ?></p>
+          </div>
+          <div class="organizar2">
+            <input type="checkbox" id="politicas-input">
+            <p>He leído y acepto la <a target="_blank" style="color: black" href="/privacidad">política de privacidad</a>
+            </p></input>
+          </div>
+          <button id="finalizar-compra" onclick="enviarFormulario(event)">Finalizar la compra</button>
+          <div id="mensaje"></div>
+        </div>
+      </div>
+      <?php
+    }
+
+
+    ?>
 
 
 
-<footer>
-  <div class="contenedor-footer">
-    <div class="logo-footer">
-      <img src="img/Logo.png" alt="Logo">
-      
-    </div>
-    <div class="redes-sociales">
-      <a href="#" class="icono-social"><img src ="img/fblogo.png" alt="Facebook"></i></a>
-      <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
-      <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
-      <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
-    </div>
-  <div class="derechos">
-    <p> Infoshop &copy; 2025</p>
-    <p><a href="contacto" class="politica">Contacto</a></p>
-    <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
+
+    <footer>
+      <div class="contenedor-footer">
+        <div class="logo-footer">
+          <img src="img/Logo.png" alt="Logo">
+
+        </div>
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
+          <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
+          <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
+          <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
+        </div>
+        <div class="derechos">
+          <p> Infoshop &copy; 2025</p>
+          <p><a href="contacto" class="politica">Contacto</a></p>
+          <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
+        </div>
+      </div>
+    </footer>
+
   </div>
-</div>
-</footer>
-
-</div>
-</div>
+  </div>
 
 
 
 </body>
+
 </html>
 
 <?php

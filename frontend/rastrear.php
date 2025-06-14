@@ -48,7 +48,7 @@ if (isset($_SESSION['usucod'])) {
 $productos = "SELECT PRODCOD, PRODNOM, PRODIMG, PRODPREC, PRODOFE FROM productos ORDER BY PRODOFE DESC LIMIT 6;";
 $productosresultado = mysqli_query($conexion, $productos);
 
-if(!isset($_POST['pedidocod'])){
+if (!isset($_POST['pedidocod'])) {
   header("Location: ../index");
   exit();
 }
@@ -116,7 +116,7 @@ $estado = $pedidoarray['PEDEST'];
             <source srcset="img/LogoShort.png" media="(max-width: 1335px)">
             <img src="img/Logo.png">
           </picture>
-          
+
         </a>
       </div>
       <ul class="nav-links">
@@ -133,22 +133,6 @@ $estado = $pedidoarray['PEDEST'];
             <input type="submit" value="" class="busqueda-boton">
           </form>
         </li>
-        <?php
-        if (isset($_SESSION['usucod'])) {
-          if ($usuadm == 1) {
-            ?>
-            <a href="panel-administrador?productos" id="administrador">
-              <li class="panel-adm">
-                <div class="panel-administrador">
-                  <img src="img/panel.png">
-                  <span>Panel de administrador</span>
-                </div>
-              </li>
-            </a>
-            <?php
-          }
-        }
-        ?>
       </ul>
       <ul class="sesiones">
         <?php
@@ -166,6 +150,17 @@ $estado = $pedidoarray['PEDEST'];
                 <img id="flecha" src="img/flecha.png">
               </div>
               <div id="myDropdown" class="dropdown-content menu-contenedor">
+                <?php
+                if (isset($_SESSION['usucod'])) {
+                  if ($usuadm == 1) {
+                    ?>
+                    <a href="panel-administrador?productos" id="administrador">
+                      <span>Panel de administrador</span>
+                    </a>
+                    <?php
+                  }
+                }
+                ?>
                 <a href="perfil">Mi cuenta</a>
                 <a href="historial">Historial de pedidos</a>
                 <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
@@ -179,9 +174,11 @@ $estado = $pedidoarray['PEDEST'];
           ?>
           <a href='login'>
             <li>Iniciar sesión</li>
+            <img src="img/login.png" class="sessionicon">
           </a>
           <a href='register'>
             <li>Registrarse</li>
+            <img src="img/register.png" class="sessionicon">
           </a>
           <?php
         }
@@ -229,7 +226,9 @@ $estado = $pedidoarray['PEDEST'];
     </nav>
     <div id="main-container">
       <div class="bloque-error">
-        <div class="fila"><img src="img/envio.gif"><h1>Rastreando tu pedido</h1></div>
+        <div class="fila"><img src="img/envio.gif">
+          <h1>Rastreando tu pedido</h1>
+        </div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3221.234209976788!2d-5.3505230879797185!3d36.16085490336239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0cc08bd9eca285%3A0xb3a03205e3ba0bd5!2sOficina%20de%20Correos!5e0!3m2!1sen!2ses!4v1685362395724!5m2!1sen!2ses"
           width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
@@ -246,7 +245,7 @@ $estado = $pedidoarray['PEDEST'];
       <div class="contenedor-footer">
         <div class="logo-footer">
           <img src="img/Logo.png" alt="Logo">
-          
+
         </div>
         <div class="redes-sociales">
           <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
