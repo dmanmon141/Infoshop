@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })
   window.addEventListener('scroll', function () {
-    console.log("scroll");
-    console.log("scroll de pantalla: " + this.document.scrollY);
-    console.log("scroll máximo: " + this.document.body.scrollHeight);
     if (this.window.innerHeight + this.window.scrollY + 100 >= this.document.body.scrollHeight) {
       scrollButton.style.display = "none";
     } else {
@@ -41,8 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>`;
 
     window.scrollTo(0, document.body.scrollHeight);
-    console.log("Usuario logeado: " + usuarioActual);
-    console.log("Usuario del mensaje: " + message.usuario);
     if (message.usucod !== usuarioActual) {
       const audio = new Audio('../audio/notification.mp3');
       audio.play();
@@ -61,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   document.querySelector(".respondermensaje").addEventListener("submit", function (e) {
-    console.log("Funciona el post");
     e.preventDefault();
     const contenido = document.getElementById("respuesta-contenido").value;
     document.getElementById("respuesta-contenido").value = "";

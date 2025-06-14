@@ -558,10 +558,17 @@ $comentariocheckresultado2 = mysqli_query($conexion, $comentariocheck2);
             <p>📅 Entrega estimada: 2-3 días</p>
           </div>
           <div class="botones">
-            <button class="product-btn" onclick="redireccionarCheckout('<?php echo $id ?>')">Comprar ahora</button>
-            <button class="product-btn"
-              onclick="addToCart('<?php echo $titulo ?>', '<?php echo $imagen ?>', '<?php echo $precio . '€' ?>')">Añadir
-              al carrito</button>
+            <?php if ($stock > 0) { ?>
+              <button class="product-btn" onclick="redireccionarCheckout('<?php echo $id ?>')">Comprar ahora</button>
+              <button class="product-btn"
+                onclick="addToCart('<?php echo $titulo ?>', '<?php echo $imagen ?>', '<?php echo $precio . '€' ?>')">Añadir
+                al carrito</button>
+            <?php } else { ?>
+              <button  disabled=true class="product-btn" onclick="redireccionarCheckout('<?php echo $id ?>')">Fuera de stock</button>
+              <button disabled=true class="product-btn"
+                onclick="addToCart('<?php echo $titulo ?>', '<?php echo $imagen ?>', '<?php echo $precio . '€' ?>')">Fuera de stock</button>
+
+            <?php } ?>
           </div>
           <div class="bloque1">
             Etiquetas:

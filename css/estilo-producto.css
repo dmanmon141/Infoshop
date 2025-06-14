@@ -37,7 +37,6 @@
         border-radius: 5px;
         display: none;
        }
-      
 
   
     .container {
@@ -176,6 +175,13 @@
         transition: transform 0.3s ease;
         margin-top: 22px;
         width: 100%;
+      }
+
+      .product-btn[disabled="true"]{
+        background-color: #972724;
+      }
+      .product-btn[disabled="true"]:hover{
+        background-color: #972724;
       }
   
       .product-btn:hover {
