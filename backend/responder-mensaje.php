@@ -53,7 +53,8 @@ if ($resultado) {
     "usuario" => $resultadousuario['USUNOM'],
     "hora"    => date("H:i"),
     "texto"   => $contenido,
-    "usucod" => $usucod
+    "usucod" => $usucod,
+    "ticketid" => $ticketid
   ];
 
   $mensajeJSON = json_encode($mensaje);

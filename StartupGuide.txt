@@ -1,0 +1,11 @@
+Start xampp -> Apache and MySQL
+localhost/phpmyadmin -> Import database from /backup
+
+Open ngrok -> ngrok http 80
+
+
+In visual studio terminal: cd server -> php server.php for Websocket server.
+
+Open cmd -> lt --port 8080 --subdomain infoshopws
+
+

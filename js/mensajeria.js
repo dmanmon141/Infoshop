@@ -17,11 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.scrollTo(0, document.body.scrollHeight);
 
-  const socket = new WebSocket("ws://localhost:8080");
+  const socket = new WebSocket("wss://infoshopws.loca.lt");
+  const container = document.querySelector(".bloque-error");
+  const ticketid = document.getElementById("ticketidmensaje").value;
 
   socket.onmessage = function (event) {
     const message = JSON.parse(event.data);
-    const container = document.querySelector(".bloque-error");
+    
+    if(message.ticketid == ticketid){
     container.innerHTML += `<div class="${message.clase}">
             <div class="credenciales">
               <div class="crgroup1">
@@ -36,12 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             </div>
           </div>`;
-
+    
     window.scrollTo(0, document.body.scrollHeight);
     if (message.usucod !== usuarioActual) {
       const audio = new Audio('../audio/notification.mp3');
       audio.play();
     }
+  }
   }
 
   const textarea = document.getElementById("respuesta-contenido");

@@ -297,17 +297,6 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
 
         <?php
 
-        if ($totalMensajes === 0 && $esAdmin) {
-
-          ?>
-          <form class="respondermensaje usuario">
-            <textarea id="respuesta-contenido" name="respuesta-contenido"></textarea>
-            <input name="ticketidmensaje" value="<?php echo $ticketid ?>" style="display: none" id="ticketidmensaje">
-            <button id="buttonreply" type="submit">Responder</button>
-          </form>
-          <?php
-
-        }
 
         while ($mensaje = mysqli_fetch_assoc($mensajequery)) {
           $contador++;
@@ -361,8 +350,8 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
 
 
         }
-        if ($ultimoMensaje) {
-          $esUltimoUsuario = $tipoMensaje === 'usuario';
+
+        if ($esAdmin) {
 
 
           if ($ticketestado != "Abierto") {
@@ -374,12 +363,32 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
           } else {
             ?>
           </div>
-          <form class="respondermensaje <?php echo $ultimoMensaje ?>">
+          <form class="respondermensaje usuario">
             <textarea id="respuesta-contenido" name="respuesta-contenido"></textarea>
             <input name="ticketidmensaje" value="<?php echo $ticketid ?>" style="display: none" id="ticketidmensaje">
             <button id="buttonreply" type="submit"><img src="img/send.png" class="icon"></button>
           </form>
           <?php
+
+          }
+        } else {
+
+
+          if ($ticketestado != "Abierto") {
+            ?>
+          <h3 style="color: white;text-align: center">Este ticket ha sido marcado como cerrado por un administrador del
+            sistema.</h3>
+          <?php
+
+          } else {
+            ?>
+        </div>
+        <form class="respondermensaje administrador">
+          <textarea id="respuesta-contenido" name="respuesta-contenido"></textarea>
+          <input name="ticketidmensaje" value="<?php echo $ticketid ?>" style="display: none" id="ticketidmensaje">
+          <button id="buttonreply" type="submit"><img src="img/send.png" class="icon"></button>
+        </form>
+        <?php
 
           }
         }
@@ -391,32 +400,32 @@ $usuimgticket = $usuarioticketarray['USUIMG'];
 
 
 
-    </div>
+  </div>
 
 
 
-    <!-- Resto del contenido de la página -->
-    <footer>
-      <div class="contenedor-footer">
-        <div class="logo-footer">
-          <img src="img/Logo.png" alt="Logo">
+  <!-- Resto del contenido de la página -->
 
-        </div>
-        <div class="redes-sociales">
-          <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
-          <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
-          <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
-          <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
-        </div>
-        <div class="derechos">
-          <p> Infoshop &copy; 2025</p>
-          <p><a href="contacto" class="politica">Contacto</a></p>
-          <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
-        </div>
+
+  <footer>
+    <div class="contenedor-footer">
+      <div class="logo-footer">
+        <img src="img/Logo.png" alt="Logo">
+
       </div>
-    </footer>
-
-
+      <div class="redes-sociales">
+        <a href="#" class="icono-social"><img src="img/fblogo.png" alt="Facebook"></i></a>
+        <a href="#" class="icono-social"><img src="img/twlogo.png" alt="Twitter"></a>
+        <a href="#" class="icono-social"><img src="img/iglogo.png" alt="Instagram"></a>
+        <a href="#" class="icono-social"><img src="img/tklogo.png" alt="Tik Tok"></a>
+      </div>
+      <div class="derechos">
+        <p> Infoshop &copy; 2025</p>
+        <p><a href="contacto" class="politica">Contacto</a></p>
+        <p><a href="privacidad" class="politica">Política de Privacidad</a></p>
+      </div>
+    </div>
+  </footer>
   </div>
 
 

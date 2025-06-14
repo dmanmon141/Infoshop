@@ -266,7 +266,7 @@ $newsletter = mysqli_num_rows($newsletterquery);
               <img class="imagen-original" id="imagen" src="<?php echo $usuimg ?>">
               <img class="imagen-hover" onclick="abrirInputFile()" src="img/añadir.png">
             </div>
-            <form action="subir-imagen" method="POST" enctype="multipart/form-data">
+            <form action="backend/subir-imagen.php" method="POST" enctype="multipart/form-data">
               <input type="file" id="inputFile" accept="image/*" style="display: none" name="imagen">
               <input type="submit" id="aplicarimagen" value="Aplicar">
             </form>

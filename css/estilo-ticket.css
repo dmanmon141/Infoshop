@@ -110,8 +110,8 @@ h2 {
   gap: 0.5rem;
   width: 85%;
   align-items: center;
-  margin: auto;
-  margin-bottom: 1.5rem;
+  margin: 0 auto;
+  padding-bottom: 2rem;
 }
 
 .respondermensaje button {
@@ -193,6 +193,9 @@ h2 {
 
 .dividir {
   padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .bloque-error {
@@ -253,4 +256,16 @@ h2 {
 .cerrar-ticket {
 
   margin-left: auto;
+}
+
+@media(max-width: 980px){
+  .fila h1{
+    font-size: 1.5rem;
+  }
+
+  #cerrarticket{
+    width: auto;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
 }
