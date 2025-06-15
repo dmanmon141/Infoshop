@@ -10,15 +10,15 @@ mysqli_select_db($conexion, "infoshop");
 session_start();
 
 
-//if(isset($_GET['token'])){
-//$token = $_GET['token'];
-//}else{
-//Header("Location: index");
-//}
+if(isset($_GET['token'])){
+$token = $_GET['token'];
+}else{
+Header("Location: index");
+}
 
-// Consulta la base de datos para verificar el token y su expiración
-//$sql = "SELECT * FROM verificar WHERE VERTOK = '$token' AND VEREXP > NOW()";
-//$resultado = mysqli_query($conexion, $sql);
+//Consulta la base de datos para verificar el token y su expiración
+$sql = "SELECT * FROM verificar WHERE VERTOK = '$token' AND VEREXP > NOW()";
+$resultado = mysqli_query($conexion, $sql);
 
 
 ?>
@@ -60,9 +60,9 @@ session_start();
                 <div class="block sesion" id="sesioniniciada">
                     <h2>Usted ya ha iniciado sesión. Redirigiendo...</h2>
                     <?php
-                    //ob_start();
-                    //Header("Refresh: 2; URL=index");
-                    //ob_end_flush();
+                    ob_start();
+                    Header("Refresh: 2; URL=index");
+                    ob_end_flush();
                     ?>
                 </div>
 
@@ -71,10 +71,10 @@ session_start();
             } else {
                 session_destroy();
 
-                //if (mysqli_num_rows($resultado) > 0) {
+                if (mysqli_num_rows($resultado) > 0) {
                 ?>
 
-                <!--<div class="formulario-container">
+                <div class="formulario-container">
                     <div class="block formulario">
                         <h2>Restablecer contraseña</h2>
                         <form id="login-form" method="POST" action="">
@@ -96,25 +96,25 @@ session_start();
                         </form>
                         <div id="mensaje"></div>
                     </div>
-                </div>-->
+                </div>
 
                 <?php
 
-                // }else{
+                 }else{
                 ?>
                 <div class="centrar">
         <div class="block token-expired" id="token-exp">
             <h2>La sesión ha expirado. Vuelva a generar el enlace.</h2>
             <a href="olvidar-contraseña" class="volver">Volver</a>
         <?php
-        //$borrar = "DELETE FROM verificar WHERE VERTOK = '$token';";
-        //$borrarresult = mysqli_query($conexion, $borrar);
+        $borrar = "DELETE FROM verificar WHERE VERTOK = '$token';";
+        $borrarresult = mysqli_query($conexion, $borrar);
         ?>
 
         </div>
     </div>
                 <?php
-                //}
+                }
             
 
             }
