@@ -1,11 +1,19 @@
-Start xampp -> Apache and MySQL
-localhost/phpmyadmin -> Import database from /backup
+Download xampp.
 
-Open ngrok -> ngrok http 80
+Replace /htdocs with the project root folder.
+
+Start xampp -> Apache and MySQL
+
+localhost/phpmyadmin -> Create database "infoshop" --> then import from infoshop.sql in /backup
+
+Download ngrok
+Open ngrok cmd -> ngrok http 80
 
 
 In visual studio terminal: cd server -> php server.php for Websocket server.
 
-Open cmd -> lt --port 8080 --subdomain infoshopws
+Open cmd 
+npm install -g localtunnel
+lt --port 8080 --subdomain infoshopws
 
 
